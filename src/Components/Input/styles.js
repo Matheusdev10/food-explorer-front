@@ -10,13 +10,17 @@ export const Container = styled.div`
     height: 3rem;
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #ffffff;
+    /* border: 1px solid #ffffff; */
     color: ${({ theme }) => theme.COLORS.WHITE};
     background-color: transparent;
     border-radius: 1rem;
+    border: none;
   }
 
   > svg {
     margin-left: 16px;
   }
 `;
+
+// color: ${({ theme, isActive }) =>
+// isActive ? theme.COLORS.ORANGE : theme.COLORS.GRAY_100};
