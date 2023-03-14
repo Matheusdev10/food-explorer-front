@@ -10,7 +10,12 @@ export const Box = styled.div`
   flex-direction: column;
 
   > img {
-    padding-left: 15.625rem;
+    padding: 0 230px;
+    margin: auto;
+  }
+
+  > .content {
+    margin: auto;
   }
 
   > div img {
@@ -23,22 +28,24 @@ export const Box = styled.div`
     margin-top: 0.9375rem;
     display: flex;
     align-items: center;
+    margin: auto;
   }
   > p {
     font-size: 0.875rem;
     margin-top: 0.9375rem;
     margin-bottom: 0.9375rem;
+    text-align: center;
   }
   > span {
     font-size: 2rem;
-
     color: ${({ theme }) => theme.COLORS.BLUE_50};
+    margin: auto;
   }
 
   > div:last-child {
     display: flex;
     align-items: center;
-
+    padding: 12px;
     gap: 1rem;
 
     span {
@@ -51,7 +58,6 @@ export const Box = styled.div`
       border: none;
       color: ${({ theme }) => theme.COLORS.WHITE};
       display: flex;
-      align-items: center;
     }
   }
 `;

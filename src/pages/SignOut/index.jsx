@@ -12,9 +12,14 @@ export function SignOut() {
   return (
     <Container>
       <Header />
-      <Footer />
+
       <FoodCard />
-      <CardItem />
+      {/* <CardItem /> */}
+
+      {/* {products?.map((product) => (
+        <CardItem key={product} title={product} />
+      ))} */}
+
       {/* <div> */}
       {/* <img src={Logo} alt="icone de logo em forma hexagonal" />
         <h1>food explorer</h1>

@@ -8,10 +8,10 @@ export const Container = styled.div`
   align-items: center;
   gap: 2rem;
   background: #00111a;
-  position: absolute;
-  z-index: 1;
-
+  position: fixed;
   top: 0;
+  left: 0;
+  z-index: 1;
 
   div {
     background: #0d1d25;
