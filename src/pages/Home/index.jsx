@@ -1,11 +1,9 @@
 import { Container, Box } from './styles';
 import imgHeader from '../../assets/img/imgHeader.png';
 import { products } from '../../mock/products';
+import { CardItem } from '../../Components/CardItem';
 
-// import { dishes } from '../../mock/DISHES';
-import { CardItem } from '../CardItem/index';
-
-export function FoodCard() {
+export function Home() {
   return (
     <>
       <Container>
@@ -19,13 +17,15 @@ export function FoodCard() {
           </div>
         </Box>
 
-        {products?.map((product) => (
-          <CardItem key={product} />
+        {products.map((product) => (
+          <CardItem
+            key={product.id}
+            description={product.description}
+            disheName={product.disheName}
+            img={product.img}
+            price={product.price}
+          />
         ))}
-
-        {/* {products.map((product) => {
-          <CardItem key={product} />;
-        })} */}
       </Container>
     </>
   );

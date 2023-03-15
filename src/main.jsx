@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { RouterProvider } from 'react-router-dom';
 import GlobalStyles from './styles/global';
 import theme from './styles/theme';
 import { ThemeProvider } from 'styled-components';
-import { Details } from './pages/Details';
-import { SignIn } from './pages/SignIn';
-import { SignOut } from './pages/SignOut';
-
+import { router } from './router';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <SignOut />
+      <RouterProvider router={router} />
     </ThemeProvider>
   </React.StrictMode>
 );

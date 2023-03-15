@@ -9,7 +9,7 @@ export const Container = styled.div`
   justify-content: space-between;
   gap: 2rem;
   background: #00111a;
-  position: absolute;
+  position: fixed;
   bottom: 0;
 
   > .logo {
