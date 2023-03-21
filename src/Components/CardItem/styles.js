@@ -31,10 +31,11 @@ export const Box = styled.div`
     margin: auto;
   }
   > p {
-    font-size: 0.875rem;
     margin-top: 0.9375rem;
     margin-bottom: 0.9375rem;
     text-align: center;
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
+    line-height: 20px;
   }
   > span {
     font-size: 2rem;

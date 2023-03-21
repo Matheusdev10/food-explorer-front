@@ -2,10 +2,12 @@ import { Container, Box } from './styles';
 import imgHeader from '../../assets/img/imgHeader.png';
 import { products } from '../../mock/products';
 import { CardItem } from '../../Components/CardItem';
-
+import { Header } from '../../Components/Header';
+import { Footer } from '../../Components/Footer';
 export function Home() {
   return (
     <>
+      <Header />
       <Container>
         <Box>
           <div>
@@ -24,9 +26,12 @@ export function Home() {
             disheName={product.disheName}
             img={product.img}
             price={product.price}
+            dessertName={product.dessertName}
+            drinksName={product.drinksName}
           />
         ))}
       </Container>
+      <Footer />
     </>
   );
 }

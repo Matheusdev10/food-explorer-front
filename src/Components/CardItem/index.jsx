@@ -4,8 +4,16 @@ import { FiMinus, FiPlus } from 'react-icons/fi';
 import { FaAngleRight } from 'react-icons/fa';
 import iconHeart from '../../assets/iconHeart.svg';
 import formatterMoney from '../../utils/formatterMoney';
+import { Carousel } from 'react-responsive-carousel';
 
-export function CardItem({ img, disheName, description, price }) {
+export function CardItem({
+  img,
+  disheName,
+  description,
+  price,
+  dessertName,
+  drinksName,
+}) {
   return (
     <Box>
       <img
@@ -16,7 +24,7 @@ export function CardItem({ img, disheName, description, price }) {
         <img src={img} alt="imagem de uma comida feita de camarão" />
       </div>
       <h4>
-        {disheName}
+        {disheName || dessertName || drinksName}
         <FaAngleRight />
       </h4>
       <p>{description}</p>

@@ -29,7 +29,7 @@ export const Form = styled.form`
   margin-top: 6rem;
   padding: 4rem;
   border-radius: 1rem;
-  background: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+  background: ${({ theme }) => theme.COLORS.BACKGROUND_700};
 
   display: flex;
   flex-direction: column;

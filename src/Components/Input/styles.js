@@ -5,6 +5,7 @@ export const Container = styled.div`
   align-items: center;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
   margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
 
   > input {
     height: 3rem;
@@ -13,7 +14,6 @@ export const Container = styled.div`
     /* border: 1px solid #ffffff; */
     color: ${({ theme }) => theme.COLORS.WHITE};
     background-color: transparent;
-    border-radius: 1rem;
     border: none;
   }
 

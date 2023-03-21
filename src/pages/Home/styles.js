@@ -5,6 +5,8 @@ export const Container = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   overflow-x: hidden;
+  gap: 27px;
+  padding-bottom: 7.5rem;
 `;
 
 export const Box = styled.div`
@@ -37,6 +39,6 @@ export const Box = styled.div`
   }
   > div p {
     color: ${({ theme }) => theme.COLORS.GRAY_50};
-    font-size: 16px;
+    font-size: 17px;
   }
 `;

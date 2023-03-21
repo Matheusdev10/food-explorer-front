@@ -111,12 +111,4 @@ export const products = [
     description: 'Maça, whisky, canela. On the rocks',
     price: 79.97,
   },
-  {
-    id: '13',
-    type: 'drinks',
-    img: drinkCinnamon,
-    drinksName: 'Matheus',
-    description: 'Maça, whisky',
-    price: 79.97,
-  },
 ];
