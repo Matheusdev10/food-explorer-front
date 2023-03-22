@@ -7,7 +7,6 @@ export const Container = styled.button`
   border: 0;
   padding: 0.5rem 1.5rem;
   color: ${({ theme }) => theme.COLORS.WHITE};
-  margin-top: 1rem;
   font-weight: 500;
   &:disabled {
     opacity: 0.5;

@@ -56,7 +56,7 @@ export const Form = styled.form`
   }
 
   > .btn {
-    margin-top: 18px;
+    margin-top: 1.125rem;
     color: ${({ theme }) => theme.COLORS.WHITE};
     font-family: 'Poppins';
     font-weight: 500;

@@ -6,6 +6,8 @@ import { Header } from '../../Components/Header';
 import { Footer } from '../../Components/Footer';
 import img from '../../assets/img/saladRavanello.png';
 import { TagItem } from '../../Components/TagItem';
+import { ingredients } from '../../mock/ingredients';
+import { products } from '../../mock/products';
 
 export function Details() {
   return (
@@ -30,6 +32,13 @@ export function Details() {
             <TagItem title={'alface'} />
             <TagItem title={'pepino'} />
             <TagItem title={'rucula'} />
+            <TagItem title={'cebola'} />
+            <TagItem title={'tomate'} />
+            <TagItem title={'rabanete'} />
+            {/* {ingredients.map((ingredient) => {
+              <TagItem title={ingredient} />;
+            })} */}
+
             <div>
               <button className="btn">
                 <FiMinus size={25} />

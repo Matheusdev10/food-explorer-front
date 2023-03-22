@@ -10,7 +10,7 @@ export const Box = styled.div`
   flex-direction: column;
 
   > img {
-    padding: 0 230px;
+    padding: 0 14.375rem;
     margin: auto;
   }
 
@@ -35,7 +35,7 @@ export const Box = styled.div`
     margin-bottom: 0.9375rem;
     text-align: center;
     color: ${({ theme }) => theme.COLORS.GRAY_100};
-    line-height: 20px;
+    line-height: 1.25rem;
   }
   > span {
     font-size: 2rem;
@@ -46,7 +46,7 @@ export const Box = styled.div`
   > div:last-child {
     display: flex;
     align-items: center;
-    padding: 12px;
+    padding: 0.75rem;
     gap: 1rem;
 
     span {

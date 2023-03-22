@@ -11,16 +11,12 @@ export const Container = styled.div`
     height: 3rem;
     width: 100%;
     padding: 0.75rem;
-    /* border: 1px solid #ffffff; */
     color: ${({ theme }) => theme.COLORS.WHITE};
     background-color: transparent;
     border: none;
   }
 
   > svg {
-    margin-left: 16px;
+    margin-left: 1rem;
   }
 `;
-
-// color: ${({ theme, isActive }) =>
-// isActive ? theme.COLORS.ORANGE : theme.COLORS.GRAY_100};

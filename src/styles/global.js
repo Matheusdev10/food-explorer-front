@@ -15,7 +15,7 @@ body{
 }
 
 body, input, button, textarea{
-    font-size: 16px;
+    font-size: 1rem;
     outline: none;
 }
 
