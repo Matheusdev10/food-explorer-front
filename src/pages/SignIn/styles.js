@@ -12,15 +12,6 @@ export const Container = styled.div`
     font-size: 1rem;
     font-family: 'Roboto', sans-serif;
   }
-
-  @media (max-width: 860px) {
-    display: block;
-    width: 100%;
-    margin: 0 auto;
-    > div {
-      display: none;
-    }
-  }
 `;
 
 export const Form = styled.form`

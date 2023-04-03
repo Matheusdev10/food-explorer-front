@@ -8,6 +8,7 @@ export const Box = styled.div`
   margin-top: 2.5rem;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 
   > img {
     padding: 0 14.375rem;

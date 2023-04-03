@@ -3,6 +3,7 @@ import { SignUp } from '../pages/SignUp';
 import { Home } from '../pages/Home';
 import { SignIn } from '../pages/SignIn';
 import { Details } from '../pages/Details';
+import { AddDishes } from '../pages/AddDishes';
 export const routes = createBrowserRouter([
   {
     path: '/signup',
@@ -20,5 +21,9 @@ export const routes = createBrowserRouter([
   {
     path: '/details',
     element: <Details />,
+  },
+  {
+    path: '/addDishes',
+    element: <AddDishes />,
   },
 ]);

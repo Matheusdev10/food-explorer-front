@@ -7,7 +7,6 @@ import { Footer } from '../../Components/Footer';
 import img from '../../assets/img/saladRavanello.png';
 import { TagItem } from '../../Components/TagItem';
 import { ingredients } from '../../mock/ingredients';
-import { products } from '../../mock/products';
 
 export function Details() {
   return (
@@ -29,15 +28,9 @@ export function Details() {
               Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
               O pão naan dá um toque especial
             </p>
-            <TagItem title={'alface'} />
-            <TagItem title={'pepino'} />
-            <TagItem title={'rucula'} />
-            <TagItem title={'cebola'} />
-            <TagItem title={'tomate'} />
-            <TagItem title={'rabanete'} />
-            {/* {ingredients.map((ingredient) => {
-              <TagItem title={ingredient} />;
-            })} */}
+            {ingredients.map((ingredient) => (
+              <TagItem title={ingredient.title} key={ingredient.id} />
+            ))}
 
             <div>
               <button className="btn">

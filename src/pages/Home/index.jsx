@@ -18,7 +18,6 @@ export function Home() {
             <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
           </div>
         </Box>
-
         {products.map((product) => (
           <CardItem
             key={product.id}
