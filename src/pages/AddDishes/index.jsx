@@ -1,8 +1,10 @@
 import { FaAngleLeft } from 'react-icons/fa';
+import { BsUpload } from 'react-icons/bs';
 import { Footer } from '../../Components/Footer';
 import { Input } from '../../Components/Input';
 import { Container, Form } from './styles';
 import { HeaderAdmin } from '../../Components/HeaderAdmin';
+import { AddIngredients } from '../../Components/AddIngredients';
 
 export function AddDishes() {
   return (
@@ -17,15 +19,15 @@ export function AddDishes() {
 
         <Form>
           <div className="col-1">
-            <label htmlFor="imagem do prato"></label>
-            <label htmlFor="imagem do prato">imagem do prato</label>
+            <p>Imagem do prato</p>
+            <label htmlFor="imageDishe">imagem do prato</label>
             <div className="input">
-              <Input type="text" id="Text" placeholder="selecione imagem" />
+              <BsUpload />
+              <input type="file" className="imageDishe" id="imageDishe" />
             </div>
           </div>
 
           <div className="col-2">
-            <label htmlFor="Name"></label>
             <label htmlFor="Name">Nome</label>
             <div className="input">
               <Input type="text" id="Name" placeholder="Ex: Salada Ceasar" />
@@ -33,10 +35,16 @@ export function AddDishes() {
           </div>
 
           <div className="col-3">
-            <label htmlFor="category"></label>
             <label htmlFor="category">Categoria</label>
             <div className="input">
               <Input type="text" id="Category" placeholder="Refeição" />
+            </div>
+          </div>
+
+          <div className="col-4">
+            <label htmlFor="addIngredients">Ingredients</label>
+            <div className="input">
+              <AddIngredients value={'Pão naan'} />
             </div>
           </div>
         </Form>
