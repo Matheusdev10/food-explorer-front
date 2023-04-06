@@ -35,9 +35,16 @@ export function AddDishes() {
           </div>
 
           <div className="col-3">
-            <label htmlFor="category">Categoria</label>
-            <div className="input">
-              <Input type="text" id="Category" placeholder="Refeição" />
+            <div className="dropbown">
+              <p>Categoria</p>
+              <div className="select">
+                <span className="selected">Refeição</span>
+                <div className="caret"></div>
+              </div>
+              <ul className="menu">
+                <li>Sobremesa</li>
+                <li>Bebida</li>
+              </ul>
             </div>
           </div>
 

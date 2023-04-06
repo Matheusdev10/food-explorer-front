@@ -66,6 +66,61 @@ export const Form = styled.form`
 
   .col-3 {
     width: 30%;
+    position: relative;
+    margin-left: 10px;
+
+    p {
+      margin-bottom: 15px;
+    }
+  }
+
+  .select {
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+    display: flex;
+    border-radius: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    height: 3rem;
+    color: ${({ theme }) => theme.COLORS.WHITE};
+    cursor: pointer;
+
+    > span {
+      color: ${({ theme }) => theme.COLORS.GRAY_100};
+    }
+  }
+
+  .caret {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #fff;
+  }
+
+  .menu {
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background: #322741;
+    border: 1px #363a42 solid;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    color: #9fa5b5;
+    position: absolute;
+    top: 3em;
+    left: 50%;
+    width: 100%;
+    opacity: 0;
+    display: none;
+    z-index: 1;
+  }
+
+  .menu li {
+    padding: 0.7em 0.5em;
+    margin: 0.3em 0;
+    border-radius: 0.5em;
+
+    cursor: pointer;
   }
 
   .col-4 div:nth-child(1) {
