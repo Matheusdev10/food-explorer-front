@@ -48,10 +48,24 @@ export function AddDishes() {
             </div>
           </div>
 
-          <div className="col-4">
+          {/* <div className="col-4">
             <label htmlFor="addIngredients">Ingredients</label>
             <div className="input">
               <AddIngredients value={'Pão naan'} />
+            </div>
+          </div> */}
+
+          <div className="col-4">
+            <label htmlFor="addDishes">Ingredientes</label>
+            <div className="tags">
+              <AddIngredients value="Pão Naan" />
+              <AddIngredients isNew placeholder="Adicionar" />
+            </div>
+          </div>
+          <div className="col-5">
+            <label htmlFor="price">Preço</label>
+            <div className="input">
+              <Input type="text" id="price" placeholder={'R$ 00,00'} />
             </div>
           </div>
         </Form>

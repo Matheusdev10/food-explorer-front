@@ -37,13 +37,14 @@ export const Form = styled.form`
     width: 20%;
 
     > p {
-      margin-top: 4px;
+      margin-top: 3px;
     }
 
     label {
       height: 3rem;
       width: 100%;
-      padding: 0.75rem;
+      /* padding: 0.75rem; */
+      padding: 15px;
       color: ${({ theme }) => theme.COLORS.WHITE};
       background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
       border-radius: 0.5rem;
@@ -51,11 +52,12 @@ export const Form = styled.form`
       display: block;
       margin-top: 0.84375rem;
       cursor: pointer;
+      background: ${({ theme }) => theme.COLORS.BACKGROUND_500};
     }
 
     svg {
       position: relative;
-      bottom: 50px;
+      bottom: 48px;
       margin-left: 30px;
     }
   }
@@ -67,7 +69,7 @@ export const Form = styled.form`
   .col-3 {
     width: 30%;
     position: relative;
-    margin-left: 10px;
+    margin-left: 1px;
 
     p {
       margin-bottom: 15px;
@@ -75,7 +77,7 @@ export const Form = styled.form`
   }
 
   .select {
-    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+    background: ${({ theme }) => theme.COLORS.BACKGROUND_500};
     display: flex;
     border-radius: 0.5rem;
     justify-content: space-between;
@@ -101,11 +103,12 @@ export const Form = styled.form`
   .menu {
     list-style: none;
     padding: 0.2em 0.5em;
-    background: #322741;
-    border: 1px #363a42 solid;
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+    /* border: 1px #363a42 solid; */
+    /* box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2); */
     border-radius: 0.5em;
-    color: #9fa5b5;
+    /* color: #9fa5b5; */
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
     position: absolute;
     top: 3em;
     left: 50%;
@@ -123,10 +126,20 @@ export const Form = styled.form`
     cursor: pointer;
   }
 
-  .col-4 div:nth-child(1) {
+  .col-4 {
+    width: 100%;
   }
 
-  .wrapper div:nth-child(3) {
-    background: blue;
+  .tags {
+    width: 75%;
+    height: 48px;
+    border-radius: 8px;
+    padding: 8px;
+    background: ${({ theme }) => theme.COLORS.BACKGROUND_500};
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 1rem;
   }
 `;

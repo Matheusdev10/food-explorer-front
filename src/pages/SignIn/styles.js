@@ -52,10 +52,4 @@ export const Form = styled.form`
     font-family: 'Poppins';
     font-weight: 500;
   }
-
-  @media (max-width: 500px) {
-    margin-top: 0;
-    width: 100%;
-    height: 100vh;
-  }
 `;

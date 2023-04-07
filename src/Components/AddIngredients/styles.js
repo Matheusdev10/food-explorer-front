@@ -6,7 +6,7 @@ export const Container = styled.div`
     isNew ? 'transparent' : theme.COLORS.GRAY_500};
   color: ${({ theme }) => theme.COLORS.PINK};
   border: ${({ theme, isNew }) =>
-    isNew ? `1px dashed ${theme.COLORS.GRAY_300}` : 'none'};
+    isNew ? `1px dashed ${theme.COLORS.GRAY_400}` : 'none'};
   margin-bottom: 8px;
   border-radius: 10px;
   padding-right: 16px;
@@ -17,23 +17,24 @@ export const Container = styled.div`
   }
 
   .button-delete {
-    color: ${({ theme }) => theme.COLORS.RED};
+    color: ${({ theme }) => theme.COLORS.GRAY_400};
   }
 
   .button-add {
-    color: ${({ theme }) => theme.COLORS.PINK};
+    color: ${({ theme }) => theme.COLORS.GRAY_400};
   }
 
   > input {
     height: 32px;
-    width: 50%;
+    max-width: 100px;
+    width: auto;
     padding: 12px;
     color: ${({ theme }) => theme.COLORS.WHITE};
     background: transparent;
     border: none;
 
     &::placeholder {
-      color: ${({ theme }) => theme.COLORS.GRAY_300};
+      color: ${({ theme }) => theme.COLORS.GRAY_400};
     }
   }
 `;
