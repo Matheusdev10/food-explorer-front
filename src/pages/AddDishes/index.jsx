@@ -16,24 +16,21 @@ export function AddDishes() {
           <p>voltar</p>
         </div>
         <h1>Adicionar prato</h1>
-
         <Form>
           <div className="col-1">
             <p>Imagem do prato</p>
-            <label htmlFor="imageDishe">imagem do prato</label>
+            <label htmlFor="imageDishe">Selecione imagem</label>
             <div className="input">
               <BsUpload />
               <input type="file" className="imageDishe" id="imageDishe" />
             </div>
           </div>
-
           <div className="col-2">
             <label htmlFor="Name">Nome</label>
             <div className="input">
-              <Input type="text" id="Name" placeholder="Ex: Salada Ceasar" />
+              <input type="text" placeholder="Ex: Salada Ceasar" />
             </div>
           </div>
-
           <div className="col-3">
             <div className="dropbown">
               <p>Categoria</p>
@@ -47,14 +44,6 @@ export function AddDishes() {
               </ul>
             </div>
           </div>
-
-          {/* <div className="col-4">
-            <label htmlFor="addIngredients">Ingredients</label>
-            <div className="input">
-              <AddIngredients value={'Pão naan'} />
-            </div>
-          </div> */}
-
           <div className="col-4">
             <label htmlFor="addDishes">Ingredientes</label>
             <div className="tags">
@@ -65,7 +54,7 @@ export function AddDishes() {
           <div className="col-5">
             <label htmlFor="price">Preço</label>
             <div className="input">
-              <Input type="text" id="price" placeholder={'R$ 00,00'} />
+              <input type="number" placeholder="R$ 00,00" id="price" />
             </div>
           </div>
         </Form>

@@ -27,6 +27,15 @@ export const Form = styled.form`
 
   .input {
     margin-top: 1rem;
+
+    > input {
+      background: ${({ theme }) => theme.COLORS.BACKGROUND_500};
+      border: none;
+      height: 3rem;
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+    }
   }
 
   input[type='file'] {
@@ -141,5 +150,13 @@ export const Form = styled.form`
     gap: 24px;
     flex-wrap: wrap;
     margin-top: 1rem;
+  }
+
+  .col-5 {
+    width: 25%;
+  }
+
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
   }
 `;
