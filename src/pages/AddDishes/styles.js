@@ -136,11 +136,10 @@ export const Form = styled.form`
   }
 
   .col-4 {
-    width: 100%;
+    width: 75%;
   }
 
   .tags {
-    width: 75%;
     height: 48px;
     border-radius: 8px;
     padding: 8px;
@@ -153,10 +152,33 @@ export const Form = styled.form`
   }
 
   .col-5 {
-    width: 25%;
   }
 
   input[type='number']::-webkit-inner-spin-button {
     -webkit-appearance: none;
+  }
+
+  .col-6 {
+    width: 100%;
+    margin-top: 32px;
+  }
+
+  .btn {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+
+    button {
+      background: ${({ theme }) => theme.COLORS.PINK_50};
+      height: 3rem;
+      border-radius: 0.3125rem;
+      border: 0;
+      padding: 0.5rem 1.5rem;
+      color: ${({ theme }) => theme.COLORS.WHITE};
+      font-weight: 500;
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
   }
 `;

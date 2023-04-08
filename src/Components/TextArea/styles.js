@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.textarea`
   width: 100%;
-  height: 274px;
-  background: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+  height: 172px;
+  background: ${({ theme }) => theme.COLORS.BACKGROUND_500};
   color: ${({ theme }) => theme.COLORS.WHITE};
   border: none;
   resize: none;
@@ -12,6 +12,6 @@ export const Container = styled.textarea`
   padding: 16px;
 
   &::placeholder {
-    color: ${({ theme }) => theme.COLORS.GRAY_300};
+    color: ${({ theme }) => theme.COLORS.GRAY_400};
   }
 `;

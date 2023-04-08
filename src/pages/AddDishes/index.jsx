@@ -1,10 +1,11 @@
 import { FaAngleLeft } from 'react-icons/fa';
 import { BsUpload } from 'react-icons/bs';
 import { Footer } from '../../Components/Footer';
-import { Input } from '../../Components/Input';
+import { Button } from '../../Components/Button';
 import { Container, Form } from './styles';
 import { HeaderAdmin } from '../../Components/HeaderAdmin';
 import { AddIngredients } from '../../Components/AddIngredients';
+import { TextArea } from '../../Components/TextArea';
 
 export function AddDishes() {
   return (
@@ -44,6 +45,7 @@ export function AddDishes() {
               </ul>
             </div>
           </div>
+
           <div className="col-4">
             <label htmlFor="addDishes">Ingredientes</label>
             <div className="tags">
@@ -56,6 +58,21 @@ export function AddDishes() {
             <div className="input">
               <input type="number" placeholder="R$ 00,00" id="price" />
             </div>
+          </div>
+
+          <div className="col-6">
+            <label htmlFor="textArea">Descrição</label>
+
+            <div className="input">
+              <TextArea
+                placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+                id="textArea"
+              />
+            </div>
+          </div>
+          <div className="btn">
+            {/* <Button title={'Salvar Alterações'} /> */}
+            <button>Salvar Alterações</button>
           </div>
         </Form>
       </Container>

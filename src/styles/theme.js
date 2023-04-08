@@ -17,7 +17,8 @@ export default {
 
     RED_300: '#750310',
     RED_200: '#92000E',
-    RED_100: '#AB4D55',
+
+    PINK_50: '#AB4D55',
 
     BLUE_50: '#82F3FF',
 
