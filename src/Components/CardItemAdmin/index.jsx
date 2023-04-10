@@ -2,11 +2,10 @@ import { Button } from '../Button';
 import { Box } from './styles';
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import { FaAngleRight } from 'react-icons/fa';
-import iconHeart from '../../assets/iconHeart.svg';
+import iconEdit from '../../assets/iconEdit.svg';
 import formatterMoney from '../../utils/formatterMoney';
-import { Carousel } from 'react-responsive-carousel';
 
-export function CardItem({
+export function CardItemAdmin({
   img,
   disheName,
   description,
@@ -18,7 +17,7 @@ export function CardItem({
     <>
       <Box>
         <img
-          src={iconHeart}
+          src={iconEdit}
           alt="imagem de um icone a direita em formato de coração"
         />
         <div className="content">
@@ -30,16 +29,6 @@ export function CardItem({
         </h4>
         <p>{description}</p>
         <span>{`${formatterMoney(price)}`}</span>
-        <div className="addItems">
-          <button className="btn">
-            <FiMinus size={25} />
-          </button>
-          <span>0</span>
-          <button className="btn">
-            <FiPlus size={25} />
-          </button>
-          <Button title={'incluir'} />
-        </div>
       </Box>
     </>
   );

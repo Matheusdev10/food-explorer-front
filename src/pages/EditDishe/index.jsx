@@ -29,7 +29,7 @@ export function EditDishe() {
           <div className="col-2">
             <label htmlFor="Name">Nome</label>
             <div className="input">
-              <input type="text" placeholder="Ex: Salada Ceasar" />
+              <input type="text" placeholder="Salada Ceasar" />
             </div>
           </div>
           <div className="col-3">
@@ -65,7 +65,7 @@ export function EditDishe() {
 
             <div className="input">
               <TextArea
-                placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+                placeholder="A Salada César é uma opção refrescante para o verão."
                 id="textArea"
               />
             </div>

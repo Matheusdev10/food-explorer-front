@@ -22,11 +22,11 @@ export const Box = styled.div`
   > div img {
     width: 11rem;
     height: 11rem;
-    margin-bottom: 15px;
   }
 
   > h4 {
     font-size: 1.5rem;
+    margin-top: 0.9375rem;
     display: flex;
     align-items: center;
     margin: auto;
@@ -42,30 +42,6 @@ export const Box = styled.div`
     font-size: 2rem;
     color: ${({ theme }) => theme.COLORS.BLUE_50};
     margin: auto;
-    background-color: blue;
-    margin-top: 15px;
-  }
-
-  .addItems {
-    margin-top: 23px;
-  }
-
-  > div:last-child {
-    display: flex;
-    align-items: center;
-    padding: 0.75rem;
-    gap: 1rem;
-
-    span {
-      font-size: 2rem;
-      font-weight: 700;
-    }
-
-    .btn {
-      background: none;
-      border: none;
-      color: ${({ theme }) => theme.COLORS.WHITE};
-      display: flex;
-    }
+    padding-bottom: 50px;
   }
 `;

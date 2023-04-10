@@ -58,17 +58,14 @@ export const Container = styled.div`
 `;
 
 export const Button = styled.button`
-  width: 13.5rem;
-  height: 3.5rem;
+  height: 3rem;
   background-color: ${({ theme }) => theme.COLORS.RED_300};
   border-radius: 0.3125rem;
   padding: 0.75rem 4.25rem;
   white-space: nowrap;
   font-size: 0.875rem;
+  margin-bottom: 9px;
   border: none;
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: 'Poppins';
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;

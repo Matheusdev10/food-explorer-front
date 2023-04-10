@@ -1,7 +1,6 @@
 import { FaAngleLeft } from 'react-icons/fa';
 import { BsUpload } from 'react-icons/bs';
 import { Footer } from '../../Components/Footer';
-import { Button } from '../../Components/Button';
 import { Container, Form } from './styles';
 import { HeaderAdmin } from '../../Components/HeaderAdmin';
 import { AddIngredients } from '../../Components/AddIngredients';
@@ -71,7 +70,6 @@ export function AddDishe() {
             </div>
           </div>
           <div className="btn">
-            {/* <Button title={'Salvar Alterações'} /> */}
             <button>Salvar Alterações</button>
           </div>
         </Form>
