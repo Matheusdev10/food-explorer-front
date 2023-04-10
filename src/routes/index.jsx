@@ -3,7 +3,8 @@ import { SignUp } from '../pages/SignUp';
 import { Home } from '../pages/Home';
 import { SignIn } from '../pages/SignIn';
 import { Details } from '../pages/Details';
-import { AddDishes } from '../pages/AddDishes';
+import { AddDishe } from '../pages/AddDishe';
+import { EditDishe } from '../pages/EditDishe';
 export const routes = createBrowserRouter([
   {
     path: '/signup',
@@ -23,7 +24,11 @@ export const routes = createBrowserRouter([
     element: <Details />,
   },
   {
-    path: '/addDishes',
-    element: <AddDishes />,
+    path: '/addDishe',
+    element: <AddDishe />,
+  },
+  {
+    path: '/editDishe',
+    element: <EditDishe />,
   },
 ]);

@@ -7,7 +7,7 @@ import { HeaderAdmin } from '../../Components/HeaderAdmin';
 import { AddIngredients } from '../../Components/AddIngredients';
 import { TextArea } from '../../Components/TextArea';
 
-export function AddDishes() {
+export function AddDishe() {
   return (
     <>
       <HeaderAdmin />
