@@ -83,25 +83,4 @@ export const Button = styled.button`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-
-  @media (max-width: 600px) {
-    width: 100%;
-    padding: 0 1.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8.125rem;
-
-    button {
-      display: none;
-    }
-
-    .logout {
-      display: none;
-    }
-
-    > .logo {
-      display: none;
-    }
-  }
 `;

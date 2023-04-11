@@ -39,6 +39,6 @@ export const Box = styled.div`
   }
 
   .btn {
-    margin-top: 48px;
+    margin-top: 3rem;
   }
 `;

@@ -13,15 +13,6 @@ export const Container = styled.div`
     font-family: 'Roboto';
     font-weight: 700;
   }
-
-  @media (max-width: 860px) {
-    display: block;
-    width: 100%;
-    margin: 0 auto;
-    > div {
-      display: none;
-    }
-  }
 `;
 
 export const Form = styled.form`
@@ -59,11 +50,5 @@ export const Form = styled.form`
     margin-top: 2rem;
     color: ${({ theme }) => theme.COLORS.WHITE};
     font-family: 'Poppins';
-  }
-
-  @media (max-width: 500px) {
-    margin-top: 0;
-    width: 100%;
-    height: 100vh;
   }
 `;

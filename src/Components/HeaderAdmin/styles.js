@@ -64,7 +64,7 @@ export const Button = styled.button`
   padding: 0.75rem 4.25rem;
   white-space: nowrap;
   font-size: 0.875rem;
-  margin-bottom: 9px;
+  margin-bottom: 0.5625rem;
   border: none;
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: 'Poppins';

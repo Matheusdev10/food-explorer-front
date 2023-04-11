@@ -6,10 +6,10 @@ export const Container = styled.div`
     isNew ? 'transparent' : theme.COLORS.GRAY_500};
   color: ${({ theme }) => theme.COLORS.PINK};
   border: ${({ theme, isNew }) =>
-    isNew ? `1px dashed ${theme.COLORS.GRAY_400}` : 'none'};
-  margin-bottom: 8px;
-  border-radius: 10px;
-  padding-right: 16px;
+    isNew ? `0.0625rem dashed ${theme.COLORS.GRAY_400}` : 'none'};
+  margin-bottom: 0.5rem;
+  border-radius: 0.625rem;
+  padding-right: 1rem;
 
   > button {
     border: none;
@@ -25,10 +25,10 @@ export const Container = styled.div`
   }
 
   > input {
-    height: 32px;
-    max-width: 100px;
+    height: 2rem;
+    max-width: 6.25rem;
     width: auto;
-    padding: 12px;
+    padding: 0.75rem;
     color: ${({ theme }) => theme.COLORS.WHITE};
     background: transparent;
     border: none;

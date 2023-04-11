@@ -22,7 +22,7 @@ export const Container = styled.div`
 export const Form = styled.form`
   margin-top: 2rem;
   display: flex;
-  gap: 32px;
+  gap: 2rem;
   flex-wrap: wrap;
 
   .input {
@@ -46,14 +46,14 @@ export const Form = styled.form`
     width: 20%;
 
     > p {
-      margin-top: 3px;
+      margin-top: 0.1875rem;
     }
 
     label {
       height: 3rem;
       width: 100%;
       /* padding: 0.75rem; */
-      padding: 15px;
+      padding: 0.9375rem;
       color: ${({ theme }) => theme.COLORS.WHITE};
       background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
       border-radius: 0.5rem;
@@ -66,8 +66,8 @@ export const Form = styled.form`
 
     svg {
       position: relative;
-      bottom: 48px;
-      margin-left: 30px;
+      bottom: 3rem;
+      margin-left: 1.875rem;
     }
   }
 
@@ -78,10 +78,10 @@ export const Form = styled.form`
   .col-3 {
     width: 30%;
     position: relative;
-    margin-left: 1px;
+    margin-left: 0.0625rem;
 
     p {
-      margin-bottom: 15px;
+      margin-bottom: 0.9375rem;
     }
   }
 
@@ -104,16 +104,16 @@ export const Form = styled.form`
   .caret {
     width: 0;
     height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 6px solid #fff;
+    border-left: 0.3125rem solid transparent;
+    border-right: 0.3125rem solid transparent;
+    border-top: 0.375rem solid #fff;
   }
 
   .menu {
     list-style: none;
     padding: 0.2em 0.5em;
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
-    /* border: 1px #363a42 solid; */
+    /* border: 0.0625rem #363a42 solid; */
     /* box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2); */
     border-radius: 0.5em;
     /* color: #9fa5b5; */
@@ -140,13 +140,13 @@ export const Form = styled.form`
   }
 
   .tags {
-    height: 48px;
-    border-radius: 8px;
-    padding: 8px;
+    height: 3rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
     background: ${({ theme }) => theme.COLORS.BACKGROUND_500};
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 1.5rem;
     flex-wrap: wrap;
     margin-top: 1rem;
   }
@@ -160,7 +160,7 @@ export const Form = styled.form`
 
   .col-6 {
     width: 100%;
-    margin-top: 32px;
+    margin-top: 2rem;
   }
 
   .btn {

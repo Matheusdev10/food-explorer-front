@@ -22,7 +22,7 @@ export const Box = styled.div`
   > div img {
     width: 11rem;
     height: 11rem;
-    margin-bottom: 15px;
+    margin-bottom: 0.9375rem;
   }
 
   > h4 {
@@ -42,12 +42,11 @@ export const Box = styled.div`
     font-size: 2rem;
     color: ${({ theme }) => theme.COLORS.BLUE_50};
     margin: auto;
-    background-color: blue;
-    margin-top: 15px;
+    margin-top: 0.9375rem;
   }
 
   .addItems {
-    margin-top: 23px;
+    margin-top: 1.4375rem;
   }
 
   > div:last-child {

@@ -22,6 +22,7 @@ export const Box = styled.div`
   > div img {
     width: 11rem;
     height: 11rem;
+    margin-bottom: 0.9375rem;
   }
 
   > h4 {
@@ -42,6 +43,6 @@ export const Box = styled.div`
     font-size: 2rem;
     color: ${({ theme }) => theme.COLORS.BLUE_50};
     margin: auto;
-    padding-bottom: 50px;
+    padding-bottom: 3.125rem;
   }
 `;
