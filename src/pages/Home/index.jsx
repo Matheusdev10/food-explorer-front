@@ -5,6 +5,7 @@ import { CardItem } from '../../Components/CardItem';
 import { Header } from '../../Components/Header';
 import { Footer } from '../../Components/Footer';
 import { titles } from '../../mock/title';
+import { Section } from '../../Components/Section';
 export function Home() {
   return (
     <>
@@ -19,17 +20,67 @@ export function Home() {
             <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
           </div>
         </Box>
-        {products.map((product) => (
-          <CardItem
-            key={product.id}
-            description={product.description}
-            disheName={product.disheName}
-            img={product.img}
-            price={product.price}
-            dessertName={product.dessertName}
-            drinksName={product.drinksName}
-          />
-        ))}
+        {/* <Section>
+          {products.map((product) => (
+            <CardItem
+              key={product.id}
+              description={product.description}
+              disheName={product.disheName}
+              img={product.img}
+              price={product.price}
+              dessertName={product.dessertName}
+              drinksName={product.drinksName}
+            />
+          ))}
+        </Section> */}
+
+        <Section title={'Pratos principais'}>
+          {products
+            .filter((product) => product.type == 'mainDishes')
+            .map((product) => (
+              <CardItem
+                key={product.id}
+                description={product.description}
+                disheName={product.disheName}
+                img={product.img}
+                price={product.price}
+                dessertName={product.dessertName}
+                drinksName={product.drinksName}
+              />
+            ))}
+        </Section>
+
+        <Section title={'Sobremesas'}>
+          {products
+            .filter((product) => product.type == 'dessert')
+            .map((product) => (
+              <CardItem
+                key={product.id}
+                description={product.description}
+                disheName={product.disheName}
+                img={product.img}
+                price={product.price}
+                dessertName={product.dessertName}
+                drinksName={product.drinksName}
+              />
+            ))}
+        </Section>
+
+        <Section title={'Bebidas'}>
+          {products
+            .filter((product) => product.type == 'drinks')
+            .map((product) => (
+              <CardItem
+                key={product.id}
+                description={product.description}
+                disheName={product.disheName}
+                img={product.img}
+                price={product.price}
+                dessertName={product.dessertName}
+                drinksName={product.drinksName}
+              />
+            ))}
+        </Section>
       </Container>
       <Footer />
     </>

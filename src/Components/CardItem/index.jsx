@@ -5,7 +5,6 @@ import { FaAngleRight } from 'react-icons/fa';
 import iconHeart from '../../assets/iconHeart.svg';
 // import heart from '../../assets/heart.png';
 import formatterMoney from '../../utils/formatterMoney';
-import { Carousel } from 'react-responsive-carousel';
 import { useState, useEffect } from 'react';
 
 export function CardItem({
