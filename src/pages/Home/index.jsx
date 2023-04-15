@@ -4,6 +4,7 @@ import { products } from '../../mock/products';
 import { CardItem } from '../../Components/CardItem';
 import { Header } from '../../Components/Header';
 import { Footer } from '../../Components/Footer';
+import { titles } from '../../mock/title';
 export function Home() {
   return (
     <>

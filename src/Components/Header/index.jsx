@@ -4,6 +4,7 @@ import Logo from '../../assets/logo.svg';
 import { Receipt } from 'phosphor-react';
 import { Input } from '../Input';
 import { Button } from './styles';
+import { Link } from 'react-router-dom';
 
 export function Header() {
   return (
@@ -24,7 +25,9 @@ export function Header() {
       </Button>
 
       <button className="logOff">
-        <FiLogOut />
+        <Link to={'/'}>
+          <FiLogOut />
+        </Link>
       </button>
     </Container>
   );

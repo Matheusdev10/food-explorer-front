@@ -1,10 +1,16 @@
 import { Container } from './styles';
+import { Link, useNavigate } from 'react-router-dom';
 import { Form } from './styles';
 import { Input } from '../../Components/Input';
 import { Button } from '../../Components/Button';
 import Logo from '../../assets/logo.svg';
+import { useState } from 'react';
 
 export function SignIn() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
   return (
     <Container>
       <div>
@@ -28,9 +34,17 @@ export function SignIn() {
           type="password"
           id="Password"
           placeholder="No mínimo 6 caracteres"
+          onChange={(e) => setPassword(e.target.value)}
         />
-        <Button className="btn" title="Entrar" />
-        <a href="#">Crie uma conta</a>
+        <Button
+          onClick={() => {
+            console.log(email, password);
+            navigate('/home');
+          }}
+          className="btn"
+          title="Entrar"
+        />
+        <Link to={'/signUp'}>Crie uma conta</Link>
       </Form>
     </Container>
   );
