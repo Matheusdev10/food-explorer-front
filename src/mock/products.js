@@ -14,7 +14,7 @@ import drinkCinnamon from '../assets/img/drinkCinnamon.png';
 export const products = [
   {
     id: '1',
-    type: 'mainDishes',
+    type: 'meals',
     img: saladRavanello,
     disheName: 'Salada Ravanello',
     description:
@@ -23,7 +23,7 @@ export const products = [
   },
   {
     id: '2',
-    type: 'mainDishes',
+    type: 'meals',
     img: spaguettiGambe,
     disheName: 'Spaguetti Gambe',
     description: 'Deliciosa massa fresca com camarões e pesto',
@@ -31,7 +31,7 @@ export const products = [
   },
   {
     id: '3',
-    type: 'mainDishes',
+    type: 'meals',
     img: parma,
     disheName: 'Torradas de Parma',
     description: 'Presunto de parma e rúcula em um pão com fermentação natural',
@@ -39,7 +39,7 @@ export const products = [
   },
   {
     id: '4',
-    type: 'mainDishes',
+    type: 'meals',
     img: saladMolla,
     disheName: 'Salada Molla',
     description: 'Tomates, coentro, pepino, cebola roxa. Frescos e temperados',
@@ -108,7 +108,7 @@ export const products = [
     type: 'drinks',
     img: drinkCinnamon,
     drinksName: 'Pomo bourbon',
-    description: 'Maça, whisky, canela. On the rocks',
+    description: 'Drink preparado com maça, whisky, canela. On the rocks',
     price: 79.97,
   },
 ];

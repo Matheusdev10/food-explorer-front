@@ -34,9 +34,9 @@ export function Home() {
           ))}
         </Section> */}
 
-        <Section title={'Pratos principais'}>
+        <Section title={'Refeições'}>
           {products
-            .filter((product) => product.type == 'mainDishes')
+            .filter((product) => product.type === 'meals')
             .map((product) => (
               <CardItem
                 key={product.id}
@@ -44,40 +44,34 @@ export function Home() {
                 disheName={product.disheName}
                 img={product.img}
                 price={product.price}
-                dessertName={product.dessertName}
-                drinksName={product.drinksName}
               />
             ))}
         </Section>
 
         <Section title={'Sobremesas'}>
           {products
-            .filter((product) => product.type == 'dessert')
+            .filter((product) => product.type === 'dessert')
             .map((product) => (
               <CardItem
                 key={product.id}
                 description={product.description}
-                disheName={product.disheName}
+                dessertName={product.dessertName}
                 img={product.img}
                 price={product.price}
-                dessertName={product.dessertName}
-                drinksName={product.drinksName}
               />
             ))}
         </Section>
 
         <Section title={'Bebidas'}>
           {products
-            .filter((product) => product.type == 'drinks')
+            .filter((product) => product.type === 'drinks')
             .map((product) => (
               <CardItem
                 key={product.id}
                 description={product.description}
-                disheName={product.disheName}
+                drinksName={product.drinksName}
                 img={product.img}
                 price={product.price}
-                dessertName={product.dessertName}
-                drinksName={product.drinksName}
               />
             ))}
         </Section>

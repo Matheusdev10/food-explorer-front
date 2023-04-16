@@ -22,10 +22,10 @@ export function Section({ title, children }) {
       <h2>{title}</h2>
 
       <Carousel>
+        <div ref={carousel}>{children}</div>
         <button className="btn-left" onClick={handleLeftClick}>
           <FiChevronLeft size={50} />
         </button>
-        <div ref={carousel}>{children}</div>
         <button className="btn-right" onClick={handleRightClick}>
           <FiChevronRight size={50} />
         </button>

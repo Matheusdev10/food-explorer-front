@@ -27,8 +27,8 @@ export function CardItem({
   }
   function handleSubtract() {
     setCount(count - 1);
-    if (count === 0) {
-      setCount(0);
+    if (count === 1) {
+      setCount(1);
     }
   }
 
