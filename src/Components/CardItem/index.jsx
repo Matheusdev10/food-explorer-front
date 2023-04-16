@@ -1,5 +1,5 @@
 import { Button } from '../Button';
-import { Box } from './styles';
+import { Box, Container } from './styles';
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import { FaAngleRight } from 'react-icons/fa';
 import iconHeart from '../../assets/iconHeart.svg';
@@ -34,34 +34,36 @@ export function CardItem({
 
   return (
     <>
-      <Box>
-        <button onClick={(e) => setToogle((state) => !state)}>
-          <img
-            style={{ background: color }}
-            src={iconHeart}
-            alt="imagem de um icone a direita em formato de coração"
-          />
-        </button>
-        <div className="content">
-          <img src={img} alt="imagem de uma comida feita de camarão" />
-        </div>
-        <h4>
-          {disheName || dessertName || drinksName}
-          <FaAngleRight />
-        </h4>
-        <p>{description}</p>
-        <span>{`${formatterMoney(price)}`}</span>
-        <div className="addItems">
-          <button onClick={handleSubtract} className="btn">
-            <FiMinus size={25} />
+      <Container>
+        <Box>
+          <button onClick={(e) => setToogle((state) => !state)}>
+            <img
+              style={{ background: color }}
+              src={iconHeart}
+              alt="imagem de um icone a direita em formato de coração"
+            />
           </button>
-          <span>{String(count).padStart(2, '0')}</span>
-          <button onClick={handleAdd} className="btn">
-            <FiPlus size={25} />
-          </button>
-          <Button onClick={count} title={'incluir'} />
-        </div>
-      </Box>
+          <div className="content">
+            <img src={img} alt="imagem de uma comida feita de camarão" />
+          </div>
+          <h4>
+            {disheName || dessertName || drinksName}
+            <FaAngleRight />
+          </h4>
+          <p>{description}</p>
+          <span>{`${formatterMoney(price)}`}</span>
+          <div className="addItems">
+            <button onClick={handleSubtract} className="btn">
+              <FiMinus size={25} />
+            </button>
+            <span>{String(count).padStart(2, '0')}</span>
+            <button onClick={handleAdd} className="btn">
+              <FiPlus size={25} />
+            </button>
+            <Button onClick={count} title={'incluir'} />
+          </div>
+        </Box>
+      </Container>
     </>
   );
 }

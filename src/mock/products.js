@@ -26,7 +26,7 @@ export const products = [
     type: 'mainDishes',
     img: spaguettiGambe,
     disheName: 'Spaguetti Gambe',
-    description: 'Massa fresca com camarões e pesto',
+    description: 'Deliciosa massa fresca com camarões e pesto',
     price: 79.97,
   },
   {

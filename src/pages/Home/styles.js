@@ -4,7 +4,6 @@ export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
   overflow-x: hidden;
   gap: 1.6875rem;
   padding-bottom: 7.5rem;
