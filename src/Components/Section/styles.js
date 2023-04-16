@@ -25,7 +25,7 @@ export const Carousel = styled.div`
   .btn-right {
     position: absolute;
     z-index: 5;
-    height: 40rem;
+    height: 37.5rem;
     padding-inline: 1rem;
     color: ${({ theme }) => theme.COLORS.WHITE};
   }

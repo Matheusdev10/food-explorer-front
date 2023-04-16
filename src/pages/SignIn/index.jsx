@@ -9,6 +9,7 @@ import { useState } from 'react';
 export function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const isAdmin = false;
   const navigate = useNavigate();
 
   return (
@@ -39,7 +40,9 @@ export function SignIn() {
         <Button
           onClick={() => {
             console.log(email, password);
-            navigate('/home');
+            {
+              isAdmin ? navigate('/homeAdmin') : navigate('/home');
+            }
           }}
           className="btn"
           title="Entrar"
