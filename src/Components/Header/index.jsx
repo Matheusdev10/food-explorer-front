@@ -4,9 +4,13 @@ import Logo from '../../assets/logo.svg';
 import { Receipt } from 'phosphor-react';
 import { Input } from '../Input';
 import { Button } from './styles';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export function Header() {
+export function Header({ onAddCount }) {
+  const [count, setCount] = useState(0);
+  onAddCount(count);
+
   return (
     <Container>
       <div className="logo">
@@ -19,9 +23,9 @@ export function Header() {
         placeholder="Busque por pratos ou ingredientes"
       />
 
-      <Button>
+      <Button handleCount={count}>
         <Receipt size={32} />
-        Meus pedidos (0)
+        {`Meus pedidos (${count})`}
       </Button>
 
       <button className="logOff">

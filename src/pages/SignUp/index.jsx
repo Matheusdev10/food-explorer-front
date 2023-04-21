@@ -27,6 +27,7 @@ export function SignUp() {
             setName(event.target.value);
           }}
           type="name"
+          value={name}
           id="Name"
           placeholder="Exemplo: Maria da Silva"
         />
@@ -37,6 +38,7 @@ export function SignUp() {
             setEmail(event.target.value);
           }}
           type="email"
+          value={email}
           id="Email"
           placeholder="Exemplo: exemplo@exemplo.com.br"
         />
@@ -46,6 +48,7 @@ export function SignUp() {
             setPassword(event.target.value);
           }}
           type="password"
+          value={password}
           id="Senha"
           placeholder="No mínimo 6 caracteres"
         />

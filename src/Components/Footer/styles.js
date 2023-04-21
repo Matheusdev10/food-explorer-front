@@ -11,6 +11,7 @@ export const Container = styled.div`
   background: #00111a;
   position: fixed;
   bottom: 0;
+  z-index: 1;
 
   > .logo {
     display: flex;

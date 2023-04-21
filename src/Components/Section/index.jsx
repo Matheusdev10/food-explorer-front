@@ -20,7 +20,6 @@ export function Section({ title, children }) {
   return (
     <Container>
       <h2>{title}</h2>
-
       <Carousel>
         <div ref={carousel}>{children}</div>
         <button className="btn-left" onClick={handleLeftClick}>

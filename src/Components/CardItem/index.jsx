@@ -3,12 +3,14 @@ import { Box, Container } from './styles';
 import { useNavigate } from 'react-router-dom';
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import { FaAngleRight } from 'react-icons/fa';
+
 import iconHeart from '../../assets/iconHeart.svg';
 // import heart from '../../assets/heart.png';
 import formatterMoney from '../../utils/formatterMoney';
 import { useState, useEffect } from 'react';
 
 export function CardItem({
+  onAddCount,
   img,
   disheName,
   description,
@@ -32,6 +34,10 @@ export function CardItem({
     if (count === 1) {
       setCount(1);
     }
+  }
+  function handleCount() {
+    setCount(count);
+    onAddCount(count);
   }
 
   return (

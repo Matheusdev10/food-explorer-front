@@ -67,6 +67,7 @@ export const Box = styled.div`
       border: none;
       color: ${({ theme }) => theme.COLORS.WHITE};
       display: flex;
+      z-index: 1;
     }
   }
 `;
