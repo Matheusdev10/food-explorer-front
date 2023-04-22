@@ -5,6 +5,7 @@ import { CardItemAdmin } from '../../Components/CardItemAdmin';
 import { Footer } from '../../Components/Footer';
 import { HeaderAdmin } from '../../Components/HeaderAdmin';
 import { Section } from '../../Components/Section';
+
 export function HomeAdmin() {
   return (
     <>

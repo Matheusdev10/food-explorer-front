@@ -7,10 +7,8 @@ import { Button } from './styles';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export function Header({ onAddCount }) {
+export function Header() {
   const [count, setCount] = useState(0);
-  onAddCount(count);
-
   return (
     <Container>
       <div className="logo">

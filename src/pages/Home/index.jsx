@@ -8,20 +8,9 @@ import { Footer } from '../../Components/Footer';
 
 import { Section } from '../../Components/Section';
 export function Home() {
-  const [count, setCount] = useState(0);
-
-  function handleAdd() {
-    setCount(count + 1);
-  }
-  function handleSubtract() {
-    setCount(count - 1);
-  }
-  function handleInclude() {
-    setCount(count);
-  }
   return (
     <>
-      <Header onAddCount={handleInclude} />
+      <Header />
       <Container>
         <Box>
           <div>
@@ -32,26 +21,12 @@ export function Home() {
             <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
           </div>
         </Box>
-        {/* <Section>
-          {products.map((product) => (
-            <CardItem
-              key={product.id}
-              description={product.description}
-              disheName={product.disheName}
-              img={product.img}
-              price={product.price}
-              dessertName={product.dessertName}
-              drinksName={product.drinksName}
-            />
-          ))}
-        </Section> */}
 
         <Section title={'Refeições'}>
           {products
             .filter((product) => product.type === 'meals')
             .map((product) => (
               <CardItem
-                onAddCount={count}
                 key={product.id}
                 description={product.description}
                 disheName={product.disheName}

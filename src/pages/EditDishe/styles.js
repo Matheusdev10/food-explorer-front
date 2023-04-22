@@ -92,6 +92,7 @@ export const Form = styled.form`
     justify-content: space-between;
     align-items: center;
     padding: 1em;
+    margin-top: 15px;
     height: 3rem;
     color: ${({ theme }) => theme.COLORS.WHITE};
     cursor: pointer;

@@ -10,6 +10,12 @@ export const Box = styled.div`
   flex-direction: column;
   cursor: pointer;
 
+  /* > button {
+    border: none;
+    background: none;
+    margin-left: 170px;
+  } */
+
   > img {
     padding: 0 14.375rem;
     margin: auto;

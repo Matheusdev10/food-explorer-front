@@ -10,7 +10,6 @@ import formatterMoney from '../../utils/formatterMoney';
 import { useState, useEffect } from 'react';
 
 export function CardItem({
-  onAddCount,
   img,
   disheName,
   description,
@@ -34,10 +33,6 @@ export function CardItem({
     if (count === 1) {
       setCount(1);
     }
-  }
-  function handleCount() {
-    setCount(count);
-    onAddCount(count);
   }
 
   return (
@@ -68,7 +63,13 @@ export function CardItem({
             <button onClick={handleAdd} className="btn">
               <FiPlus size={25} />
             </button>
-            <Button onClick={count} title={'incluir'} />
+            <Button
+              onClick={() => {
+                count;
+                console.log(count);
+              }}
+              title={'incluir'}
+            />
           </div>
         </Box>
       </Container>

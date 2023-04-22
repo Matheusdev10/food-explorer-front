@@ -3,8 +3,10 @@ import { Container } from './styles';
 import Logo from '../../assets/logo.svg';
 import { Input } from '../Input';
 import { Button } from './styles';
+import { useNavigate } from 'react-router-dom';
 
 export function HeaderAdmin() {
+  const navigate = useNavigate();
   return (
     <Container>
       <div className="logo">
@@ -20,8 +22,8 @@ export function HeaderAdmin() {
         icon={FiSearch}
         placeholder="Busque por pratos ou ingredientes"
       />
-      <Button>Novo prato</Button>
-      <button className="logOff">
+      <Button onClick={() => navigate('/addDishe')}>Novo prato</Button>
+      <button onClick={() => navigate('/')} className="logOff">
         <FiLogOut />
       </button>
     </Container>

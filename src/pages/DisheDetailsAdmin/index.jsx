@@ -8,8 +8,10 @@ import img from '../../assets/img/saladRavanello.png';
 import { TagItem } from '../../Components/TagItem';
 import { ingredients } from '../../mock/ingredients';
 import { HeaderAdmin } from '../../Components/HeaderAdmin';
+import { useNavigate } from 'react-router-dom';
 
 export function DisheDetailsAdmin() {
+  const navigate = useNavigate();
   return (
     <>
       <HeaderAdmin />
@@ -34,8 +36,8 @@ export function DisheDetailsAdmin() {
             ))}
           </section>
 
-          <div className="btn">
-            <Button title={'Novo prato'} />
+          <div onClick={() => navigate('/EditDishe')} className="btn">
+            <Button title={'Editar prato'} />
           </div>
         </Box>
       </Container>
