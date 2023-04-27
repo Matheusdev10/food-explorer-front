@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
+  max-width: 1350px;
   justify-content: center;
   overflow-x: hidden;
   gap: 1.6875rem;

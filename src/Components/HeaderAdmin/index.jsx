@@ -10,7 +10,7 @@ export function HeaderAdmin() {
   return (
     <Container>
       <div className="logo">
-        <img src={Logo} alt="Logo" />
+        <img src={Logo} alt="Logo azul em formato de hexagono" />
         <div className="text">
           <h1>food explorer</h1>
           <p>admin</p>

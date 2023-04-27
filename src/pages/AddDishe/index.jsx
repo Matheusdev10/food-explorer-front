@@ -5,13 +5,15 @@ import { Container, Form } from './styles';
 import { HeaderAdmin } from '../../Components/HeaderAdmin';
 import { AddIngredients } from '../../Components/AddIngredients';
 import { TextArea } from '../../Components/TextArea';
+import { useNavigate } from 'react-router-dom';
 
 export function AddDishe() {
+  const navigate = useNavigate();
   return (
     <>
       <HeaderAdmin />
       <Container>
-        <div className="back">
+        <div onClick={() => navigate('/disheDetailsAdmin')} className="back">
           <FaAngleLeft size={24} />
           <p>voltar</p>
         </div>

@@ -6,13 +6,15 @@ import { Container, Form } from './styles';
 import { HeaderAdmin } from '../../Components/HeaderAdmin';
 import { AddIngredients } from '../../Components/AddIngredients';
 import { TextArea } from '../../Components/TextArea';
+import { useNavigate } from 'react-router-dom';
 
 export function EditDishe() {
+  const navigate = useNavigate();
   return (
     <>
       <HeaderAdmin />
       <Container>
-        <div className="back">
+        <div onClick={() => navigate('/homeAdmin')} className="back">
           <FaAngleLeft size={24} />
           <p>voltar</p>
         </div>
@@ -65,7 +67,7 @@ export function EditDishe() {
 
             <div className="input">
               <TextArea
-                placeholder="A Salada César é uma opção refrescante para o verão."
+                placeholder="A Salada Ceasar é uma opção refrescante para o verão."
                 id="textArea"
               />
             </div>
