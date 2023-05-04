@@ -10,7 +10,6 @@ import formatterMoney from '../../utils/formatterMoney';
 import { useState, useEffect } from 'react';
 
 export function CardItem({
-  filterText,
   img,
   disheName,
   description,

@@ -6,9 +6,13 @@ import { Header } from '../../Components/Header';
 import { useState } from 'react';
 import { Footer } from '../../Components/Footer';
 import { Section } from '../../Components/Section';
+import { handleFilter } from '../../utils/handleFilter';
 
 export function Home() {
   const [filterText, setFilterText] = useState('');
+  const meals = handleFilter('meals', 'disheName', filterText, products);
+  const desserts = handleFilter('dessert', 'dessertName', filterText, products);
+  const drinks = handleFilter('drinks', 'drinksName', filterText, products);
 
   return (
     <>
@@ -24,54 +28,23 @@ export function Home() {
           </div>
         </Box>
 
-        {/* {
+        {meals.length !== 0 && (
           <Section title={'Refeições'}>
-            {products
-              .filter((product) => product.type === 'meals')
-              .map((product) => (
-                <CardItem
-                  key={product.id}
-                  filterText={filterText}
-                  description={product.description}
-                  disheName={product.disheName}
-                  img={product.img}
-                  price={product.price}
-                />
-              ))}
+            {meals.map((product) => (
+              <CardItem
+                key={product.id}
+                filterText={filterText}
+                description={product.description}
+                disheName={product.disheName}
+                img={product.img}
+                price={product.price}
+              />
+            ))}
           </Section>
-        } */}
-
-        {
-          <Section title={'Refeições'}>
-            {products
-              .filter((product) => product.type === 'meals')
-              .filter((product) =>
-                product.disheName
-                  .toLowerCase()
-                  .includes(filterText.toLowerCase())
-              )
-              .map((product) => (
-                <CardItem
-                  key={product.id}
-                  filterText={filterText}
-                  description={product.description}
-                  disheName={product.disheName}
-                  img={product.img}
-                  price={product.price}
-                />
-              ))}
-          </Section>
-        }
-
-        <Section title={'Sobremesas'}>
-          {products
-            .filter((product) => product.type === 'dessert')
-            .filter((product) =>
-              product.dessertName
-                .toLowerCase()
-                .includes(filterText.toLowerCase())
-            )
-            .map((product) => (
+        )}
+        {desserts.length !== 0 && (
+          <Section title={'Sobremesas'}>
+            {desserts.map((product) => (
               <CardItem
                 key={product.id}
                 filterText={filterText}
@@ -81,17 +54,11 @@ export function Home() {
                 price={product.price}
               />
             ))}
-        </Section>
-
-        <Section title={'Bebidas'}>
-          {products
-            .filter((product) => product.type === 'drinks')
-            .filter((product) =>
-              product.drinksName
-                .toLowerCase()
-                .includes(filterText.toLowerCase())
-            )
-            .map((product) => (
+          </Section>
+        )}
+        {drinks.length !== 0 && (
+          <Section title={'Bebidas'}>
+            {drinks.map((product) => (
               <CardItem
                 key={product.id}
                 filterText={filterText}
@@ -101,7 +68,8 @@ export function Home() {
                 price={product.price}
               />
             ))}
-        </Section>
+          </Section>
+        )}
       </Container>
       <Footer />
     </>
