@@ -3,13 +3,40 @@ import imgHeader from '../../assets/img/imgHeader.png';
 import { products } from '../../mock/products';
 import { CardItem } from '../../Components/CardItem';
 import { Header } from '../../Components/Header';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Footer } from '../../Components/Footer';
 import { Section } from '../../Components/Section';
 import { handleFilter } from '../../utils/handleFilter';
+import { api } from '../../services/api';
 
 export function Home() {
   const [filterText, setFilterText] = useState('');
+  const [products, setProducts] = useState([]);
+  const [load, setLoad] = useState(true);
+  const [error, setError] = useState('');
+
+  async function getApiData() {
+    try {
+      const response = await api.get('/products');
+      setProducts(response.data);
+      console.log(response.data);
+    } catch (error) {
+      setError('Api fora do ar');
+    } finally {
+      setLoad(false);
+    }
+  }
+  useEffect(() => {
+    getApiData();
+  }, []);
+
+  if (load) {
+    return <h1>...carregando</h1>;
+  }
+  if (error) {
+    return <h1>{error}</h1>;
+  }
+
   const meals = handleFilter('meals', 'disheName', filterText, products);
   const desserts = handleFilter('dessert', 'dessertName', filterText, products);
   const drinks = handleFilter('drinks', 'drinksName', filterText, products);
