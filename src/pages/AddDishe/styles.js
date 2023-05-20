@@ -77,24 +77,33 @@ export const Form = styled.form`
 
   .col-3 {
     width: 30%;
-    position: relative;
-    margin-left: 0.0625rem;
-
-    p {
-      margin-bottom: 0.9375rem;
-    }
-  }
-
-  .select {
-    background: ${({ theme }) => theme.COLORS.BACKGROUND_500};
     display: flex;
-    border-radius: 0.5rem;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em;
-    height: 3rem;
-    color: ${({ theme }) => theme.COLORS.WHITE};
-    cursor: pointer;
+
+    flex-direction: column;
+
+    > label {
+      height: 100%;
+
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 100%;
+
+      color: ${({ theme }) => theme.COLORS.WHITE};
+    }
+    > select {
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      background: ${({ theme }) => theme.COLORS.BACKGROUND_500};
+      border-color: ${({ theme }) => theme.COLORS.WHITE};
+      border-radius: 5px;
+      padding: 15px 10px;
+      margin-bottom: 37px;
+      font-size: 16px;
+      color: ${({ theme }) => theme.COLORS.GRAY_200};
+    }
 
     > span {
       color: ${({ theme }) => theme.COLORS.GRAY_100};

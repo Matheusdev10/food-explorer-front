@@ -1,6 +1,7 @@
 import { Container } from './styles';
 import { Link, useNavigate } from 'react-router-dom';
 import { Form } from './styles';
+import { api } from '../../services/api';
 import { Input } from '../../Components/Input';
 import { Button } from '../../Components/Button';
 import Logo from '../../assets/logo.svg';
@@ -11,6 +12,25 @@ export function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+
+  function handleSignUp() {
+    if (!name || !email || !password) {
+      return alert('Preencha todos os campos');
+    }
+    api
+      .post('/users', { name, email, password })
+      .then(() => {
+        alert('Usuário cadastrado com sucesso');
+        navigate('/');
+      })
+      .catch((error) => {
+        if (error.response) {
+          alert(error.response.data.message);
+        } else {
+          alert('Não foi possível cadastrar');
+        }
+      });
+  }
 
   return (
     <Container>
@@ -52,15 +72,7 @@ export function SignUp() {
           id="Senha"
           placeholder="No mínimo 6 caracteres"
         />
-        <Button
-          onClick={() => {
-            console.log(name, email, password);
-
-            navigate('/');
-          }}
-          className="btn"
-          title="Criar conta"
-        />
+        <Button onClick={handleSignUp} className="btn" title="Criar conta" />
         <Link to={'/'}>Já tenho uma conta</Link>
       </Form>
     </Container>

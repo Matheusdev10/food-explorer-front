@@ -6,10 +6,13 @@ import { Input } from '../Input';
 import { Button } from './styles';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../hooks/auth';
 import { products } from '../../mock/products';
 
 export function Header({ filterText, onFilterTextChange }) {
   const [count, setCount] = useState(0);
+
+  const { signOut } = useAuth();
 
   return (
     <Container>
@@ -30,7 +33,7 @@ export function Header({ filterText, onFilterTextChange }) {
         {`Meus pedidos (${count})`}
       </Button>
 
-      <button className="logOff">
+      <button className="logOff" onClick={signOut}>
         <Link to={'/'}>
           <FiLogOut />
         </Link>

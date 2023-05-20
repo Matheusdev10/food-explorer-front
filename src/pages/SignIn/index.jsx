@@ -5,12 +5,19 @@ import { Input } from '../../Components/Input';
 import { Button } from '../../Components/Button';
 import Logo from '../../assets/logo.svg';
 import { useState } from 'react';
+import { useAuth } from '../../hooks/auth';
 
 export function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const isAdmin = false;
   const navigate = useNavigate();
+
+  const { signIn } = useAuth();
+
+  function handleSignIn() {
+    signIn({ email, password });
+  }
 
   return (
     <Container>
@@ -37,17 +44,8 @@ export function SignIn() {
           placeholder="No mínimo 6 caracteres"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button
-          onClick={() => {
-            console.log(email, password);
-            {
-              isAdmin ? navigate('/homeAdmin') : navigate('/home');
-            }
-          }}
-          className="btn"
-          title="Entrar"
-        />
-        <Link to={'/signUp'}>Crie uma conta</Link>
+        <Button onClick={handleSignIn} className="btn" title="Entrar" />
+        <Link to="/register">Crie uma conta</Link>
       </Form>
     </Container>
   );

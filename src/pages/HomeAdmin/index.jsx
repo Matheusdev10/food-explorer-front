@@ -20,7 +20,7 @@ export function HomeAdmin() {
             <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
           </div>
         </Box>
-
+        {/* 
         <Section title={'Refeições'}>
           {products
             .filter((product) => product.type === 'meals')
@@ -61,7 +61,7 @@ export function HomeAdmin() {
                 price={product.price}
               />
             ))}
-        </Section>
+        </Section> */}
       </Container>
       <Footer />
     </>

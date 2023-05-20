@@ -35,17 +35,16 @@ export function EditDishe() {
             </div>
           </div>
           <div className="col-3">
-            <div className="dropbown">
-              <p>Categoria</p>
-              <div className="select">
-                <span className="selected">Refeição</span>
-                <div className="caret"></div>
-              </div>
-              <ul className="menu">
-                <li>Sobremesa</li>
-                <li>Bebida</li>
-              </ul>
-            </div>
+            <label for="category">Categoria</label>
+            <select
+              id="category"
+              name="category"
+              // onChange={(event) => setCategory(event.target.value)}
+            >
+              <option value="select">Refeição</option>
+              <option value="main_course">Sobremesa</option>
+              <option value="dessert">Bebida</option>
+            </select>
           </div>
 
           <div className="col-4">

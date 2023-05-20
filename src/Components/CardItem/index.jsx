@@ -3,6 +3,7 @@ import { Box, Container } from './styles';
 import { useNavigate } from 'react-router-dom';
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import { FaAngleRight } from 'react-icons/fa';
+import bananaCandy from '../../assets/img/bananaCandy.png';
 
 import iconHeart from '../../assets/iconHeart.svg';
 // import heart from '../../assets/heart.png';
@@ -47,7 +48,7 @@ export function CardItem({
             />
           </button>
           <div onClick={() => navigate('/disheDetails')} className="content">
-            <img src={img} alt="imagem de uma comida feita de camarão" />
+            <img src={bananaCandy} alt="sobremesa de banana" />
           </div>
           <h4>
             {disheName || dessertName || drinksName}
