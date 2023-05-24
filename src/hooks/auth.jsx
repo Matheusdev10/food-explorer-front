@@ -28,13 +28,13 @@ function AuthProvider({ children }) {
     setData({});
   }
 
-  async function updateProfile({ user, avatarFile }) {
+  async function updateProfile({ product, avatarFile }) {
     try {
-      if (avatarFile) {
+      if (imgFile) {
         const fileUploadForm = new FormData();
-        fileUploadForm.append('avatar', avatarFile);
-        const response = await api.patch('/users/avatar', fileUploadForm);
-        user.avatar = response.data.avatar;
+        fileUploadForm.append('img', avatarFile);
+        const response = await api.patch('/products/img', fileUploadForm);
+        product.img = response.data.img;
       }
       await api.put('/users', user);
       localStorage.setItem('@frontendexplorer:user', JSON.stringify(user));

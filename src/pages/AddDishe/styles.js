@@ -19,7 +19,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Form = styled.form`
+export const Form = styled.div`
   margin-top: 2rem;
   display: flex;
   gap: 2rem;
