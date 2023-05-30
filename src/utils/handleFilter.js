@@ -1,8 +1,8 @@
-export const handleFilter = (type, propName, filterText, products) => {
+export const handleFilter = (category, name, filterText, products) => {
   const result = products
-    .filter((product) => product.type === type)
+    .filter((product) => product.category === category)
     .filter((product) =>
-      product[propName].toLowerCase().includes(filterText.toLowerCase())
+      product[name].toLowerCase().includes(filterText.toLowerCase())
     );
   return result;
 };

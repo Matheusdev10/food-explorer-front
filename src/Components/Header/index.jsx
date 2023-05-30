@@ -7,7 +7,6 @@ import { Button } from './styles';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/auth';
-import { products } from '../../mock/products';
 
 export function Header({ filterText, onFilterTextChange }) {
   const [count, setCount] = useState(0);

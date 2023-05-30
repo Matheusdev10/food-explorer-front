@@ -62,15 +62,13 @@ export function AddDishe() {
       await api.post('/products', payLoad);
 
       alert('Produto cadastrado com sucesso');
-      // navigate('/');
+      navigate('/');
     } catch (error) {
-      console.log(error);
-
-      // if (error.response) {
-      //   alert(error.response.data.message);
-      // } else {
-      //   alert('Não foi possível cadastrar');
-      // }
+      if (error.response) {
+        alert(error.response.data.message);
+      } else {
+        alert('Não foi possível cadastrar');
+      }
     }
   }
 

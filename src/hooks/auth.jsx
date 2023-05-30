@@ -32,7 +32,7 @@ function AuthProvider({ children }) {
     try {
       if (imgFile) {
         const fileUploadForm = new FormData();
-        fileUploadForm.append('img', avatarFile);
+        fileUploadForm.append('img', imgFile);
         const response = await api.patch('/products/img', fileUploadForm);
         product.img = response.data.img;
       }

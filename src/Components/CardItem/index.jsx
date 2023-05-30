@@ -48,7 +48,10 @@ export function CardItem({
             />
           </button>
           <div onClick={() => navigate('/disheDetails')} className="content">
-            <img src={bananaCandy} alt="sobremesa de banana" />
+            <img
+              src={`http://localhost:3333/assets/${img}`}
+              alt="sobremesa de banana"
+            />
           </div>
           <h4>
             {disheName || dessertName || drinksName}
