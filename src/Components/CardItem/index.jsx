@@ -10,14 +10,7 @@ import iconHeart from '../../assets/iconHeart.svg';
 import formatterMoney from '../../utils/formatterMoney';
 import { useState, useEffect } from 'react';
 
-export function CardItem({
-  img,
-  disheName,
-  description,
-  price,
-  dessertName,
-  drinksName,
-}) {
+export function CardItem({ img, name, description, price }) {
   const [count, setCount] = useState(1);
   const [color, setColor] = useState('#00070A');
   const [toogle, setToogle] = useState(true);
@@ -54,7 +47,7 @@ export function CardItem({
             />
           </div>
           <h4>
-            {disheName || dessertName || drinksName}
+            {name}
             <FaAngleRight />
           </h4>
           <p>{description}</p>
