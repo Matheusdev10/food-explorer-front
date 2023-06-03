@@ -3,21 +3,26 @@ import { Box, Container } from './styles';
 import { useNavigate } from 'react-router-dom';
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import { FaAngleRight } from 'react-icons/fa';
-import bananaCandy from '../../assets/img/bananaCandy.png';
 
 import iconHeart from '../../assets/iconHeart.svg';
 // import heart from '../../assets/heart.png';
 import formatterMoney from '../../utils/formatterMoney';
 import { useState, useEffect } from 'react';
 
-export function CardItem({ img, name, description, price }) {
+export function CardItem({ id, img, name, description, price }) {
   const [count, setCount] = useState(1);
+  const [product, setProducts] = useState([]);
   const [color, setColor] = useState('#00070A');
   const [toogle, setToogle] = useState(true);
   const navigate = useNavigate();
   useEffect(() => {
     setColor(() => (toogle ? '#00070A' : '#750310'));
   }, [toogle]);
+
+  function handleDetails() {
+    setProducts(product);
+    navigate(`/products/${id}`);
+  }
 
   function handleAdd() {
     setCount(count + 1);
@@ -40,12 +45,14 @@ export function CardItem({ img, name, description, price }) {
               alt="imagem de um icone a direita em formato de coração"
             />
           </button>
-          <div onClick={() => navigate('/disheDetails')} className="content">
+
+          <div onClick={() => handleDetails(product.id)} className="content">
             <img
               src={`http://localhost:3333/assets/${img}`}
               alt="sobremesa de banana"
             />
           </div>
+
           <h4>
             {name}
             <FaAngleRight />

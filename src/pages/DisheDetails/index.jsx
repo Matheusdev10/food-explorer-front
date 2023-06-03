@@ -1,17 +1,33 @@
 import { Container, Box } from './styles';
 import { FiMinus, FiPlus } from 'react-icons/fi';
+import { useParams } from 'react-router-dom';
 import { FaAngleLeft } from 'react-icons/fa';
+import { api } from '../../services/api';
 import { Link } from 'react-router-dom';
 import { Button } from '../../Components/Button';
 import { Header } from '../../Components/Header';
 import { Footer } from '../../Components/Footer';
-import img from '../../assets/img/saladRavanello.png';
 import { TagItem } from '../../Components/TagItem';
-import { ingredients } from '../../mock/ingredients';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export function DisheDetails() {
+export function DisheDetails({ img }) {
   const [count, setCount] = useState(1);
+  const [data, setData] = useState(null);
+
+  const params = useParams();
+
+  async function handleDisheDetails() {
+    try {
+      const response = await api.get(`/products/${params.id}`);
+
+      setData(response.data);
+    } catch (error) {
+      console.log(error.data);
+    }
+  }
+  useEffect(() => {
+    handleDisheDetails();
+  }, []);
 
   function handleAdd() {
     setCount(count + 1);
@@ -23,6 +39,7 @@ export function DisheDetails() {
       setCount(1);
     }
   }
+
   return (
     <>
       <Header />
@@ -30,24 +47,23 @@ export function DisheDetails() {
         <div className="dishe">
           <div className="back">
             <FaAngleLeft />
-            <Link to={'/home'}>
+            <Link to={'/'}>
               <p>voltar</p>
             </Link>
           </div>
 
-          <img src={img} alt="img de uma salada" />
+          <img
+            src={`http://localhost:3333/assets/${data.img}`}
+            alt="img dos pratos do projeto"
+          />
         </div>
 
         <Box>
           <section>
-            <h2>Salad Ravanello</h2>
-            <p>
-              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
-              O pão naan dá um toque especial
-            </p>
-            {ingredients.map((ingredient) => (
-              <TagItem title={ingredient.title} key={ingredient.id} />
-            ))}
+            <h2>{data && data.name}</h2>
+            <p>{data && data.description}</p>
+            {data &&
+              data.tags.map((tag) => <TagItem title={tag.name} key={tag.id} />)}
 
             <div>
               <button onClick={handleSubtract} className="btn">
@@ -57,7 +73,7 @@ export function DisheDetails() {
               <button onClick={handleAdd} className="btn">
                 <FiPlus size={25} />
               </button>
-              <Button title={'incluir . R$ 25,00'} />
+              <Button title={`incluir . ${data && data.price}`} />
             </div>
           </section>
         </Box>

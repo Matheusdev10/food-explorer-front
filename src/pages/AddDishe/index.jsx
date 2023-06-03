@@ -16,6 +16,7 @@ export function AddDishe() {
   //   : product.img;
 
   const navigate = useNavigate();
+
   const [name, setName] = useState('');
   const [category, setCategory] = useState('');
   const [price, setPrice] = useState('');
@@ -23,19 +24,7 @@ export function AddDishe() {
   const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState('');
   const [imgFile, setImgFile] = useState(null);
-  // const [img, setImg] = useState(imgUrl);
 
-  // async function handleUpdateImg() {
-  //   const updated = {
-  //     img,
-  //   };
-  //   const userUpdated = Object.assign(user, updated);
-  //   await updateImg({ product: userUpdated, imgFile });
-  // }
-
-  //   const imagePreview = URL.createObjectURL(file);
-  //   setImg(imagePreview);
-  // }
   function handleImgFile(event) {
     const imgfile = event.target.files[0];
     setImgFile(imgfile);
@@ -52,6 +41,7 @@ export function AddDishe() {
   async function handleNewProduct() {
     try {
       const payLoad = new FormData();
+
       payLoad.append('img', imgFile);
       payLoad.append('name', name);
       payLoad.append('category', category);

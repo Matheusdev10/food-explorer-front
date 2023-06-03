@@ -5,10 +5,8 @@ import { Header } from '../../Components/Header';
 import { useState, useEffect } from 'react';
 import { Footer } from '../../Components/Footer';
 import { Section } from '../../Components/Section';
-import { handleFilter } from '../../utils/handleFilter';
 // import { useParams } from 'react-router-dom';
 
-import { useAuth } from '../../hooks/auth';
 import { api } from '../../services/api';
 
 export function Home() {
@@ -16,9 +14,7 @@ export function Home() {
   const [products, setProducts] = useState([]);
   const [load, setLoad] = useState(true);
   const [error, setError] = useState('');
-  const meals = handleFilter('meals', 'name', filterText, products);
-  const desserts = handleFilter('dessert', 'name', filterText, products);
-  const drinks = handleFilter('drinks', 'name', filterText, products);
+
   async function getProducts() {
     try {
       const response = await api.get('/products');
@@ -65,6 +61,7 @@ export function Home() {
               .map((product) => (
                 <CardItem
                   key={product.id}
+                  id={product.id}
                   filterText={filterText}
                   description={product.description}
                   name={product.name}
@@ -85,6 +82,7 @@ export function Home() {
               .map((product) => (
                 <CardItem
                   key={product.id}
+                  id={product.id}
                   filterText={filterText}
                   description={product.description}
                   name={product.name}
@@ -105,6 +103,7 @@ export function Home() {
               .map((product) => (
                 <CardItem
                   key={product.id}
+                  id={product.id}
                   filterText={filterText}
                   description={product.description}
                   name={product.name}
