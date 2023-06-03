@@ -53,7 +53,7 @@ export function DisheDetails({ img }) {
           </div>
 
           <img
-            src={`http://localhost:3333/assets/${data.img}`}
+            src={`http://localhost:3333/assets/${data && data.img}`}
             alt="img dos pratos do projeto"
           />
         </div>
