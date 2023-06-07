@@ -1,14 +1,25 @@
 import { FaAngleLeft } from 'react-icons/fa';
 import { BsUpload } from 'react-icons/bs';
 import { Footer } from '../../Components/Footer';
-import { Button } from '../../Components/Button';
 import { Container, Form } from './styles';
+import { useForm } from 'react-hook-form';
+import { useState, useEffect } from 'react';
 import { HeaderAdmin } from '../../Components/HeaderAdmin';
 import { AddIngredients } from '../../Components/AddIngredients';
 import { TextArea } from '../../Components/TextArea';
 import { useNavigate } from 'react-router-dom';
 
 export function EditDishe() {
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      name: 'matheus',
+      category: 'bebida',
+      price: 150,
+      description: 'teste',
+    },
+  });
+  const onSubmit = (data) => console.log(data);
+
   const navigate = useNavigate();
   return (
     <>
@@ -19,7 +30,7 @@ export function EditDishe() {
           <p>voltar</p>
         </div>
         <h1>Editar prato</h1>
-        <Form>
+        <Form onSubmit={handleSubmit(onSubmit)}>
           <div className="col-1">
             <p>Imagem do prato</p>
             <label htmlFor="imageDishe">Selecione imagem</label>
@@ -31,33 +42,45 @@ export function EditDishe() {
           <div className="col-2">
             <label htmlFor="Name">Nome</label>
             <div className="input">
-              <input type="text" placeholder="Salada Ceasar" />
+              <input
+                {...register('name')}
+                type="text"
+                placeholder="Salada Ceasar"
+                id="name"
+              />
             </div>
           </div>
           <div className="col-3">
             <label for="category">Categoria</label>
-            <select
-              id="category"
-              name="category"
-              // onChange={(event) => setCategory(event.target.value)}
-            >
-              <option value="select">Refeição</option>
-              <option value="main_course">Sobremesa</option>
-              <option value="dessert">Bebida</option>
+            <select {...register('category')} id="category" name="category">
+              <option value="">Selecione uma categoria</option>
+              <option value="refeição">Refeição</option>
+              <option value="sobremesa">Sobremesa</option>
+              <option value="bebida">Bebida</option>
             </select>
           </div>
 
           <div className="col-4">
             <label htmlFor="addDishes">Ingredientes</label>
             <div className="tags">
-              <AddIngredients value="Pão Naan" />
-              <AddIngredients isNew placeholder="Adicionar" />
+              {/* <AddIngredients value="Pão Naan" /> */}
+              <AddIngredients
+                isNew
+                placeholder="Adicionar"
+                name={'tags'}
+                register={register}
+              />
             </div>
           </div>
           <div className="col-5">
             <label htmlFor="price">Preço</label>
             <div className="input">
-              <input type="number" placeholder="R$ 00,00" id="price" />
+              <input
+                {...register('price')}
+                type="number"
+                placeholder="R$ 00,00"
+                id="price"
+              />
             </div>
           </div>
 
@@ -66,8 +89,10 @@ export function EditDishe() {
 
             <div className="input">
               <TextArea
+                name={'description'}
+                register={register}
                 placeholder="A Salada Ceasar é uma opção refrescante para o verão."
-                id="textArea"
+                id="description"
               />
             </div>
           </div>
@@ -76,7 +101,7 @@ export function EditDishe() {
               <button>Excluir prato</button>
             </div>
             <div className="btn">
-              <button>Salvar Alterações</button>
+              <button type="submit">Salvar Alterações</button>
             </div>
           </div>
         </Form>

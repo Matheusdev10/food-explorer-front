@@ -2,10 +2,16 @@ import { FiPlus, FiX } from 'react-icons/fi';
 
 import { Container } from './styles';
 
-export function AddIngredients({ isNew, value, onClick, ...rest }) {
+export function AddIngredients({ isNew, value, onClick, register, ...rest }) {
   return (
     <Container isNew={isNew}>
-      <input type="text" value={value} readOnly={!isNew} {...rest} />
+      <input
+        {...register(rest.name)}
+        type="text"
+        value={value}
+        readOnly={!isNew}
+        {...rest}
+      />
 
       <button
         type="button"
