@@ -10,7 +10,7 @@ import { Footer } from '../../Components/Footer';
 import { TagItem } from '../../Components/TagItem';
 import { useState, useEffect } from 'react';
 
-export function DisheDetails({ img }) {
+export function DisheDetails() {
   const [count, setCount] = useState(1);
   const [data, setData] = useState(null);
 
@@ -52,18 +52,14 @@ export function DisheDetails({ img }) {
             </Link>
           </div>
 
-          <img
-            src={`http://localhost:3333/assets/${data && data.img}`}
-            alt="img dos pratos do projeto"
-          />
+          <img src={data && data.img} alt="img dos pratos do projeto" />
         </div>
 
         <Box>
           <section>
             <h2>{data && data.name}</h2>
             <p>{data && data.description}</p>
-            {data &&
-              data.tags.map((tag) => <TagItem title={tag.name} key={tag.id} />)}
+            {data && data.tags.map((tag) => <TagItem key={tag} title={tag} />)}
 
             <div>
               <button onClick={handleSubtract} className="btn">

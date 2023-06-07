@@ -47,10 +47,7 @@ export function CardItem({ id, img, name, description, price }) {
           </button>
 
           <div onClick={() => handleDetails(product.id)} className="content">
-            <img
-              src={`http://localhost:3333/assets/${img}`}
-              alt="sobremesa de banana"
-            />
+            <img src={img} alt="sobremesa de banana" />
           </div>
 
           <h4>
@@ -70,7 +67,6 @@ export function CardItem({ id, img, name, description, price }) {
             <Button
               onClick={() => {
                 count;
-                console.log(count);
               }}
               title={'incluir'}
             />
