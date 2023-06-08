@@ -5,16 +5,10 @@ import { FaAngleRight } from 'react-icons/fa';
 import iconEdit from '../../assets/iconEdit.svg';
 import { useNavigate } from 'react-router-dom';
 import formatterMoney from '../../utils/formatterMoney';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export function CardItemAdmin({
-  img,
-  disheName,
-  description,
-  price,
-  dessertName,
-  drinksName,
-}) {
+export function CardItemAdmin({ img, name, description, price }) {
   const navigate = useNavigate();
   return (
     <>
@@ -29,7 +23,7 @@ export function CardItemAdmin({
           <img src={img} alt="imagem de uma comida feita de camarão" />
         </div>
         <h4>
-          {disheName || dessertName || drinksName}
+          {name}
           <FaAngleRight />
         </h4>
         <p>{description}</p>

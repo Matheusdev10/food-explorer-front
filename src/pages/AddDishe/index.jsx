@@ -51,7 +51,7 @@ export function AddDishe() {
       await api.post('/products', payLoad);
 
       alert('Produto cadastrado com sucesso');
-      navigate('/');
+      // navigate('/');
     } catch (error) {
       if (error.response) {
         alert(error.response.data.message);
@@ -102,6 +102,7 @@ export function AddDishe() {
               name="category"
               onChange={(event) => setCategory(event.target.value)}
             >
+              <option value="">Selecione uma categoria</option>
               <option value="refeição">Refeição</option>
               <option value="sobremesa">Sobremesa</option>
               <option value="bebida">Bebida</option>
