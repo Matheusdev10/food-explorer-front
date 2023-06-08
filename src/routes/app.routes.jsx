@@ -9,9 +9,7 @@ export function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/addDishe" element={<AddDishe />} />
       <Route path="/products/:id" element={<DisheDetails />} />
-      <Route path="/editDishe" element={<EditDishe />} />
     </Routes>
   );
 }
