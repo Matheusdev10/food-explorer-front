@@ -1,6 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import { AppRoutes } from './app.routes';
 import { AuthRoutes } from './auth.routes';
+import { AppAdminRoutes } from './app.admin.routes';
 import { useAuth } from '../hooks/auth';
 
 export function Routes() {
@@ -8,7 +9,7 @@ export function Routes() {
   return (
     <BrowserRouter>
       {user ? (
-        user.is_admin === true ? (
+        user.isAdmin === 1 ? (
           <AppAdminRoutes />
         ) : (
           <AppRoutes />

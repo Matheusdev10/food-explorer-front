@@ -6,7 +6,7 @@ import { Button } from '../../Components/Button';
 import { Footer } from '../../Components/Footer';
 import img from '../../assets/img/saladRavanello.png';
 import { TagItem } from '../../Components/TagItem';
-import { ingredients } from '../../mock/ingredients';
+
 import { HeaderAdmin } from '../../Components/HeaderAdmin';
 import { useNavigate } from 'react-router-dom';
 

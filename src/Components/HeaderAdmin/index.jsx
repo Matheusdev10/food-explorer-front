@@ -3,9 +3,11 @@ import { Container } from './styles';
 import Logo from '../../assets/logo.svg';
 import { Input } from '../Input';
 import { Button } from './styles';
+import { useAuth } from '../../hooks/auth';
 import { useNavigate } from 'react-router-dom';
 
 export function HeaderAdmin() {
+  const { signOut } = useAuth();
   const navigate = useNavigate();
   return (
     <Container>
@@ -23,7 +25,7 @@ export function HeaderAdmin() {
         placeholder="Busque por pratos ou ingredientes"
       />
       <Button onClick={() => navigate('/addDishe')}>Novo prato</Button>
-      <button onClick={() => navigate('/')} className="logOff">
+      <button className="logOff" onClick={signOut}>
         <FiLogOut />
       </button>
     </Container>

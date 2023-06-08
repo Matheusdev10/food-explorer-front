@@ -12,14 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 export function AddDishe() {
-  const { register, handleSubmit } = useForm({
-    defaultValues: {
-      name: 'matheus',
-      category: 'bebida',
-      price: 150,
-      description: 'teste',
-    },
-  });
+  const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
 
   const navigate = useNavigate();
@@ -78,7 +71,7 @@ export function AddDishe() {
           <p>voltar</p>
         </div>
         <h1>Adicionar prato</h1>
-        <Form>
+        <Form onSubmit={handleSubmit(onSubmit)}>
           <div className="col-1">
             <p>Imagem do prato</p>
             <label htmlFor="imageDishe">Selecione imagem</label>
@@ -155,13 +148,15 @@ export function AddDishe() {
                 name={'description'}
                 register={register}
                 placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
-                id="textArea"
+                id="description"
                 onChange={(e) => setDescription(e.target.value)}
               />
             </div>
           </div>
           <div className="btn">
-            <button onClick={handleNewProduct}>Salvar Alterações</button>
+            <button type="submit" onClick={handleNewProduct}>
+              Salvar Alterações
+            </button>
           </div>
         </Form>
       </Container>
