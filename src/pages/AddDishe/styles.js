@@ -144,6 +144,12 @@ export const Form = styled.div`
     cursor: pointer;
   }
 
+  .col-3 {
+    > label {
+      font-size: 0.875rem;
+    }
+  }
+
   .col-4 {
     width: 75%;
   }

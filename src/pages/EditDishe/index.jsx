@@ -2,57 +2,159 @@ import { FaAngleLeft } from 'react-icons/fa';
 import { BsUpload } from 'react-icons/bs';
 import { Footer } from '../../Components/Footer';
 import { Container, Form } from './styles';
-import { useForm } from 'react-hook-form';
+import { api } from '../../services/api';
+
+// import { useForm } from 'react-hook-form';
 import { useState, useEffect } from 'react';
 import { HeaderAdmin } from '../../Components/HeaderAdmin';
 import { AddIngredients } from '../../Components/AddIngredients';
 import { TextArea } from '../../Components/TextArea';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export function EditDishe() {
-  const { register, handleSubmit } = useForm({
-    defaultValues: {
-      name: 'matheus',
-      category: 'bebida',
-      price: 150,
-      description: 'teste',
-    },
-  });
-  const onSubmit = (data) => console.log(data);
-
+  const params = useParams();
   const navigate = useNavigate();
+  const [data, setData] = useState(null);
+  const [imgFile, setImgFile] = useState(null);
+  const [name, setName] = useState('');
+  const [category, setCategory] = useState('');
+  const [price, setPrice] = useState('');
+  const [description, setDescription] = useState('');
+  const [tags, setTags] = useState([]);
+  const [newTag, setNewTag] = useState('');
+
+  // useEffect(() => {
+  //   async function getProducts() {
+  //     const response = await api.get(`/products/${params.id}`);
+  //     const { category, img, name, price, description, tags } = response.data;
+  //     setCategory(category);
+  //     setImgFile(img);
+  //     setName(name);
+  //     setPrice(price);
+  //     setDescription(description);
+  //     setTags(tags.map((tag) => tag));
+  //   }
+
+  //   getProducts();
+  // }, []);
+
+  async function handleGetProducts() {
+    try {
+      const response = await api.get(`/products/${params.id}`);
+      const { category, img, name, price, description, tags } = response.data;
+      setCategory(category);
+      setImgFile(img);
+      setName(name);
+      setPrice(price);
+      setDescription(description);
+      setTags(tags.map((tag) => tag));
+    } catch (error) {
+      console.log(error.data);
+    }
+  }
+  useEffect(() => {
+    handleGetProducts();
+  }, []);
+
+  function handleImgFile(event) {
+    const imgfile = event.target.files[0];
+    setImgFile(imgfile);
+  }
+
+  function handleAddTag() {
+    setTags((prevState) => [...prevState, newTag]);
+    setNewTag('');
+  }
+
+  function handleRemoveTag(deleted) {
+    setTags((prevState) => prevState.filter((tag) => tag !== deleted));
+  }
+
+  const formData = new FormData();
+  formData.append('img', imgFile);
+
+  async function handleEditProduct() {
+    try {
+      api.put(`/products/${params.id}`, {
+        name,
+        category,
+        price,
+        description,
+        tags,
+      });
+      const payLoad = new FormData();
+
+      payLoad.append('img', imgFile);
+      await api.patch(`/products/img/${params.id}`, payLoad);
+      alert('Produto editado com sucesso');
+      // navigate('/');
+    } catch (error) {
+      if (error.response) {
+        alert(error.response.data.message);
+      } else {
+        alert('Não foi possível editar o prato');
+      }
+    }
+  }
+
+  // const { register, handleSubmit } = useForm({
+  //   defaultValues: {
+  //     name: 'matheus',
+  //     category: 'bebida',
+  //     price: 150,
+  //     description: 'teste',
+  //   },
+  // });
+  // const onSubmit = (data) => console.log(data);
+
   return (
     <>
       <HeaderAdmin />
       <Container>
-        <div onClick={() => navigate('/homeAdmin')} className="back">
+        <div onClick={() => navigate('/')} className="back">
           <FaAngleLeft size={24} />
           <p>voltar</p>
         </div>
         <h1>Editar prato</h1>
-        <Form onSubmit={handleSubmit(onSubmit)}>
+        <Form
+
+        // onSubmit={handleSubmit(onSubmit)}
+        >
           <div className="col-1">
             <p>Imagem do prato</p>
             <label htmlFor="imageDishe">Selecione imagem</label>
             <div className="input">
               <BsUpload />
-              <input type="file" className="imageDishe" id="imageDishe" />
+              <input
+                type="file"
+                className="imageDishe"
+                id="imageDishe"
+                onChange={handleImgFile}
+              />
             </div>
           </div>
           <div className="col-2">
             <label htmlFor="Name">Nome</label>
             <div className="input">
               <input
-                {...register('name')}
+                // {...register('name')}
                 type="text"
                 placeholder="Salada Ceasar"
                 id="name"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
               />
             </div>
           </div>
           <div className="col-3">
             <label for="category">Categoria</label>
-            <select {...register('category')} id="category" name="category">
+            <select
+              // {...register('category')}
+              onChange={(event) => setCategory(event.target.value)}
+              id="category"
+              value={category}
+              name={data && data.category}
+            >
               <option value="">Selecione uma categoria</option>
               <option value="refeição">Refeição</option>
               <option value="sobremesa">Sobremesa</option>
@@ -63,12 +165,20 @@ export function EditDishe() {
           <div className="col-4">
             <label htmlFor="addDishes">Ingredientes</label>
             <div className="tags">
-              {/* <AddIngredients value="Pão Naan" /> */}
+              {tags.map((tag, index) => (
+                <AddIngredients
+                  key={String(index)}
+                  value={tag}
+                  onClick={() => handleRemoveTag(tag)}
+                />
+              ))}
+
               <AddIngredients
                 isNew
                 placeholder="Adicionar"
-                name={'tags'}
-                register={register}
+                onChange={(e) => setNewTag(e.target.value)}
+                value={newTag}
+                onClick={handleAddTag}
               />
             </div>
           </div>
@@ -76,10 +186,12 @@ export function EditDishe() {
             <label htmlFor="price">Preço</label>
             <div className="input">
               <input
-                {...register('price')}
+                // {...register('price')}
                 type="number"
                 placeholder="R$ 00,00"
                 id="price"
+                value={price}
+                onChange={(event) => setPrice(event.target.value)}
               />
             </div>
           </div>
@@ -89,10 +201,14 @@ export function EditDishe() {
 
             <div className="input">
               <TextArea
-                name={'description'}
-                register={register}
+                name=""
+                id=""
+                value={description}
+                // name={'description'}
+                // register={register}
                 placeholder="A Salada Ceasar é uma opção refrescante para o verão."
-                id="description"
+                onChange={(event) => setDescription(event.target.value)}
+                // id="description"
               />
             </div>
           </div>
@@ -101,7 +217,9 @@ export function EditDishe() {
               <button>Excluir prato</button>
             </div>
             <div className="btn">
-              <button type="submit">Salvar Alterações</button>
+              <button onClick={handleEditProduct} type="submit">
+                Salvar Alterações
+              </button>
             </div>
           </div>
         </Form>

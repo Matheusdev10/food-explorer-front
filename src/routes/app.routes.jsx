@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-
+import { DisheDetailsAdmin } from '../pages/DisheDetailsAdmin';
 import { AddDishe } from '../pages/AddDishe';
 import { DisheDetails } from '../pages/DisheDetails';
 import { EditDishe } from '../pages/EditDishe';
@@ -10,8 +10,9 @@ export function AppRoutes() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/products/:id" element={<DisheDetails />} />
+      <Route path="/products/:id" element={<DisheDetails />} />
       <Route path="/addDishe" element={<AddDishe />} />
-      <Route path="/editDishe" element={<EditDishe />} />
+      <Route path="/products/:id" element={<EditDishe />} />
     </Routes>
   );
 }

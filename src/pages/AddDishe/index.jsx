@@ -51,7 +51,7 @@ export function AddDishe() {
       await api.post('/products', payLoad);
 
       alert('Produto cadastrado com sucesso');
-      // navigate('/');
+      navigate('/');
     } catch (error) {
       if (error.response) {
         alert(error.response.data.message);
