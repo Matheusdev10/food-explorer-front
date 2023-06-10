@@ -4,7 +4,6 @@ import { FaAngleLeft } from 'react-icons/fa';
 import { Button } from '../../Components/Button';
 import { useState, useEffect } from 'react';
 import { Footer } from '../../Components/Footer';
-import img from '../../assets/img/saladRavanello.png';
 import { TagItem } from '../../Components/TagItem';
 import { HeaderAdmin } from '../../Components/HeaderAdmin';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -18,7 +17,6 @@ export function DisheDetailsAdmin() {
   async function handleDisheDetailsAdmin() {
     try {
       const response = await api.get(`/products/${params.id}`);
-
       setData(response.data);
     } catch (error) {
       console.log(error.data);

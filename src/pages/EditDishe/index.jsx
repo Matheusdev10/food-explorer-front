@@ -97,6 +97,22 @@ export function EditDishe() {
     }
   }
 
+  async function handleDelete() {
+    try {
+      const confirm = window.confirm(
+        'Voce realmente deseja deletar este prato?'
+      );
+
+      if (confirm) {
+        await api.delete(`/products/${params.id}`);
+        alert('Prato deletado com sucesso!');
+        navigate('/');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   // const { register, handleSubmit } = useForm({
   //   defaultValues: {
   //     name: 'matheus',
@@ -203,18 +219,15 @@ export function EditDishe() {
               <TextArea
                 name=""
                 id=""
-                value={description}
-                // name={'description'}
-                // register={register}
                 placeholder="A Salada Ceasar é uma opção refrescante para o verão."
+                value={description}
                 onChange={(event) => setDescription(event.target.value)}
-                // id="description"
               />
             </div>
           </div>
           <div className="button">
             <div className="btn-delete">
-              <button>Excluir prato</button>
+              <button onClick={handleDelete}>Excluir prato</button>
             </div>
             <div className="btn">
               <button onClick={handleEditProduct} type="submit">

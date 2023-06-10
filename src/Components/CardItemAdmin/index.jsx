@@ -2,11 +2,18 @@ import { Box } from './styles';
 
 import { FaAngleRight } from 'react-icons/fa';
 import iconEdit from '../../assets/iconEdit.svg';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import formatterMoney from '../../utils/formatterMoney';
 
 export function CardItemAdmin({ id, img, name, description, price }) {
   const navigate = useNavigate();
+  const [product, setProducts] = useState([]);
+
+  function handleDetailsAdmin() {
+    setProducts(product);
+    navigate(`/products/${id}`);
+  }
 
   return (
     <>
@@ -14,7 +21,7 @@ export function CardItemAdmin({ id, img, name, description, price }) {
         <img
           onClick={() => navigate(`/products/${id}`)}
           src={iconEdit}
-          alt="imagem de um icone a direita em formato de coração"
+          alt="imagem de um icone a direita em formato de lapis"
         />
 
         <div onClick={() => navigate(`/products/${id}`)} className="content">
