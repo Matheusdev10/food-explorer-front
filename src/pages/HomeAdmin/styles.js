@@ -14,15 +14,14 @@ export const Box = styled.div`
   height: 16.25rem;
   margin-top: 16.56rem;
   display: flex;
+  position: relative;
   justify-content: space-between;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
   border-radius: 0.5rem;
 
   > div img {
     position: absolute;
-    top: 1.25rem;
-    margin-top: 6.25rem;
-    left: 3.9375rem;
+    margin-bottom: 9rem;
   }
   > div {
     width: 26.375rem;
