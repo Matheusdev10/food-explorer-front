@@ -65,7 +65,7 @@ export function AddDishe() {
     <>
       <HeaderAdmin />
       <Container>
-        <div onClick={() => navigate('/disheDetailsAdmin')} className="back">
+        <div onClick={() => navigate('/')} className="back">
           <FaAngleLeft size={24} />
           <p>voltar</p>
         </div>

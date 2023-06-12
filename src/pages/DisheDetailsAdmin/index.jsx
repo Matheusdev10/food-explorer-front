@@ -8,7 +8,7 @@ import { TagItem } from '../../Components/TagItem';
 import { HeaderAdmin } from '../../Components/HeaderAdmin';
 import { useNavigate, useParams } from 'react-router-dom';
 
-export function DisheDetailsAdmin() {
+export function DisheDetailsAdmin({ id }) {
   const [count, setCount] = useState(1);
   const [data, setData] = useState(null);
   const params = useParams();
@@ -33,7 +33,7 @@ export function DisheDetailsAdmin() {
         <div className="dishe">
           <div className="back">
             <FaAngleLeft />
-            <p>voltar</p>
+            <p onClick={() => navigate('/')}>voltar</p>
           </div>
           <img src={data && data.img} alt="img de uma salada" />
         </div>
@@ -45,7 +45,10 @@ export function DisheDetailsAdmin() {
             {data && data.tags.map((tag) => <TagItem title={tag} key={tag} />)}
           </section>
 
-          <div onClick={() => navigate('/editDishe')} className="btn">
+          <div
+            onClick={() => navigate(`/editDishe/${params.id}`)}
+            className="btn"
+          >
             <Button title={'Editar prato'} />
           </div>
         </Box>
