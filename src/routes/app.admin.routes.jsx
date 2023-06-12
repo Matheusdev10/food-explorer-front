@@ -7,9 +7,9 @@ import { EditDishe } from '../pages/EditDishe';
 export function AppAdminRoutes() {
   return (
     <Routes>
-      <Route path="/disheDetailsAdmin/:id" element={<DisheDetailsAdmin />} />
+      <Route path="/products/:id" element={<DisheDetailsAdmin />} />
       <Route path="/addDishe" element={<AddDishe />} />
-      <Route path="/products/:id" element={<EditDishe />} />
+      <Route path="/editDishe/:id" element={<EditDishe />} />
       <Route path="/" element={<HomeAdmin />} />
     </Routes>
   );

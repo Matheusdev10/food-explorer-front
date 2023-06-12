@@ -19,12 +19,12 @@ export function CardItemAdmin({ id, img, name, description, price }) {
     <>
       <Box>
         <img
-          onClick={() => navigate(`/products/${id}`)}
+          onClick={() => navigate(`/editDishe/${id}`)}
           src={iconEdit}
           alt="imagem de um icone a direita em formato de lapis"
         />
 
-        <div onClick={() => navigate(`/products/${id}`)} className="content">
+        <div onClick={() => handleDetailsAdmin()} className="content">
           <img src={img} alt="imagem de uma comida feita de camarão" />
         </div>
         <h4>
