@@ -1,5 +1,5 @@
 import { Container, Box } from './styles';
-
+import { api } from '../../services/api';
 import { FaAngleLeft } from 'react-icons/fa';
 import { Button } from '../../Components/Button';
 import { useState, useEffect } from 'react';
@@ -45,7 +45,7 @@ export function DisheDetailsAdmin() {
             {data && data.tags.map((tag) => <TagItem title={tag} key={tag} />)}
           </section>
 
-          <div onClick={() => navigate('/EditDishe')} className="btn">
+          <div onClick={() => navigate('/editDishe')} className="btn">
             <Button title={'Editar prato'} />
           </div>
         </Box>

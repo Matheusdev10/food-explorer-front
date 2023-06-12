@@ -24,7 +24,7 @@ export function CardItemAdmin({ id, img, name, description, price }) {
           alt="imagem de um icone a direita em formato de lapis"
         />
 
-        <div onClick={() => handleDetailsAdmin()} className="content">
+        <div onClick={() => handleDetailsAdmin(product.id)} className="content">
           <img src={img} alt="imagem de uma comida feita de camarão" />
         </div>
         <h4>
