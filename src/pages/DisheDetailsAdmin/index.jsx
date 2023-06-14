@@ -17,6 +17,7 @@ export function DisheDetailsAdmin({ id }) {
   async function handleDisheDetailsAdmin() {
     try {
       const response = await api.get(`/products/${params.id}`);
+
       setData(response.data);
     } catch (error) {
       console.log(error.data);

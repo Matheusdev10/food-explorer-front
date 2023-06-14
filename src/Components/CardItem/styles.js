@@ -15,7 +15,13 @@ export const Box = styled.div`
     background: none;
     border: none;
     padding-left: 13.75rem;
+    position: relative;
   }
+
+  /* > .btnIcon {
+    position: absolute;
+    margin: auto;
+  } */
 
   > .content {
     margin: auto;

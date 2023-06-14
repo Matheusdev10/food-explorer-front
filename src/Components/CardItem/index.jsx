@@ -4,20 +4,18 @@ import { useNavigate } from 'react-router-dom';
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import { FaAngleRight } from 'react-icons/fa';
 
-import iconHeart from '../../assets/iconHeart.svg';
-// import heart from '../../assets/heart.png';
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
+
 import formatterMoney from '../../utils/formatterMoney';
 import { useState, useEffect } from 'react';
 
 export function CardItem({ id, img, name, description, price }) {
   const [count, setCount] = useState(1);
   const [product, setProducts] = useState([]);
-  const [color, setColor] = useState('#00070A');
-  const [toogle, setToogle] = useState(true);
+
+  const [isHeartFilled, setIsHeartFilled] = useState(true);
+
   const navigate = useNavigate();
-  useEffect(() => {
-    setColor(() => (toogle ? '#00070A' : '#750310'));
-  }, [toogle]);
 
   function handleDetails() {
     setProducts(product);
@@ -38,18 +36,24 @@ export function CardItem({ id, img, name, description, price }) {
     <>
       <Container>
         <Box>
-          <button onClick={(e) => setToogle((state) => !state)}>
-            <img
-              style={{ background: color }}
-              src={iconHeart}
-              alt="imagem de um icone a direita em formato de coração"
+          {isHeartFilled ? (
+            <AiFillHeart
+              onClick={() => setIsHeartFilled(false)}
+              fill={'red'}
+              size={30}
+              style={{ marginLeft: 'auto' }}
             />
-          </button>
+          ) : (
+            <AiOutlineHeart
+              style={{ marginLeft: 'auto' }}
+              size={30}
+              onClick={() => setIsHeartFilled(true)}
+            />
+          )}
 
           <div onClick={() => handleDetails(product.id)} className="content">
             <img src={img} alt="sobremesa de banana" />
           </div>
-
           <h4>
             {name}
             <FaAngleRight />
