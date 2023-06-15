@@ -65,13 +65,13 @@ export function EditDishe() {
         description,
         tags: tags.toString(),
       });
-      debugger;
-      // const payLoad = new FormData();
 
-      // payLoad.append('img', imgFile);
-      // await api.patch(`/products/img/${params.id}`, payLoad);
+      const payLoad = new FormData();
+
+      payLoad.append('img', imgFile);
+      await api.patch(`/products/img/${params.id}`, payLoad);
       alert('Produto editado com sucesso');
-      // navigate('/');
+      navigate('/');
     } catch (error) {
       if (error.response) {
         alert(error.response.data.message);
@@ -97,11 +97,15 @@ export function EditDishe() {
     }
   }
 
+  function handleBack() {
+    navigate(-1);
+  }
+
   return (
     <>
       <HeaderAdmin />
       <Container>
-        <div onClick={() => navigate('/')} className="back">
+        <div onClick={handleBack} className="back">
           <FaAngleLeft size={24} />
           <p>voltar</p>
         </div>
@@ -110,7 +114,7 @@ export function EditDishe() {
           onSubmit={(e) => {
             e.preventDefault();
 
-            handleEditProduct();
+            // handleEditProduct();
           }}
         >
           <div className="col-1">
@@ -204,7 +208,9 @@ export function EditDishe() {
               <button onClick={handleDelete}>Excluir prato</button>
             </div>
             <div className="btn">
-              <button type="submit">Salvar Alterações</button>
+              <button onClick={handleEditProduct} type="submit">
+                Salvar Alterações
+              </button>
             </div>
           </div>
         </Form>

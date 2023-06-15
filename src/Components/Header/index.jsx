@@ -5,13 +5,18 @@ import { Receipt } from 'phosphor-react';
 import { Input } from '../Input';
 import { Button } from './styles';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/auth';
 
 export function Header({ filterText, onFilterTextChange }) {
   const [count, setCount] = useState(0);
-
   const { signOut } = useAuth();
+  const navigation = useNavigate();
+
+  function handleSignOut() {
+    navigation('/');
+    signOut();
+  }
 
   return (
     <Container>
@@ -32,10 +37,8 @@ export function Header({ filterText, onFilterTextChange }) {
         {`Meus pedidos (${count})`}
       </Button>
 
-      <button className="logOff" onClick={signOut}>
-        <Link to={'/'}>
-          <FiLogOut />
-        </Link>
+      <button className="logOff" onClick={handleSignOut}>
+        <FiLogOut />
       </button>
     </Container>
   );

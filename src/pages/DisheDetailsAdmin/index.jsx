@@ -27,6 +27,10 @@ export function DisheDetailsAdmin({ id }) {
     handleDisheDetailsAdmin();
   }, []);
 
+  function handleBack() {
+    navigate(-1);
+  }
+
   return (
     <>
       <HeaderAdmin />
@@ -34,7 +38,7 @@ export function DisheDetailsAdmin({ id }) {
         <div className="dishe">
           <div className="back">
             <FaAngleLeft />
-            <p onClick={() => navigate('/')}>voltar</p>
+            <p onClick={handleBack}>voltar</p>
           </div>
           <img src={data && data.img} alt="img de uma salada" />
         </div>

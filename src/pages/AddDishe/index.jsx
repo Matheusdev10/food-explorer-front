@@ -60,12 +60,15 @@ export function AddDishe() {
       }
     }
   }
+  function handleBack() {
+    navigate(-1);
+  }
 
   return (
     <>
       <HeaderAdmin />
       <Container>
-        <div onClick={() => navigate('/')} className="back">
+        <div onClick={handleBack} className="back">
           <FaAngleLeft size={24} />
           <p>voltar</p>
         </div>

@@ -9,6 +9,12 @@ import { useNavigate } from 'react-router-dom';
 export function HeaderAdmin() {
   const { signOut } = useAuth();
   const navigate = useNavigate();
+
+  function handleSignOut() {
+    navigate('/');
+    signOut();
+  }
+
   return (
     <Container>
       <div className="logo">
@@ -25,7 +31,7 @@ export function HeaderAdmin() {
         placeholder="Busque por pratos ou ingredientes"
       />
       <Button onClick={() => navigate('/addDishe')}>Novo prato</Button>
-      <button className="logOff" onClick={signOut}>
+      <button className="logOff" onClick={handleSignOut}>
         <FiLogOut />
       </button>
     </Container>

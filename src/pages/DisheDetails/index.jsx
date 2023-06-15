@@ -1,6 +1,6 @@
 import { Container, Box } from './styles';
 import { FiMinus, FiPlus } from 'react-icons/fi';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { FaAngleLeft } from 'react-icons/fa';
 import { api } from '../../services/api';
 import { Link } from 'react-router-dom';
@@ -13,6 +13,8 @@ import { useState, useEffect } from 'react';
 export function DisheDetails() {
   const [count, setCount] = useState(1);
   const [data, setData] = useState(null);
+
+  const navigate = useNavigate();
 
   const params = useParams();
 
@@ -40,6 +42,10 @@ export function DisheDetails() {
     }
   }
 
+  function handleBack() {
+    navigate(-1);
+  }
+
   return (
     <>
       <Header />
@@ -47,7 +53,7 @@ export function DisheDetails() {
         <div className="dishe">
           <div className="back">
             <FaAngleLeft />
-            <Link to={'/'}>
+            <Link onClick={handleBack}>
               <p>voltar</p>
             </Link>
           </div>
