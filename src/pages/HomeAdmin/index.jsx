@@ -37,7 +37,7 @@ export function HomeAdmin() {
 
   return (
     <>
-      <HeaderAdmin />
+      <HeaderAdmin filterText={filterText} onFilterTextChange={setFilterText} />
       <Container>
         <Box>
           <div>

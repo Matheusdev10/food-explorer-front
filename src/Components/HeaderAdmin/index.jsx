@@ -6,7 +6,7 @@ import { Button } from './styles';
 import { useAuth } from '../../hooks/auth';
 import { useNavigate } from 'react-router-dom';
 
-export function HeaderAdmin() {
+export function HeaderAdmin({ filterText, onFilterTextChange }) {
   const { signOut } = useAuth();
   const navigate = useNavigate();
 
@@ -28,6 +28,8 @@ export function HeaderAdmin() {
       <Input
         className="input"
         icon={FiSearch}
+        value={filterText}
+        onChange={(e) => onFilterTextChange(e.target.value)}
         placeholder="Busque por pratos ou ingredientes"
       />
       <Button onClick={() => navigate('/addDishe')}>Novo prato</Button>

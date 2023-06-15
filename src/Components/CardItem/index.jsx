@@ -13,7 +13,7 @@ export function CardItem({ id, img, name, description, price }) {
   const [count, setCount] = useState(1);
   const [product, setProducts] = useState([]);
 
-  const [isHeartFilled, setIsHeartFilled] = useState(true);
+  const [isHeartFilled, setIsHeartFilled] = useState(false);
 
   const navigate = useNavigate();
 
