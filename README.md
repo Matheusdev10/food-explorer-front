@@ -17,9 +17,11 @@ Link para acessar o [Back-end](https://github.com/Matheusdev10/api-food-explorer
 #### Usuario Normal:
 
 email: user@gmail.com
+
 senha: 123456
 
 #### Usuario Admin:
 
 email: useradmin@gmail.com
+
 senha: 123456
