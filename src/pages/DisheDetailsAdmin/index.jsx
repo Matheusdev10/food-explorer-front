@@ -8,7 +8,7 @@ import { TagItem } from '../../Components/TagItem';
 import { HeaderAdmin } from '../../Components/HeaderAdmin';
 import { useNavigate, useParams } from 'react-router-dom';
 
-export function DisheDetailsAdmin({ id }) {
+export function DisheDetailsAdmin() {
   const [count, setCount] = useState(1);
   const [data, setData] = useState(null);
   const params = useParams();

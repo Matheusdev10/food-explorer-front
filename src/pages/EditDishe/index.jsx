@@ -24,9 +24,8 @@ export function EditDishe() {
   async function handleGetProducts() {
     try {
       const response = await api.get(`/products/${params.id}`);
-      const { category, img, name, price, description, tags } = response.data;
+      const { category, name, price, description, tags } = response.data;
       setCategory(category);
-      setImgFile(img);
       setName(name);
       setPrice(price);
       setDescription(description);
@@ -66,10 +65,12 @@ export function EditDishe() {
         tags: tags.toString(),
       });
 
-      const payLoad = new FormData();
+      if (imgFile) {
+        const payLoad = new FormData();
+        payLoad.append('img', imgFile);
+        await api.patch(`/products/img/${params.id}`, payLoad);
+      }
 
-      payLoad.append('img', imgFile);
-      await api.patch(`/products/img/${params.id}`, payLoad);
       alert('Produto editado com sucesso');
       navigate('/');
     } catch (error) {
@@ -113,8 +114,6 @@ export function EditDishe() {
         <Form
           onSubmit={(e) => {
             e.preventDefault();
-
-            // handleEditProduct();
           }}
         >
           <div className="col-1">

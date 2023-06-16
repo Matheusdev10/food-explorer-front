@@ -5,7 +5,6 @@ import { Header } from '../../Components/Header';
 import { useState, useEffect } from 'react';
 import { Footer } from '../../Components/Footer';
 import { Section } from '../../Components/Section';
-// import { useParams } from 'react-router-dom';
 
 import { api } from '../../services/api';
 

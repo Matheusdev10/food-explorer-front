@@ -5,13 +5,7 @@ import { Container } from './styles';
 export function AddIngredients({ isNew, value, onClick, ...rest }) {
   return (
     <Container isNew={isNew}>
-      <input
-        // {...register(rest.name)}
-        type="text"
-        value={value}
-        readOnly={!isNew}
-        {...rest}
-      />
+      <input type="text" value={value} readOnly={!isNew} {...rest} />
 
       <button
         type="button"

@@ -3,7 +3,6 @@ import { BsUpload } from 'react-icons/bs';
 import { Footer } from '../../Components/Footer';
 import { Container, Form } from './styles';
 import { api } from '../../services/api';
-// import { useForm } from 'react-hook-form';
 import { HeaderAdmin } from '../../Components/HeaderAdmin';
 import { AddIngredients } from '../../Components/AddIngredients';
 import { TextArea } from '../../Components/TextArea';
@@ -11,11 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 export function AddDishe() {
-  // const { register, handleSubmit } = useForm();
-  // const onSubmit = (data) => console.log(data);
-
   const navigate = useNavigate();
-
   const [name, setName] = useState('');
   const [category, setCategory] = useState('');
   const [price, setPrice] = useState('');
@@ -149,7 +144,6 @@ export function AddDishe() {
             <div className="input">
               <TextArea
                 name={'description'}
-                // register={register}
                 placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
                 id="description"
                 onChange={(e) => setDescription(e.target.value)}

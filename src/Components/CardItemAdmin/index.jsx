@@ -1,5 +1,4 @@
 import { Box } from './styles';
-
 import { FaAngleRight } from 'react-icons/fa';
 import iconEdit from '../../assets/iconEdit.svg';
 import { useNavigate } from 'react-router-dom';

@@ -10,8 +10,6 @@ import { useAuth } from '../../hooks/auth';
 export function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const isAdmin = false;
-  const navigate = useNavigate();
 
   const { signIn } = useAuth();
 

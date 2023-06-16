@@ -28,27 +28,6 @@ function AuthProvider({ children }) {
     setData({});
   }
 
-  async function updateProfile({ product, avatarFile }) {
-    try {
-      if (imgFile) {
-        const fileUploadForm = new FormData();
-        fileUploadForm.append('img', imgFile);
-        const response = await api.patch('/products/img', fileUploadForm);
-        product.img = response.data.img;
-      }
-      await api.put('/users', user);
-      localStorage.setItem('@frontendexplorer:user', JSON.stringify(user));
-      setData({ user, token: data.token });
-      alert('Perfil atualizado');
-    } catch (error) {
-      if (error.response) {
-        alert(error.response.data.message);
-      } else {
-        alert('Não foi possível atualizar o perfil');
-      }
-    }
-  }
-
   useEffect(() => {
     const token = localStorage.getItem('@frontendexplorer:token');
     const user = localStorage.getItem('@frontendexplorer:user');
@@ -62,9 +41,7 @@ function AuthProvider({ children }) {
   }, []);
 
   return (
-    <AuthContext.Provider
-      value={{ signIn, signOut, updateProfile, user: data.user }}
-    >
+    <AuthContext.Provider value={{ signIn, signOut, user: data.user }}>
       {children}
     </AuthContext.Provider>
   );
