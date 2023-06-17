@@ -5,11 +5,11 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import formatterMoney from '../../utils/formatterMoney';
 
-export function CardItemAdmin({ id, name, description, price, data }) {
+export function CardItemAdmin({ img, id, name, description, price }) {
   const navigate = useNavigate();
   const [product, setProducts] = useState([]);
 
-  const imageURL = data.img`${api.defaults.baseURL}/files/${data.img}`;
+  const imageURL = img`${api.defaults.baseURL}/files/${data.img}`;
 
   function handleDetailsAdmin() {
     setProducts(product);
