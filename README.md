@@ -4,7 +4,7 @@ Uma aplicação desenvolvida no curso explorer da rocketseat como desafio final.
 
 Link para acessar o [Back-end](https://github.com/Matheusdev10/api-food-explorer)!
 
-<!-- Feel free to test: https://foodexplorer-94.netlify.app -->
+site: https://projetofoodexplorer.netlify.app
 
 ### tecnologias usadas no front-end:
 

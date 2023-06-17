@@ -32,7 +32,7 @@ function AuthProvider({ children }) {
     const token = localStorage.getItem('@frontendexplorer:token');
     const user = localStorage.getItem('@frontendexplorer:user');
     if (token && user) {
-      api.defaults.headers.authorization = `Bearer ${token}`;
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       setData({
         token,
         user: JSON.parse(user),
