@@ -5,12 +5,14 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { api } from '../../services/api';
 import formatterMoney from '../../utils/formatterMoney';
+import { useAuth } from '../../hooks/auth';
 
-export function CardItemAdmin({ id, name, description, price, data }) {
+export function CardItemAdmin({ id, name, description, price, img }) {
   const navigate = useNavigate();
   const [product, setProducts] = useState([]);
+  const { user } = useAuth();
 
-  const imgUrl = `${api.defaults.baseURL}/files/${data.img}`;
+  const imgUrl = `${api.defaults.baseURL}/files/${img}`;
 
   function handleDetailsAdmin() {
     setProducts(product);

@@ -3,6 +3,7 @@ import { Box, Container } from './styles';
 import { useNavigate } from 'react-router-dom';
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import { FaAngleRight } from 'react-icons/fa';
+import { api } from '../../services/api';
 
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 
@@ -14,6 +15,7 @@ export function CardItem({ id, img, name, description, price }) {
   const [product, setProducts] = useState([]);
 
   const [isHeartFilled, setIsHeartFilled] = useState(false);
+  const imgUrl = `${api.defaults.baseURL}/files/${img}`;
 
   const navigate = useNavigate();
 
@@ -52,7 +54,7 @@ export function CardItem({ id, img, name, description, price }) {
           )}
 
           <div onClick={() => handleDetails(product.id)} className="content">
-            <img src={img} alt="sobremesa de banana" />
+            <img src={imgUrl} alt="sobremesa de banana" />
           </div>
           <h4>
             {name}
