@@ -3,7 +3,7 @@ import { FaAngleRight } from 'react-icons/fa';
 import iconEdit from '../../assets/iconEdit.svg';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { api } from '../../services/api';
+
 import formatterMoney from '../../utils/formatterMoney';
 
 export function CardItemAdmin({ id, img, name, description, price }) {
@@ -11,7 +11,7 @@ export function CardItemAdmin({ id, img, name, description, price }) {
 
   const [product, setProducts] = useState([]);
 
-  // const imgUrl = `${api.defaults.baseURL}/files/${img}`;
+  const imgUrl = `https://api-food-explorer-8zqg.onrender.com/assets/${img}`;
 
   function handleDetailsAdmin() {
     setProducts(product);
@@ -28,7 +28,7 @@ export function CardItemAdmin({ id, img, name, description, price }) {
         />
 
         <div onClick={() => handleDetailsAdmin(product.id)} className="content">
-          <img src={img} alt="imagem dos pratos" />
+          <img src={imgUrl} alt="imagem dos pratos" />
         </div>
         <h4>
           {name}
