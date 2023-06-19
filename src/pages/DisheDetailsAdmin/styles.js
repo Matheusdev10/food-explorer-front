@@ -31,6 +31,7 @@ export const Box = styled.div`
   > section {
     > h2 {
       font-size: 2.5rem;
+      margin-bottom: 1.5rem;
     }
     > p {
       font-size: 1.5rem;

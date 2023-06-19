@@ -5,14 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { api } from '../../services/api';
 import formatterMoney from '../../utils/formatterMoney';
-import { useAuth } from '../../hooks/auth';
 
-export function CardItemAdmin({ id, name, description, price, img }) {
+export function CardItemAdmin({ id, img, name, description, price }) {
   const navigate = useNavigate();
-  const [product, setProducts] = useState([]);
-  const { user } = useAuth();
 
-  const imgUrl = `${api.defaults.baseURL}/files/${img}`;
+  const [product, setProducts] = useState([]);
+
+  // const imgUrl = `${api.defaults.baseURL}/files/${img}`;
 
   function handleDetailsAdmin() {
     setProducts(product);
@@ -29,7 +28,7 @@ export function CardItemAdmin({ id, name, description, price, img }) {
         />
 
         <div onClick={() => handleDetailsAdmin(product.id)} className="content">
-          <img src={imgUrl} alt="imagem dos pratos" />
+          <img src={img} alt="imagem dos pratos" />
         </div>
         <h4>
           {name}
