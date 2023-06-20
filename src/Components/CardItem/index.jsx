@@ -5,17 +5,14 @@ import { FiMinus, FiPlus } from 'react-icons/fi';
 import { FaAngleRight } from 'react-icons/fa';
 
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
-
 import formatterMoney from '../../utils/formatterMoney';
 import { useState } from 'react';
 
 export function CardItem({ id, img, name, description, price }) {
+  const navigate = useNavigate();
   const [count, setCount] = useState(1);
   const [product, setProducts] = useState([]);
   const [isHeartFilled, setIsHeartFilled] = useState(false);
-  const imgUrl = `https://api-food-explorer-8zqg.onrender.com/assets/${img}`;
-
-  const navigate = useNavigate();
 
   function handleDetails() {
     setProducts(product);
@@ -52,7 +49,7 @@ export function CardItem({ id, img, name, description, price }) {
           )}
 
           <div onClick={() => handleDetails(product.id)} className="content">
-            <img src={imgUrl} alt="imagem dos pratos do projeto" />
+            <img src={img} alt="imagem dos pratos do projeto" />
           </div>
           <h4>
             {name}

@@ -11,8 +11,6 @@ export function CardItemAdmin({ id, img, name, description, price }) {
 
   const [product, setProducts] = useState([]);
 
-  const imgUrl = `https://api-food-explorer-8zqg.onrender.com/assets/${img}`;
-
   function handleDetailsAdmin() {
     setProducts(product);
     navigate(`/products/${id}`);
@@ -28,7 +26,7 @@ export function CardItemAdmin({ id, img, name, description, price }) {
         />
 
         <div onClick={() => handleDetailsAdmin(product.id)} className="content">
-          <img src={imgUrl} alt="imagem dos pratos" />
+          <img src={img} alt="imagem dos pratos" />
         </div>
         <h4>
           {name}
