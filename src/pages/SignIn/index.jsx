@@ -5,13 +5,16 @@ import { Input } from '../../Components/Input';
 import { Button } from '../../Components/Button';
 import Logo from '../../assets/logo.svg';
 import { useState } from 'react';
+
+import { ImSpinner6 } from 'react-icons/im';
+
 import { useAuth } from '../../hooks/auth';
 
 export function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const { signIn } = useAuth();
+  const { signIn, loading } = useAuth();
 
   function handleSignIn() {
     signIn({ email, password });
@@ -42,7 +45,11 @@ export function SignIn() {
           placeholder="No mínimo 6 caracteres"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button onClick={handleSignIn} className="btn" title="Entrar" />
+        <Button
+          onClick={handleSignIn}
+          className="btn"
+          title={loading ? <ImSpinner6 /> : 'Entrar'}
+        />
         <Link to="/register">Crie uma conta</Link>
       </Form>
     </Container>
