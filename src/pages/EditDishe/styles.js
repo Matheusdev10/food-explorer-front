@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   padding: 7.5rem;
+  width: 100%;
 
   > .back {
     display: flex;
@@ -76,7 +77,7 @@ export const Form = styled.form`
   }
 
   .col-3 {
-    width: 30%;
+    width: 33%;
     display: flex;
 
     flex-direction: column;
@@ -144,14 +145,8 @@ export const Form = styled.form`
     cursor: pointer;
   }
 
-  .col-3 {
-    > label {
-      font-size: 0.875rem;
-    }
-  }
-
   .col-4 {
-    width: 75%;
+    width: 70%;
   }
 
   .tags {
@@ -167,6 +162,7 @@ export const Form = styled.form`
   }
 
   .col-5 {
+    width: 26%;
   }
 
   input[type='number']::-webkit-inner-spin-button {
@@ -179,7 +175,7 @@ export const Form = styled.form`
   }
 
   .btn {
-    width: 100%;
+    width: 20%;
     display: flex;
     justify-content: end;
 

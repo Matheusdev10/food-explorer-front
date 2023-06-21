@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-export const Container = styled.div``;
+export const Container = styled.div`
+  margin: auto;
+`;
 
 export const Box = styled.div`
   width: 19rem;
@@ -17,11 +19,6 @@ export const Box = styled.div`
     padding-left: 13.75rem;
     position: relative;
   }
-
-  /* > .btnIcon {
-    position: absolute;
-    margin: auto;
-  } */
 
   > .content {
     margin: auto;

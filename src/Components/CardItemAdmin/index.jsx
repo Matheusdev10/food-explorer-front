@@ -1,4 +1,4 @@
-import { Box } from './styles';
+import { Box, Container } from './styles';
 import { FaAngleRight } from 'react-icons/fa';
 import iconEdit from '../../assets/iconEdit.svg';
 import { useNavigate } from 'react-router-dom';
@@ -18,23 +18,28 @@ export function CardItemAdmin({ id, img, name, description, price }) {
 
   return (
     <>
-      <Box>
-        <img
-          onClick={() => navigate(`/editDishe/${id}`)}
-          src={iconEdit}
-          alt="imagem de um icone a direita em formato de lapis"
-        />
+      <Container>
+        <Box>
+          <img
+            onClick={() => navigate(`/editDishe/${id}`)}
+            src={iconEdit}
+            alt="imagem de um icone a direita em formato de lapis"
+          />
 
-        <div onClick={() => handleDetailsAdmin(product.id)} className="content">
-          <img src={img} alt="imagem dos pratos" />
-        </div>
-        <h4>
-          {name}
-          <FaAngleRight />
-        </h4>
-        <p>{description}</p>
-        <span>{`${formatterMoney(price)}`}</span>
-      </Box>
+          <div
+            onClick={() => handleDetailsAdmin(product.id)}
+            className="content"
+          >
+            <img src={img} alt="imagem dos pratos" />
+          </div>
+          <h4>
+            {name}
+            <FaAngleRight />
+          </h4>
+          <p>{description}</p>
+          <span>{`${formatterMoney(price)}`}</span>
+        </Box>
+      </Container>
     </>
   );
 }

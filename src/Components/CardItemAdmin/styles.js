@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+  margin: auto;
+`;
+
 export const Box = styled.div`
   width: 19rem;
   border-radius: 0.5rem;
@@ -7,14 +11,9 @@ export const Box = styled.div`
   background-color: ${({ theme }) => theme.COLORS.DARK_200};
   margin-top: 2.5rem;
   display: flex;
+
   flex-direction: column;
   cursor: pointer;
-
-  /* > button {
-    border: none;
-    background: none;
-    margin-left: 170px;
-  } */
 
   > img {
     padding: 0 14.375rem;

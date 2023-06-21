@@ -4,13 +4,16 @@ export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 75%;
+  margin: auto;
+
   overflow-x: hidden;
   gap: 1.6875rem;
   padding-bottom: 7.5rem;
 `;
 
 export const Box = styled.div`
-  width: 70rem;
+  width: 100%;
   height: 16.25rem;
   margin-top: 16.56rem;
   display: flex;
@@ -24,7 +27,7 @@ export const Box = styled.div`
     margin-bottom: 9rem;
   }
   > div {
-    width: 26.375rem;
+    width: 100%;
     margin: auto;
     display: flex;
     align-items: center;
@@ -39,5 +42,20 @@ export const Box = styled.div`
   > div p {
     color: ${({ theme }) => theme.COLORS.GRAY_50};
     font-size: 1.0625rem;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    width: 90%;
+    > div img {
+      margin-left: 5%;
+    }
+
+    > div h1 {
+      font-size: 40px;
+    }
+
+    > div p {
+      font-size: 15px;
+    }
   }
 `;

@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
-  width: 70rem;
-
+  width: 100%;
   > h2 {
     font-size: 2rem;
     margin-top: 3.9375rem;
     margin-bottom: 1.4375rem;
+  }
+  @media only screen and (max-width: 1024px) {
+    width: 100%;
+    padding: 5%;
   }
 `;
 export const Carousel = styled.div`
@@ -50,6 +53,7 @@ export const Carousel = styled.div`
       #000a0f 100%
     );
   }
+
   @media (min-width: 768px) {
     .btn-left,
     .btn-right {
