@@ -43,16 +43,12 @@ export function SignIn() {
           placeholder="No mínimo 6 caracteres"
           onChange={(e) => setPassword(e.target.value)}
         />
-
-        {
-          <Button
-            onClick={handleSignIn}
-            className="btn"
-            disabled={loading}
-            title={loading ? 'Carregando' : 'Entrar'}
-          />
-        }
-
+        <Button
+          onClick={handleSignIn}
+          className="btn"
+          disabled={loading}
+          title={loading ? 'Carregando' : 'Entrar'}
+        />
         <Link to="/register">Crie uma conta</Link>
       </Form>
     </Container>
