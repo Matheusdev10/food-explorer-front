@@ -6,8 +6,6 @@ import { Button } from '../../Components/Button';
 import Logo from '../../assets/logo.svg';
 import { useState } from 'react';
 
-import { ImSpinner6 } from 'react-icons/im';
-
 import { useAuth } from '../../hooks/auth';
 
 export function SignIn() {
@@ -45,11 +43,16 @@ export function SignIn() {
           placeholder="No mínimo 6 caracteres"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button
-          onClick={handleSignIn}
-          className="btn"
-          title={loading ? <ImSpinner6 /> : 'Entrar'}
-        />
+
+        {
+          <Button
+            onClick={handleSignIn}
+            className="btn"
+            disabled={loading}
+            title={loading ? 'Carregando' : 'Entrar'}
+          />
+        }
+
         <Link to="/register">Crie uma conta</Link>
       </Form>
     </Container>
