@@ -24,3 +24,14 @@ senha: 123456
 email: useradmin@gmail.com
 
 senha: 123456
+
+#### Iniciando o projeto:
+
+. Primeiramente clone o projeto com o comando:
+$ git clone git@github.com:Matheusdev10/food-explorer-front.git
+
+. Depois instale as dependencias do projeto com este comando:
+npm install
+
+. Por fim inicie o servidor local:
+$ npm run dev
