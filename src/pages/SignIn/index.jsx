@@ -18,6 +18,12 @@ export function SignIn() {
     signIn({ email, password });
   }
 
+  function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+      handleSignIn();
+    }
+  }
+
   return (
     <Container>
       <div>
@@ -38,6 +44,7 @@ export function SignIn() {
 
         <label htmlFor="Password">Senha</label>
         <Input
+          onKeyPress={handleKeyPress}
           type="password"
           id="Password"
           placeholder="No mínimo 6 caracteres"
