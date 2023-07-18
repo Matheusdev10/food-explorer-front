@@ -18,8 +18,8 @@ export function SignUp() {
     if (!name || !email || !password) {
       return alert('Preencha todos os campos');
     }
-    api;
-    setLoading(true)
+    setLoading(true);
+    api
       .post('/users', { name, email, password })
       .then(() => {
         alert('Usuário cadastrado com sucesso');
