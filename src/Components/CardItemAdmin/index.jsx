@@ -3,6 +3,7 @@ import { FaAngleRight } from 'react-icons/fa';
 import iconEdit from '../../assets/iconEdit.svg';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { api } from '../../services/api';
 
 import formatterMoney from '../../utils/formatterMoney';
 
@@ -15,6 +16,7 @@ export function CardItemAdmin({ id, img, name, description, price }) {
     setProducts(product);
     navigate(`/products/${id}`);
   }
+  const imageURL = `${api.defaults.baseURL}/files/${img}`;
 
   return (
     <>
@@ -30,7 +32,7 @@ export function CardItemAdmin({ id, img, name, description, price }) {
             onClick={() => handleDetailsAdmin(product.id)}
             className="content"
           >
-            <img src={img} alt="imagem dos pratos" />
+            <img src={imageURL} alt="imagem dos pratos" />
           </div>
           <h4>
             {name}
