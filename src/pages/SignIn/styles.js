@@ -28,6 +28,8 @@ export const Form = styled.form`
   width: 29.75rem;
   height: 33.75rem;
   margin-top: 6rem;
+  justify-content: center;
+
   padding: 4rem;
   border-radius: 1rem;
   background: ${({ theme }) => theme.COLORS.BACKGROUND_700};
@@ -36,6 +38,36 @@ export const Form = styled.form`
   flex-direction: column;
   gap: 0.5rem;
 
+  h1 {
+    display: none;
+  }
+
+  > h1 {
+    margin-bottom: 1.93rem;
+    text-align: center;
+    color: ${({ theme }) => theme.COLORS.WHITE};
+    font-family: 'Poppins';
+    font-weight: 500;
+  }
+
+  > label {
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
+  }
+
+  > a {
+    text-align: center;
+    margin-top: 2rem;
+    color: ${({ theme }) => theme.COLORS.WHITE};
+    font-family: 'Poppins';
+    font-weight: 500;
+  }
+
+  > .btn {
+    margin-top: 1.125rem;
+    color: ${({ theme }) => theme.COLORS.WHITE};
+    font-family: 'Poppins';
+    font-weight: 500;
+  }
   @media only screen and (max-width: 480px) {
     width: 100%;
     padding: 10px;
@@ -43,36 +75,5 @@ export const Form = styled.form`
     justify-content: center;
     background: none;
     margin-top: -50px;
-
-    h1 {
-      display: none;
-    }
-
-    > h1 {
-      margin-bottom: 1.93rem;
-      text-align: center;
-      color: ${({ theme }) => theme.COLORS.WHITE};
-      font-family: 'Poppins';
-      font-weight: 500;
-    }
-
-    > label {
-      color: ${({ theme }) => theme.COLORS.GRAY_100};
-    }
-
-    > a {
-      text-align: center;
-      margin-top: 2rem;
-      color: ${({ theme }) => theme.COLORS.WHITE};
-      font-family: 'Poppins';
-      font-weight: 500;
-    }
-
-    > .btn {
-      margin-top: 1.125rem;
-      color: ${({ theme }) => theme.COLORS.WHITE};
-      font-family: 'Poppins';
-      font-weight: 500;
-    }
   }
 `;
