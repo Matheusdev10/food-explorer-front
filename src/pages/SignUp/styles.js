@@ -66,6 +66,7 @@ export const Form = styled.form`
     padding: 10px;
     display: flex;
     justify-content: center;
+    margin-top: 73px;
     background: none;
     h1 {
       display: none;

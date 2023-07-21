@@ -26,7 +26,7 @@ export function SignIn() {
 
   return (
     <Container>
-      <div className="ola">
+      <div className="logo">
         <img src={Logo} alt="icone de logo em forma hexagonal" />
         <h1>food explorer</h1>
       </div>

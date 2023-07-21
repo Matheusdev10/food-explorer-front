@@ -9,6 +9,7 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     padding: 65px;
+
     h1 {
       font-size: 1.5rem;
     }
@@ -26,7 +27,7 @@ export const Container = styled.div`
 
 export const Form = styled.form`
   width: 29.75rem;
-  height: 33.75rem;
+
   margin-top: 6rem;
   justify-content: center;
 
@@ -70,6 +71,9 @@ export const Form = styled.form`
     display: flex;
     justify-content: center;
     background: none;
+    display: flex;
+    margin-top: 73px;
+
     h1 {
       display: none;
     }
