@@ -5,6 +5,15 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-around;
   height: 100vh;
+  @media only screen and (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 65px;
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
 
   > div {
     display: flex;
@@ -51,5 +60,15 @@ export const Form = styled.form`
     margin-top: 2rem;
     color: ${({ theme }) => theme.COLORS.WHITE};
     font-family: 'Poppins';
+  }
+  @media only screen and (max-width: 480px) {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    background: none;
+    h1 {
+      display: none;
+    }
   }
 `;

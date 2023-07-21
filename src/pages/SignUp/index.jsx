@@ -36,6 +36,11 @@ export function SignUp() {
         }
       });
   }
+  function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+      handleSignUp();
+    }
+  }
 
   return (
     <Container>
@@ -53,6 +58,7 @@ export function SignUp() {
           }}
           type="name"
           value={name}
+          onKeyPress={handleKeyPress}
           id="Name"
           placeholder="Exemplo: Maria da Silva"
         />
@@ -64,6 +70,7 @@ export function SignUp() {
           }}
           type="email"
           value={email}
+          onKeyPress={handleKeyPress}
           id="Email"
           placeholder="Exemplo: exemplo@exemplo.com.br"
         />
@@ -73,6 +80,7 @@ export function SignUp() {
             setPassword(event.target.value);
           }}
           type="password"
+          onKeyPress={handleKeyPress}
           value={password}
           id="Senha"
           placeholder="No mínimo 6 caracteres"

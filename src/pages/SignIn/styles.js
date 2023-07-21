@@ -38,10 +38,6 @@ export const Form = styled.form`
   flex-direction: column;
   gap: 0.5rem;
 
-  h1 {
-    display: none;
-  }
-
   > h1 {
     margin-bottom: 1.93rem;
     text-align: center;
@@ -74,6 +70,8 @@ export const Form = styled.form`
     display: flex;
     justify-content: center;
     background: none;
-    margin-top: -50px;
+    h1 {
+      display: none;
+    }
   }
 `;

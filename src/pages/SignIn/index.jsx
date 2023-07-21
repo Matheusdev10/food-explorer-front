@@ -37,6 +37,7 @@ export function SignIn() {
         <label htmlFor="Email">Email</label>
         <Input
           type="email"
+          onKeyPress={handleKeyPress}
           id="Email"
           placeholder="Exemplo: exemplo@exemplo.com.br"
           onChange={(e) => setEmail(e.target.value)}
