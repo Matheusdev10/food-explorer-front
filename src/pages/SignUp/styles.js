@@ -14,6 +14,15 @@ export const Container = styled.div`
       font-size: 1.5rem;
     }
   }
+  animation: puff-in-center 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+
+  @keyframes puff-in-center {
+    0% {
+      transform: scale(5);
+      filter: blur(4px);
+      opacity: 0;
+    }
+  }
 
   > div {
     display: flex;
