@@ -12,7 +12,13 @@ export const Container = styled.div`
   top: 0;
   left: 0;
   z-index: 1;
-
+  @media only screen and (max-width: 768px) {
+    background: blue;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+  }
   > .logo {
     display: flex;
     align-items: center;
@@ -68,4 +74,7 @@ export const Button = styled.button`
   border: none;
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-family: 'Poppins';
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `;

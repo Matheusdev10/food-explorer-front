@@ -6,7 +6,9 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
   margin-bottom: 0.5rem;
   border-radius: 0.5rem;
-
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
   > input {
     height: 3rem;
     width: 100%;
