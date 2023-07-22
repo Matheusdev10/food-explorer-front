@@ -5,11 +5,11 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-around;
   height: 100vh;
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 768px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 65px;
+    padding: 40px;
     h1 {
       font-size: 1.5rem;
     }
@@ -61,7 +61,7 @@ export const Form = styled.form`
     color: ${({ theme }) => theme.COLORS.WHITE};
     font-family: 'Poppins';
   }
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 768px) {
     width: 100%;
     padding: 10px;
     display: flex;
