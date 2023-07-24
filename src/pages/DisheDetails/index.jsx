@@ -57,8 +57,10 @@ export function DisheDetails() {
               <p>voltar</p>
             </Link>
           </div>
-
-          <img src={data && data.img} alt="img dos pratos do projeto" />
+          <img
+            src={`${api.defaults.baseURL}/files/${data && data.img}`}
+            alt="img dos pratos do projeto"
+          />
         </div>
 
         <Box>

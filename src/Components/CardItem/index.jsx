@@ -3,7 +3,7 @@ import { Box, Container } from './styles';
 import { useNavigate } from 'react-router-dom';
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import { FaAngleRight } from 'react-icons/fa';
-
+import { api } from '../../services/api';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import formatterMoney from '../../utils/formatterMoney';
 import { useState } from 'react';
@@ -29,6 +29,8 @@ export function CardItem({ id, img, name, description, price }) {
     }
   }
 
+  const imageURL = `${api.defaults.baseURL}/files/${img}`;
+
   return (
     <>
       <Container>
@@ -49,7 +51,7 @@ export function CardItem({ id, img, name, description, price }) {
           )}
 
           <div onClick={() => handleDetails(product.id)} className="content">
-            <img src={img} alt="imagem dos pratos do projeto" />
+            <img src={imageURL} alt="imagem dos pratos do projeto" />
           </div>
           <h4>
             {name}

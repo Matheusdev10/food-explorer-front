@@ -16,6 +16,7 @@ export function CardItemAdmin({ id, img, name, description, price }) {
     setProducts(product);
     navigate(`/products/${id}`);
   }
+
   const imageURL = `${api.defaults.baseURL}/files/${img}`;
 
   return (

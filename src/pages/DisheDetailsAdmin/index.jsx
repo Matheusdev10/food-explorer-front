@@ -30,6 +30,7 @@ export function DisheDetailsAdmin() {
   function handleBack() {
     navigate(-1);
   }
+  // const imageURL = `${api.defaults.baseURL}/files/${img}`;
 
   return (
     <>
@@ -40,7 +41,10 @@ export function DisheDetailsAdmin() {
             <FaAngleLeft />
             <p onClick={handleBack}>voltar</p>
           </div>
-          <img src={data && data.img} alt="img de uma salada" />
+          <img
+            src={`${api.defaults.baseURL}/files/${data && data.img}`}
+            alt="img dos pratos"
+          />
         </div>
 
         <Box>
