@@ -21,6 +21,12 @@ export const Box = styled.div`
   justify-content: space-between;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
   border-radius: 0.5rem;
+  @media only screen and (max-width: 768px) {
+    background: blue;
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
 
   > div img {
     position: absolute;
