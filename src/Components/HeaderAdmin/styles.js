@@ -13,12 +13,12 @@ export const Container = styled.div`
   left: 0;
   z-index: 1;
   @media only screen and (max-width: 768px) {
-    background: blue;
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 0;
   }
+
   > .logo {
     display: flex;
     align-items: center;
@@ -32,6 +32,7 @@ export const Container = styled.div`
     p {
       color: ${({ theme }) => theme.COLORS.BLUE_50};
     }
+
     > .text {
       background: none;
       display: flex;
@@ -40,7 +41,14 @@ export const Container = styled.div`
       margin-top: 0.9375rem;
     }
   }
-
+  > .input {
+    width: 100%;
+  }
+  @media only screen and (max-width: 768px) {
+    > .input {
+      display: none;
+    }
+  }
   div {
     background: #0d1d25;
     border: none;

@@ -40,10 +40,10 @@ export function HomeAdmin() {
       <HeaderAdmin filterText={filterText} onFilterTextChange={setFilterText} />
       <Container>
         <Box>
-          <div>
+          <div className="img">
             <img src={imgHeader} alt="logo header" />
           </div>
-          <div>
+          <div className="card">
             <h1>Sabores inigualáveis</h1>
             <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
           </div>

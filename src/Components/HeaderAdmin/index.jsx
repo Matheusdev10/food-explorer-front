@@ -24,14 +24,14 @@ export function HeaderAdmin({ filterText, onFilterTextChange }) {
           <p>admin</p>
         </div>
       </div>
-
-      <Input
-        className="input"
-        icon={FiSearch}
-        value={filterText}
-        onChange={(e) => onFilterTextChange(e.target.value)}
-        placeholder="Busque por pratos ou ingredientes"
-      />
+      <div className="input">
+        <Input
+          icon={FiSearch}
+          value={filterText}
+          onChange={(e) => onFilterTextChange(e.target.value)}
+          placeholder="Busque por pratos ou ingredientes"
+        />
+      </div>
       <Button onClick={() => navigate('/addDishe')}>Novo prato</Button>
       <button className="logOff" onClick={handleSignOut}>
         <FiLogOut />

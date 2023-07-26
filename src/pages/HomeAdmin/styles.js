@@ -21,17 +21,12 @@ export const Box = styled.div`
   justify-content: space-between;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
   border-radius: 0.5rem;
-  @media only screen and (max-width: 768px) {
-    background: blue;
-    display: flex;
-    align-items: center;
-    padding: 0;
-  }
 
   > div img {
     position: absolute;
     margin-bottom: 9rem;
   }
+
   > div {
     width: 100%;
     margin: auto;
@@ -50,18 +45,29 @@ export const Box = styled.div`
     font-size: 1.0625rem;
   }
 
-  @media only screen and (max-width: 1024px) {
-    width: 90%;
-    > div img {
-      margin-left: 5%;
+  @media only screen and (max-width: 768px) {
+    > .img {
+      position: absolute;
+    }
+
+    > .card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 0;
+      margin-top: 60px;
+
+      width: 100vh;
+      height: 100%;
     }
 
     > div h1 {
-      font-size: 40px;
+      font-size: 20px;
     }
 
     > div p {
       font-size: 15px;
+      text-align: center;
     }
   }
 `;
