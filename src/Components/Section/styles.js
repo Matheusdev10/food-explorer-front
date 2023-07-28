@@ -16,8 +16,6 @@ export const Carousel = styled.div`
   padding: 5%;
   @media only screen and (max-width: 768px) {
     padding-bottom: 5%;
-    padding-left: 0;
-    padding-right: 0;
   }
 
   > div {
@@ -32,7 +30,6 @@ export const Carousel = styled.div`
   .btn-left,
   .btn-right {
     position: absolute;
-
     height: 37.5rem;
     padding-inline: 1rem;
     color: ${({ theme }) => theme.COLORS.WHITE};
@@ -78,10 +75,8 @@ export const Carousel = styled.div`
   @media (max-width: 768px) {
     .btn-left,
     .btn-right {
-      display: flex;
-      align-items: center;
-      transition: all ease 0.5s;
-      opacity: 0;
+      transition: all ease 0.2s;
+      opacity: 1;
     }
     &:hover {
       .btn-left,

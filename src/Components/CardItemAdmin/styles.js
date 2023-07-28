@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   margin: auto;
-  padding: 2px;
 `;
 
 export const Box = styled.div`
@@ -76,7 +75,8 @@ export const Box = styled.div`
       font-size: 17px;
     }
 
-    > p {
+    > span {
+      font-size: 25px;
     }
   }
 `;
