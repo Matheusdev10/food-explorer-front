@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   margin: auto;
+  padding: 2px;
 `;
 
 export const Box = styled.div`
@@ -11,13 +12,17 @@ export const Box = styled.div`
   background-color: ${({ theme }) => theme.COLORS.DARK_200};
   margin-top: 2.5rem;
   display: flex;
-
   flex-direction: column;
-  cursor: pointer;
+  @media (max-width: 768px) {
+    padding: 15px;
+    width: 210px;
+    heigth: 292px;
+  }
 
-  > img {
-    padding: 0 14.375rem;
-    margin: auto;
+  > .icone {
+    z-index: 0;
+    display: flex;
+    justify-content: end;
   }
 
   > .content {
@@ -49,5 +54,29 @@ export const Box = styled.div`
     color: ${({ theme }) => theme.COLORS.BLUE_50};
     margin: auto;
     padding-bottom: 3.125rem;
+  }
+
+  @media (max-width: 768px) {
+    img:first-child {
+      position: relative;
+      size: 10px;
+    }
+    .content {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    div img {
+      width: 90px;
+      height: 90px;
+    }
+
+    > h4 {
+      font-size: 17px;
+    }
+
+    > p {
+    }
   }
 `;

@@ -9,11 +9,16 @@ export const Container = styled.section`
   }
   @media only screen and (max-width: 1024px) {
     width: 100%;
-    padding: 5%;
   }
 `;
 export const Carousel = styled.div`
   position: relative;
+  padding: 5%;
+  @media only screen and (max-width: 768px) {
+    padding-bottom: 5%;
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   > div {
     display: flex;
@@ -67,6 +72,22 @@ export const Carousel = styled.div`
       .btn-right {
         opacity: 1;
         z-index: 0;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .btn-left,
+    .btn-right {
+      display: flex;
+      align-items: center;
+      transition: all ease 0.5s;
+      opacity: 0;
+    }
+    &:hover {
+      .btn-left,
+      .btn-right {
+        opacity: 0;
+        z-index: 1;
       }
     }
   }

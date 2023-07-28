@@ -1,6 +1,6 @@
 import { Box, Container } from './styles';
 import { FaAngleRight } from 'react-icons/fa';
-import iconEdit from '../../assets/iconEdit.svg';
+import { PencilSimple } from 'phosphor-react';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { api } from '../../services/api';
@@ -23,11 +23,14 @@ export function CardItemAdmin({ id, img, name, description, price }) {
     <>
       <Container>
         <Box>
-          <img
+          <div className="icone" onClick={() => navigate(`/editDishe/${id}`)}>
+            <PencilSimple size={32} fill="red" />
+          </div>
+          {/* <img
             onClick={() => navigate(`/editDishe/${id}`)}
-            src={iconEdit}
+       
             alt="imagem de um icone a direita em formato de lapis"
-          />
+          /> */}
 
           <div
             onClick={() => handleDetailsAdmin(product.id)}
