@@ -16,6 +16,7 @@ export const Box = styled.div`
     padding: 15px;
     width: 210px;
     heigth: 292px;
+    overflow-x: hidden;
   }
 
   > .icone {
@@ -67,8 +68,8 @@ export const Box = styled.div`
     }
 
     div img {
-      width: 90px;
-      height: 90px;
+      width: 100px;
+      height: 100px;
     }
 
     > h4 {

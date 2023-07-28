@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.section`
   width: 100%;
+
   > h2 {
     font-size: 2rem;
     margin-top: 3.9375rem;
@@ -13,9 +14,12 @@ export const Container = styled.section`
 `;
 export const Carousel = styled.div`
   position: relative;
+  background-color: blue;
   padding: 5%;
   @media only screen and (max-width: 768px) {
     padding-bottom: 5%;
+    overflow-x: hidden;
+    overflow-y: hidden;
   }
 
   > div {
@@ -76,13 +80,17 @@ export const Carousel = styled.div`
     .btn-left,
     .btn-right {
       transition: all ease 0.2s;
-      opacity: 1;
+      opacity: 0;
     }
     &:hover {
       .btn-left,
       .btn-right {
-        opacity: 0;
-        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all ease 0.2s;
+        opacity: 1;
+        z-index: 0;
       }
     }
   }
