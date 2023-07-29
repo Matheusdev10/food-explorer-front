@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   margin: auto;
+  padding: 15px;
 `;
 
 export const Box = styled.div`
@@ -14,8 +15,11 @@ export const Box = styled.div`
   flex-direction: column;
   @media (max-width: 768px) {
     padding: 15px;
-    width: 210px;
-    heigth: 292px;
+    width: 250px;
+
+    height: 100%;
+
+    margin: auto;
     overflow-x: hidden;
   }
 
@@ -68,8 +72,8 @@ export const Box = styled.div`
     }
 
     div img {
-      width: 100px;
-      height: 100px;
+      width: 150px;
+      height: 150px;
     }
 
     > h4 {

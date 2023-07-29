@@ -14,10 +14,9 @@ export const Container = styled.section`
 `;
 export const Carousel = styled.div`
   position: relative;
-  background-color: blue;
-  padding: 5%;
+
+  /* padding: 5%; */
   @media only screen and (max-width: 768px) {
-    padding-bottom: 5%;
     overflow-x: hidden;
     overflow-y: hidden;
   }
@@ -80,18 +79,7 @@ export const Carousel = styled.div`
     .btn-left,
     .btn-right {
       transition: all ease 0.2s;
-      opacity: 0;
-    }
-    &:hover {
-      .btn-left,
-      .btn-right {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all ease 0.2s;
-        opacity: 1;
-        z-index: 0;
-      }
+      opacity: 1;
     }
   }
 `;
