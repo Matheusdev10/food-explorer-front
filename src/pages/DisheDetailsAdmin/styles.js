@@ -83,12 +83,10 @@ export const Box = styled.div`
 
     .btn {
       display: flex;
+      margin-top: -48px;
       padding: 5rem;
       justify-content: center;
       align-items: center;
-
-      height: 100%;
-
       margin-bottom: 10px;
     }
   }
