@@ -52,7 +52,6 @@ export const Container = styled.div`
 
     .rights {
       p {
-        background-color: blue;
         font-size: 8px;
         width: max-content;
       }
