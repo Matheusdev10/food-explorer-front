@@ -7,6 +7,12 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   gap: 3rem;
+  @media (max-width: 768px) {
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    gap: 0;
+  }
 
   > .dishe {
     font-size: 1.5rem;
@@ -18,16 +24,31 @@ export const Container = styled.div`
       cursor: pointer;
     }
 
-    > img {
-      height: 24.375rem;
-      width: 24.375rem;
-      margin-top: 2.62rem;
+    > .imageDishe {
+      img {
+        height: 24.375rem;
+        width: 24.375rem;
+        margin-top: 2.62rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      > .back {
+        display: flex;
+        margin-top: 120px;
+      }
+    }
+    > .imageDishe {
+      img {
+        width: 300px;
+        height: 300px;
+      }
     }
   }
 `;
 
 export const Box = styled.div`
-  margin-top: 5rem;
+  margin-top: 3rem;
   > section {
     > h2 {
       font-size: 2.5rem;
@@ -41,5 +62,34 @@ export const Box = styled.div`
 
   .btn {
     margin-top: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    > section {
+      text-align: center;
+
+      h2 {
+        width: max-content;
+        font-size: 30px;
+        text-align: center;
+        width: 100%;
+      }
+
+      > p {
+        font-size: 20px;
+        text-align: center;
+      }
+    }
+
+    .btn {
+      display: flex;
+      padding: 5rem;
+      justify-content: center;
+      align-items: center;
+
+      height: 100%;
+
+      margin-bottom: 10px;
+    }
   }
 `;
