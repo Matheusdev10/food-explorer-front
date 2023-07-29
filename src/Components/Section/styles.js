@@ -79,7 +79,7 @@ export const Carousel = styled.div`
     .btn-left,
     .btn-right {
       transition: all ease 0.2s;
-      opacity: 1;
+      opacity: 0;
     }
   }
 `;
