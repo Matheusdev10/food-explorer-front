@@ -12,6 +12,12 @@ export const Container = styled.div`
   position: fixed;
   bottom: 0;
   z-index: 1;
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+  }
 
   > .logo {
     display: flex;
@@ -35,6 +41,21 @@ export const Container = styled.div`
     > p {
       font-family: 'DM Sans', sans-serif;
       font-size: 0.875rem;
+    }
+  }
+  @media (max-width: 768px) {
+    > .logo {
+      h1 {
+        font-size: 15px;
+      }
+    }
+
+    .rights {
+      p {
+        background-color: blue;
+        font-size: 8px;
+        width: max-content;
+      }
     }
   }
 `;
