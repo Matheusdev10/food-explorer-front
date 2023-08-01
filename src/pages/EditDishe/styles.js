@@ -3,15 +3,36 @@ import styled from 'styled-components';
 export const Container = styled.div`
   padding: 7.5rem;
   width: 100%;
-
-  > .back {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+  @media (max-width: 1153px) {
+    padding: 1rem;
 
     p {
-      font-size: 1.5rem;
-      font-weight: bold;
+      width: max-content;
+    }
+    > .box {
+      margin-top: 100px;
+      > .back {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        p {
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  > .box {
+    > .back {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      p {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
     }
   }
 
@@ -25,6 +46,10 @@ export const Form = styled.form`
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
+  @media (max-width: 1153px) {
+    display: flex;
+    flex-direction: column;
+  }
 
   .input {
     margin-top: 1rem;
@@ -53,7 +78,6 @@ export const Form = styled.form`
     label {
       height: 3rem;
       width: 100%;
-      /* padding: 0.75rem; */
       padding: 0.9375rem;
       color: ${({ theme }) => theme.COLORS.WHITE};
       background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
@@ -83,12 +107,11 @@ export const Form = styled.form`
     flex-direction: column;
 
     > label {
-      height: 100%;
-
+      margin-bottom: -1px;
       font-family: 'Roboto';
       font-style: normal;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 14px;
       line-height: 100%;
 
       color: ${({ theme }) => theme.COLORS.WHITE};
@@ -96,6 +119,7 @@ export const Form = styled.form`
     > select {
       border: none;
       display: flex;
+      margin-top: 20px;
       justify-content: space-between;
       background: ${({ theme }) => theme.COLORS.BACKGROUND_500};
       border-color: ${({ theme }) => theme.COLORS.WHITE};
@@ -123,10 +147,7 @@ export const Form = styled.form`
     list-style: none;
     padding: 0.2em 0.5em;
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
-    /* border: 0.0625rem #363a42 solid; */
-    /* box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2); */
     border-radius: 0.5em;
-    /* color: #9fa5b5; */
     color: ${({ theme }) => theme.COLORS.GRAY_100};
     position: absolute;
     top: 3em;
@@ -150,12 +171,13 @@ export const Form = styled.form`
   }
 
   .tags {
-    height: 3rem;
+    max-height: 100%;
     border-radius: 0.5rem;
-    padding: 0.5rem;
     background: ${({ theme }) => theme.COLORS.BACKGROUND_500};
     display: flex;
     align-items: center;
+    justify-content: center;
+    padding-top: 0.5rem;
     gap: 1.5rem;
     flex-wrap: wrap;
     margin-top: 1rem;
@@ -178,7 +200,6 @@ export const Form = styled.form`
     width: 20%;
     display: flex;
     justify-content: end;
-
     button {
       background: ${({ theme }) => theme.COLORS.PINK_50};
       height: 3rem;
@@ -195,7 +216,7 @@ export const Form = styled.form`
 
   .button {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     width: 100%;
     gap: 2rem;
   }
@@ -216,6 +237,41 @@ export const Form = styled.form`
       &:disabled {
         opacity: 0.5;
       }
+    }
+  }
+  @media (max-width: 1153px) {
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6 {
+      width: 100%;
+      margin-top: 0;
+    }
+    .tags {
+      height: 100%;
+      padding-top: 0.5rem;
+    }
+    .col-2 {
+      margin-top: -50px;
+    }
+
+    .col-4 {
+      margin-top: -50px;
+    }
+
+    .button {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      gap: 2rem;
+    }
+    .btn-delete {
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 100px;
     }
   }
 `;

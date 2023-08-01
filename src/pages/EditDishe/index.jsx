@@ -106,11 +106,13 @@ export function EditDishe() {
     <>
       <HeaderAdmin />
       <Container>
-        <div onClick={handleBack} className="back">
-          <FaAngleLeft size={24} />
-          <p>voltar</p>
+        <div className="box">
+          <div onClick={handleBack} className="back">
+            <FaAngleLeft size={24} />
+            <p>voltar</p>
+          </div>
+          <h1>Editar prato</h1>
         </div>
-        <h1>Editar prato</h1>
         <Form
           onSubmit={(e) => {
             e.preventDefault();
