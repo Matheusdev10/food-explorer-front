@@ -9,7 +9,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 40px;
+    padding: 20px;
     h1 {
       font-size: 1.5rem;
     }
