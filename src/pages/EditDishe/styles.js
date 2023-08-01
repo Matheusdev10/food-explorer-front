@@ -176,8 +176,9 @@ export const Form = styled.form`
     background: ${({ theme }) => theme.COLORS.BACKGROUND_500};
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     padding-top: 0.5rem;
+    padding-left: 10px;
     gap: 1.5rem;
     flex-wrap: wrap;
     margin-top: 1rem;
