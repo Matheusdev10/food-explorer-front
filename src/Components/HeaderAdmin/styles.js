@@ -5,6 +5,7 @@ export const Container = styled.div`
   width: 100%;
   height: 6.5rem;
   display: flex;
+
   align-items: center;
   gap: 2rem;
   background: #00111a;
@@ -58,11 +59,50 @@ export const Container = styled.div`
         }
       }
     }
+    .iconCloseAndMenu,
+    .modalMobile {
+    }
 
     @media only screen and (max-width: 768px) {
-      > .menu {
+      > .iconCloseAndMenu {
         opacity: 1;
+
         background-color: transparent;
+        > .modalMobile {
+          li {
+            list-style: none;
+          }
+
+          position: fixed;
+          width: 100%;
+          height: 100%;
+          width: 150px;
+          height: 150px;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          padding-left: 10px;
+          font-size: 20px;
+          .back {
+            display: flex;
+            gap: 10px;
+            background-color: transparent;
+            align-items: center;
+          }
+          .newDishe {
+            display: flex;
+            gap: 10px;
+            background-color: transparent;
+            align-items: center;
+          }
+          .exit {
+            display: flex;
+            gap: 10px;
+            background-color: transparent;
+            align-items: center;
+          }
+        }
       }
       display: flex;
       justify-content: space-evenly;
