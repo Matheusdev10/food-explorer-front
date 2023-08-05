@@ -3,9 +3,10 @@ import styled from 'styled-components';
 export const Container = styled.div`
   padding: 0 7.68rem;
   width: 100%;
+
+  margin-inline: auto;
   height: 6.5rem;
   display: flex;
-
   align-items: center;
   gap: 2rem;
   background: #00111a;
@@ -29,10 +30,6 @@ export const Container = styled.div`
     background-color: transparent;
     justify-content: center;
     gap: 0.9375rem;
-
-    > .menu {
-      opacity: 0;
-    }
 
     > .box {
       display: flex;
@@ -59,8 +56,13 @@ export const Container = styled.div`
         }
       }
     }
-    .iconCloseAndMenu,
+
     .modalMobile {
+      opacity: 0;
+    }
+
+    .iconCloseAndMenu {
+      opacity: 0;
     }
 
     @media only screen and (max-width: 768px) {
@@ -69,6 +71,7 @@ export const Container = styled.div`
 
         background-color: transparent;
         > .modalMobile {
+          opacity: 1;
           li {
             list-style: none;
           }
@@ -76,8 +79,8 @@ export const Container = styled.div`
           position: fixed;
           width: 100%;
           height: 100%;
-          width: 150px;
-          height: 150px;
+          width: 170px;
+          height: 170px;
           border-radius: 10px;
           display: flex;
           flex-direction: column;
