@@ -250,6 +250,11 @@ export const Form = styled.form`
       width: 100%;
       margin-top: 0;
     }
+    .col-1 {
+      label {
+        text-align: center;
+      }
+    }
     .tags {
       height: 100%;
       padding-top: 0.5rem;

@@ -5,6 +5,7 @@ import { Input } from '../Input';
 import { Button } from './styles';
 import { useAuth } from '../../hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import { AiOutlineMenu } from 'react-icons/ai';
 
 export function HeaderAdmin({ filterText, onFilterTextChange }) {
   const { signOut } = useAuth();
@@ -18,10 +19,17 @@ export function HeaderAdmin({ filterText, onFilterTextChange }) {
   return (
     <Container>
       <div className="logo">
-        <img src={Logo} alt="Logo azul em formato de hexagono" />
-        <div className="text">
-          <h1>food explorer</h1>
-          <p>admin</p>
+        <div className="menu">
+          <AiOutlineMenu size={30} opacity={1} />
+        </div>
+        <div className="box">
+          <div className="imgLogo">
+            <img src={Logo} alt="Logo azul em formato de hexagono" />
+          </div>
+          <div className="text">
+            <h1>food explorer</h1>
+            <p>admin</p>
+          </div>
         </div>
       </div>
       <div className="input">

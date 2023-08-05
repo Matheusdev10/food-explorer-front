@@ -12,6 +12,7 @@ export const Container = styled.div`
   top: 0;
   left: 0;
   z-index: 1;
+
   @media only screen and (max-width: 768px) {
     display: flex;
     justify-content: space-around;
@@ -22,23 +23,63 @@ export const Container = styled.div`
   > .logo {
     display: flex;
     align-items: center;
-    background: none;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    justify-content: center;
     gap: 0.9375rem;
+
+    > .menu {
+      opacity: 0;
+    }
+
+    > .box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: transparent;
+      > .imgLogo {
+        background-color: transparent;
+      }
+      > .text {
+        background: none;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        margin-top: 0.9375rem;
+        @media only screen and (max-width: 768px) {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 8px;
+          margin-top: -3px;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      > .menu {
+        opacity: 1;
+        background-color: transparent;
+      }
+      display: flex;
+      justify-content: space-evenly;
+    }
 
     h1 {
       font-size: 1.5625rem;
       width: max-content;
+      @media only screen and (max-width: 768px) {
+        font-size: 15px;
+      }
     }
     p {
       color: ${({ theme }) => theme.COLORS.BLUE_50};
-    }
-
-    > .text {
-      background: none;
-      display: flex;
-      flex-direction: column;
-      align-items: end;
-      margin-top: 0.9375rem;
+      @media only screen and (max-width: 768px) {
+        font-size: 10px;
+        width: max-content;
+      }
     }
   }
   > .input {
@@ -63,6 +104,9 @@ export const Container = styled.div`
     align-items: center;
     width: 2rem;
     height: 2rem;
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
 
     svg {
       font-size: 2rem;
