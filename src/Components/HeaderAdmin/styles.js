@@ -38,6 +38,7 @@ export const Container = styled.div`
       align-items: center;
       justify-content: center;
       gap: 10px;
+
       background-color: transparent;
       > .imgLogo {
         background-color: transparent;

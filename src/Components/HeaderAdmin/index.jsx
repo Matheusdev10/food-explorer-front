@@ -3,11 +3,14 @@ import { Container } from './styles';
 import Logo from '../../assets/logo.svg';
 import { Input } from '../Input';
 import { Button } from './styles';
+import { useState } from 'react';
 import { useAuth } from '../../hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineMenu } from 'react-icons/ai';
+import { AiOutlineClose } from 'react-icons/ai';
 
 export function HeaderAdmin({ filterText, onFilterTextChange }) {
+  const [isClose, setIsClose] = useState(false);
   const { signOut } = useAuth();
   const navigate = useNavigate();
 
@@ -20,7 +23,15 @@ export function HeaderAdmin({ filterText, onFilterTextChange }) {
     <Container>
       <div className="logo">
         <div className="menu">
-          <AiOutlineMenu size={30} opacity={1} />
+          {isClose ? (
+            <AiOutlineMenu
+              onClick={() => setIsClose(false)}
+              size={25}
+              opacity={1}
+            />
+          ) : (
+            <AiOutlineClose onClick={() => setIsClose(true)} size={25} />
+          )}
         </div>
         <div className="box">
           <div className="imgLogo">
