@@ -63,9 +63,11 @@ export function AddDishe() {
     <>
       <HeaderAdmin />
       <Container>
-        <div onClick={handleBack} className="back">
-          <FaAngleLeft size={24} />
-          <p>voltar</p>
+        <div className="box">
+          <div onClick={handleBack} className="back">
+            <FaAngleLeft size={24} />
+            <p>voltar</p>
+          </div>
         </div>
         <h1>Adicionar prato</h1>
         <Form>

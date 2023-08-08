@@ -68,7 +68,6 @@ export const Container = styled.div`
     @media only screen and (max-width: 768px) {
       > .iconCloseAndMenu {
         opacity: 1;
-
         background-color: transparent;
         > .modalMobile {
           opacity: 1;
@@ -115,7 +114,7 @@ export const Container = styled.div`
       font-size: 1.5625rem;
       width: max-content;
       @media only screen and (max-width: 768px) {
-        font-size: 15px;
+        font-size: 20px;
       }
     }
     p {
