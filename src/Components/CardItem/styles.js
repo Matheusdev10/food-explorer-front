@@ -12,12 +12,11 @@ export const Box = styled.div`
   display: flex;
   flex-direction: column;
   cursor: pointer;
-
-  > button {
-    background: none;
-    border: none;
-    padding-left: 13.75rem;
-    position: relative;
+  @media (max-width: 768px) {
+    width: auto;
+    height: 100%;
+    margin: auto;
+    overflow-x: hidden;
   }
 
   > .content {
@@ -30,12 +29,13 @@ export const Box = styled.div`
     margin-bottom: 0.9375rem;
   }
 
-  > h4 {
-    font-size: 1.5rem;
+  > .productName {
     display: flex;
     align-items: center;
-    margin: auto;
+    justify-content: center;
+    font-size: 19px;
   }
+
   > p {
     margin-top: 0.9375rem;
     margin-bottom: 0.9375rem;
@@ -48,6 +48,27 @@ export const Box = styled.div`
     color: ${({ theme }) => theme.COLORS.BLUE_50};
     margin: auto;
     margin-top: 0.9375rem;
+  }
+
+  @media (max-width: 768px) {
+    img:first-child {
+      position: relative;
+      size: 10px;
+    }
+    .content {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    div img {
+      width: 150px;
+      height: 150px;
+    }
+
+    > span {
+      font-size: 25px;
+    }
   }
 
   .addItems {

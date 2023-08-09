@@ -53,10 +53,10 @@ export function CardItem({ id, img, name, description, price }) {
           <div onClick={() => handleDetails(product.id)} className="content">
             <img src={imageURL} alt="imagem dos pratos do projeto" />
           </div>
-          <h4>
-            {name}
+          <div className="productName">
+            <h4>{name}</h4>
             <FaAngleRight />
-          </h4>
+          </div>
           <p>{description}</p>
           <span>{`${formatterMoney(price)}`}</span>
           <div className="addItems">
@@ -67,12 +67,14 @@ export function CardItem({ id, img, name, description, price }) {
             <button onClick={handleAdd} className="btn">
               <FiPlus size={25} />
             </button>
-            <Button
-              onClick={() => {
-                count;
-              }}
-              title={'incluir'}
-            />
+            <div className="btnInclude">
+              <Button
+                onClick={() => {
+                  count;
+                }}
+                title={'incluir'}
+              />
+            </div>
           </div>
         </Box>
       </Container>

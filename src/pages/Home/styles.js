@@ -41,7 +41,7 @@ export const Box = styled.div`
     color: ${({ theme }) => theme.COLORS.GRAY_50};
     font-size: 1.0625rem;
   }
-  @media only screen and (max-width: 1024px) {
+  /* @media only screen and (max-width: 1024px) {
     width: 90%;
     > div img {
       margin-left: 5%;
@@ -53,6 +53,31 @@ export const Box = styled.div`
 
     > div p {
       font-size: 15px;
+    }
+  } */
+  @media only screen and (max-width: 768px) {
+    > .img {
+      position: absolute;
+    }
+
+    > .card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 0;
+      margin-top: 60px;
+
+      width: 100vh;
+      height: 100%;
+    }
+
+    > div h1 {
+      font-size: 20px;
+    }
+
+    > div p {
+      font-size: 15px;
+      text-align: center;
     }
   }
 `;

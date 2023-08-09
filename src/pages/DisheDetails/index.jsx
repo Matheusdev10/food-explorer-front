@@ -69,7 +69,7 @@ export function DisheDetails() {
             <p>{data && data.description}</p>
             {data && data.tags.map((tag) => <TagItem key={tag} title={tag} />)}
 
-            <div>
+            <div className="include">
               <button onClick={handleSubtract} className="btn">
                 <FiMinus size={25} />
               </button>

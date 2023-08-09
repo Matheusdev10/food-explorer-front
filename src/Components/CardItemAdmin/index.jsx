@@ -26,11 +26,6 @@ export function CardItemAdmin({ id, img, name, description, price }) {
           <div className="icone" onClick={() => navigate(`/editDishe/${id}`)}>
             <PencilSimple size={32} fill="red" />
           </div>
-          {/* <img
-            onClick={() => navigate(`/editDishe/${id}`)}
-       
-            alt="imagem de um icone a direita em formato de lapis"
-          /> */}
 
           <div
             onClick={() => handleDetailsAdmin(product.id)}

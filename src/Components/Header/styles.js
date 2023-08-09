@@ -12,6 +12,12 @@ export const Container = styled.div`
   top: 0;
   left: 0;
   z-index: 2;
+  @media only screen and (max-width: 768px) {
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
 
   div {
     background: #0d1d25;
@@ -23,11 +29,87 @@ export const Container = styled.div`
     align-items: center;
     gap: 0.9375rem;
     background: #00111a;
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+      justify-content: space-around;
+
+      > .iconCloseAndMenu {
+        opacity: 1;
+        display: flex;
+        background-color: transparent;
+        > .modalMobile {
+          opacity: 1;
+          li {
+            list-style: none;
+          }
+          position: fixed;
+          width: 100%;
+          height: 100%;
+          width: 140px;
+          height: 140px;
+          margin-top: 30px;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          padding-left: 10px;
+          font-size: 20px;
+          .back {
+            display: flex;
+            gap: 10px;
+            background-color: transparent;
+            align-items: center;
+          }
+          .exit {
+            display: flex;
+            gap: 10px;
+            background-color: transparent;
+            align-items: center;
+          }
+        }
+      }
+    }
+    .iconLogoText {
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+      width: 100%;
+    }
 
     h1 {
       font-size: 1.5625rem;
       width: max-content;
     }
+  }
+
+  .input {
+    width: 100%;
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .iconPedido {
+    opacity: 0;
+    @media only screen and (max-width: 768px) {
+      opacity: 1;
+      background-color: transparent;
+    }
+  }
+
+  .modalMobile {
+    opacity: 0;
+  }
+
+  .iconCloseAndMenu {
+    opacity: 0;
   }
 
   > .favoriteButton {
@@ -62,6 +144,9 @@ export const Container = styled.div`
     align-items: center;
     width: 2rem;
     height: 2rem;
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
 
     svg {
       font-size: 2rem;
@@ -83,4 +168,7 @@ export const Button = styled.button`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `;
