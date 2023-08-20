@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
   padding: 0 7.68rem;
   width: 100%;
-
   margin-inline: auto;
   height: 6.5rem;
   display: flex;
@@ -41,6 +40,7 @@ export const Container = styled.div`
       > .imgLogo {
         background-color: transparent;
       }
+
       > .text {
         background: none;
         display: flex;
@@ -126,7 +126,7 @@ export const Container = styled.div`
     }
   }
   > .input {
-    width: 100%;
+    width: 200%;
   }
   @media only screen and (max-width: 768px) {
     > .input {

@@ -94,4 +94,7 @@ export const Box = styled.div`
       z-index: 1;
     }
   }
+  .btnInclude {
+    z-index: 1;
+  }
 `;

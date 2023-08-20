@@ -24,7 +24,7 @@ export const Box = styled.div`
   }
 
   > .icone {
-    z-index: 1;
+    z-index: 0;
     display: flex;
     justify-content: end;
   }
@@ -37,6 +37,7 @@ export const Box = styled.div`
     width: 11rem;
     height: 11rem;
     margin-bottom: 0.9375rem;
+    cursor: pointer;
   }
 
   > h4 {
