@@ -27,6 +27,7 @@ export const Box = styled.div`
     z-index: 0;
     display: flex;
     justify-content: end;
+    cursor: pointer;
   }
 
   > .content {
