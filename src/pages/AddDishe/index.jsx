@@ -45,7 +45,6 @@ export function AddDishe() {
 
       await api.post('/products', payLoad);
 
-      alert('Produto cadastrado com sucesso');
       navigate('/');
     } catch (error) {
       if (error.response) {
@@ -94,7 +93,6 @@ export function AddDishe() {
               />
             </div>
           </div>
-
           <div className="col-3">
             <label for="category">Categoria</label>
             <select
@@ -153,7 +151,7 @@ export function AddDishe() {
             </div>
           </div>
           <div className="btn">
-            <button type="submit" onClick={handleNewProduct}>
+            <button type="button" onClick={handleNewProduct}>
               Salvar Alterações
             </button>
           </div>

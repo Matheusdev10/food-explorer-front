@@ -4,13 +4,11 @@ import Logo from '../../assets/logo.svg';
 import { Input } from '../Input';
 import { Button } from './styles';
 import { BiArrowBack } from 'react-icons/bi';
-
 import { useState } from 'react';
 import { useAuth } from '../../hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { AiOutlineClose } from 'react-icons/ai';
-
 import { BiFoodMenu } from 'react-icons/bi';
 
 export function HeaderAdmin({ filterText, onFilterTextChange }) {
