@@ -5,7 +5,6 @@ import { Header } from '../../Components/Header';
 import { useState, useEffect } from 'react';
 import { Footer } from '../../Components/Footer';
 import { Section } from '../../Components/Section';
-
 import { api } from '../../services/api';
 
 export function Home() {
@@ -49,7 +48,6 @@ export function Home() {
             <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
           </div>
         </Box>
-
         {products.length !== 0 && (
           <Section title={'Refeições'}>
             {products
@@ -70,7 +68,6 @@ export function Home() {
               ))}
           </Section>
         )}
-
         {products.length !== 0 && (
           <Section title={'Sobremesas'}>
             {products
@@ -91,7 +88,6 @@ export function Home() {
               ))}
           </Section>
         )}
-
         {products.length !== 0 && (
           <Section title={'Bebidas'}>
             {products

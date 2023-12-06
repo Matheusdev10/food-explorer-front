@@ -9,12 +9,13 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import { AiOutlineClose } from 'react-icons/ai';
 import { BiArrowBack } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import iconPedido from '../../assets/iconPedido.png';
 
 import { useAuth } from '../../hooks/auth';
 
 export function Header({ filterText, onFilterTextChange }) {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
   const [isClose, setIsClose] = useState(true);
   const { signOut } = useAuth();
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ export function Header({ filterText, onFilterTextChange }) {
     navigation('/');
     signOut();
   }
-
+  const count = useSelector((state) => state.counter.value);
   return (
     <Container>
       <div className="logo">
@@ -75,7 +76,7 @@ export function Header({ filterText, onFilterTextChange }) {
       </div>
       <Button handleCount={count}>
         <Receipt size={32} />
-        {`Meus pedidos (${count})`}
+        {`Meus pedidos (${0})`}
       </Button>
 
       <button className="logOff" onClick={handleSignOut}>

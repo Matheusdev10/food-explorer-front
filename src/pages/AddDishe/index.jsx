@@ -9,6 +9,11 @@ import { TextArea } from '../../Components/TextArea';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
+import React from 'react';
+
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.min.css';
+
 export function AddDishe() {
   const navigate = useNavigate();
   const [name, setName] = useState('');
@@ -18,6 +23,19 @@ export function AddDishe() {
   const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState('');
   const [imgFile, setImgFile] = useState(null);
+
+  // const notify = () => {
+  //   toast.success('Produto cadastrado com sucesso', {
+  //     position: 'top-right',
+  //     autoClose: 2000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: 'dark',
+  //   });
+  // };
 
   function handleImgFile(event) {
     const imgfile = event.target.files[0];
@@ -42,9 +60,8 @@ export function AddDishe() {
       payLoad.append('description', description);
       payLoad.append('tags', tags);
       payLoad.append('price', price);
-
       await api.post('/products', payLoad);
-
+      alert('Produto cadastrado com sucesso');
       navigate('/');
     } catch (error) {
       if (error.response) {
@@ -54,6 +71,7 @@ export function AddDishe() {
       }
     }
   }
+
   function handleBack() {
     navigate(-1);
   }
@@ -150,7 +168,11 @@ export function AddDishe() {
               />
             </div>
           </div>
-          <div className="btn">
+
+          <div
+            // onClick={notify}
+            className="btn"
+          >
             <button type="button" onClick={handleNewProduct}>
               Salvar Alterações
             </button>

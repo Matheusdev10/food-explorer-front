@@ -11,7 +11,6 @@ export function AppAdminRoutes() {
       <Route path="/addDishe/" element={<AddDishe />} />
       <Route path="/editDishe/:id" element={<EditDishe />} />
       <Route path="/" element={<HomeAdmin />} />
-      <Route path="/teste" element={() => <h1>teste</h1>} />
     </Routes>
   );
 }

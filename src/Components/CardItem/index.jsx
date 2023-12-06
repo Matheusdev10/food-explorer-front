@@ -7,10 +7,10 @@ import { api } from '../../services/api';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import formatterMoney from '../../utils/formatterMoney';
 import { useState } from 'react';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { decrement, increment } from '../../features/counter/counterSlice';
 export function CardItem({ id, img, name, description, price }) {
   const navigate = useNavigate();
-  const [count, setCount] = useState(1);
   const [product, setProducts] = useState([]);
   const [isHeartFilled, setIsHeartFilled] = useState(false);
 
@@ -19,15 +19,8 @@ export function CardItem({ id, img, name, description, price }) {
     navigate(`/products/${id}`);
   }
 
-  function handleAdd() {
-    setCount(count + 1);
-  }
-  function handleSubtract() {
-    setCount(count - 1);
-    if (count === 1) {
-      setCount(1);
-    }
-  }
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
 
   const imageURL = `${api.defaults.baseURL}/files/${img}`;
 
@@ -60,18 +53,17 @@ export function CardItem({ id, img, name, description, price }) {
           <p>{description}</p>
           <span>{`${formatterMoney(price)}`}</span>
           <div className="addItems">
-            <button onClick={handleSubtract} className="btn">
-              <FiMinus size={25} />
+            <button className="btn">
+              <FiMinus onClick={() => dispatch(decrement())} size={25} />
             </button>
             <span>{String(count).padStart(2, '0')}</span>
-            <button onClick={handleAdd} className="btn">
-              <FiPlus size={25} />
+            <button className="btn">
+              <FiPlus onClick={() => dispatch(increment())} size={25} />
             </button>
+
             <div className="btnInclude">
               <Button
-                onClick={() => {
-                  count;
-                }}
+                // onClick={() => dispatch(count(console.log(count)))}
                 title={'incluir'}
               />
             </div>
