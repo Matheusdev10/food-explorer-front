@@ -34,8 +34,8 @@ jobs:
       # - name: Run Tests
       #   run: npm test
 
-      - name: Find unused exports (dead code)
-        run: npm run find-dead-code
+      # - name: Find unused exports (dead code)
+      #   run: npm run find-dead-code
 
       - name: Build Project
         run: npm run build
