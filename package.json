@@ -45,6 +45,7 @@
     "@typescript-eslint/parser": "^5.2.0",
     "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-jsx-a11y": "^6.4.1",
+    "ts-prune": "^0.10.3",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
