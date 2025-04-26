@@ -6,44 +6,30 @@ on:
       - master
 
 jobs:
-  ci-cd:
-    name: Full Pipeline
+ install:
+    name: Install Packages
     runs-on: ubuntu-latest
-
+    environment:
+      name: production
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
       - name: Cache node_modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-
       - name: Install dependencies
         run: npm install
-
-      # - name: Run Lint
-      #   run: npm run lint
-
-      # - name: Run Tests
-      #   run: npm test
-
-      # - name: Find unused exports (dead code)
-      #   run: npm run find-dead-code
-
+        
+        build-deploy:
       - name: Build Project
         run: npm run build
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
         with:
-          publish-dir: './dist' # ou './build', depende do seu projeto
+          publish-dir: './dist'
           production-branch: master
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
