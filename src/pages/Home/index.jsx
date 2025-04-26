@@ -6,12 +6,18 @@ import { useState, useEffect } from 'react';
 import { Footer } from '../../Components/Footer';
 import { Section } from '../../Components/Section';
 import { api } from '../../services/api';
+import {
+  decrement,
+  increment,
+} from '../../store/features/counter/counterSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
 export function Home() {
   const [filterText, setFilterText] = useState('');
   const [products, setProducts] = useState([]);
   const [load, setLoad] = useState(true);
   const [error, setError] = useState('');
+  const dispatch = useDispatch();
 
   async function getProducts() {
     try {

@@ -8,19 +8,30 @@ import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import formatterMoney from '../../utils/formatterMoney';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { decrement, increment } from '../../features/counter/counterSlice';
+
 export function CardItem({ id, img, name, description, price }) {
   const navigate = useNavigate();
   const [product, setProducts] = useState([]);
   const [isHeartFilled, setIsHeartFilled] = useState(false);
+  const [count, setCount] = useState(0);
 
   function handleDetails() {
     setProducts(product);
     navigate(`/products/${id}`);
   }
 
-  const count = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
+
+  const handleIncrementItem = () => {
+    setCount((prev) => prev + 1);
+  };
+
+  const handleDecrementItem = () => {
+    if (count <= 0) {
+      return;
+    }
+    setCount((prev) => prev - 1);
+  };
 
   const imageURL = `${api.defaults.baseURL}/files/${img}`;
 
@@ -54,11 +65,11 @@ export function CardItem({ id, img, name, description, price }) {
           <span>{`${formatterMoney(price)}`}</span>
           <div className="addItems">
             <button className="btn">
-              <FiMinus onClick={() => dispatch(decrement())} size={25} />
+              <FiMinus onClick={handleDecrementItem} size={25} />
             </button>
             <span>{String(count).padStart(2, '0')}</span>
             <button className="btn">
-              <FiPlus onClick={() => dispatch(increment())} size={25} />
+              <FiPlus onClick={handleIncrementItem} size={25} />
             </button>
 
             <div className="btnInclude">
