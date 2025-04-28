@@ -4,20 +4,23 @@ import { Footer } from '../../Components/Footer';
 import { HeaderAdmin } from '../../Components/HeaderAdmin';
 import { CardItemAdmin } from '../../Components/CardItemAdmin';
 import { useState, useEffect } from 'react';
-import { api } from '../../services/api';
+import { api } from '../../store/apis/index';
 import { Section } from '../../Components/Section';
+import { TProduct } from '../../@types/products';
+import React from 'react';
+import { getProducts } from '../../store/apis/productsApi/endpoints/getProducts';
 
-export function HomeAdmin() {
+export const HomeAdmin = () => {
   const [filterText, setFilterText] = useState('');
-  const [products, setProducts] = useState([]);
+  const [product, setProduct] = useState<Array<TProduct>>([]);
   const [load, setLoad] = useState(true);
   const [error, setError] = useState('');
 
   async function getProducts() {
     try {
-      const response = await api.get('/products');
+      const response = await getProducts();
 
-      setProducts(response.data);
+      setProduct(response.data);
     } catch (error) {
       setError('Api fora do ar');
     } finally {
@@ -49,9 +52,9 @@ export function HomeAdmin() {
           </div>
         </Box>
 
-        {products.length !== 0 && (
+        {product.length !== 0 && (
           <Section title={'Refeições'}>
-            {products
+            {product
               .filter((product) => product.category === 'refeição')
               .filter((product) =>
                 product.name.toLowerCase().includes(filterText.toLowerCase())
@@ -70,9 +73,9 @@ export function HomeAdmin() {
           </Section>
         )}
 
-        {products.length !== 0 && (
+        {product.length !== 0 && (
           <Section title={'Sobremesas'}>
-            {products
+            {product
               .filter((product) => product.category === 'sobremesa')
               .filter((product) =>
                 product.name.toLowerCase().includes(filterText.toLowerCase())
@@ -91,9 +94,9 @@ export function HomeAdmin() {
           </Section>
         )}
 
-        {products.length !== 0 && (
+        {product.length !== 0 && (
           <Section title={'Bebidas'}>
-            {products
+            {product
               .filter((product) => product.category === 'bebida')
               .filter((product) =>
                 product.name.toLowerCase().includes(filterText.toLowerCase())
@@ -115,4 +118,4 @@ export function HomeAdmin() {
       <Footer />
     </>
   );
-}
+};

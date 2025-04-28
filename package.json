@@ -30,22 +30,11 @@
     "@commitlint/config-conventional": "^11.0.0",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
+    "@types/styled-components": "^5.1.34",
     "@vitejs/plugin-react": "^4.4.1",
     "commitizen": "^4.2.2",
     "husky": "^4.3.0",
     "vite": "^6.3.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && git add .",
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "cross-env CI=true npx vitest related --passWithNoTests"
-    ]
   },
   "config": {
     "commitizen": {

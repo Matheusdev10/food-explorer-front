@@ -2,7 +2,7 @@ import { FaAngleLeft } from 'react-icons/fa';
 import { BsUpload } from 'react-icons/bs';
 import { Footer } from '../../Components/Footer';
 import { Container, Form } from './styles';
-import { api } from '../../services/api';
+import { api } from '../../store/apis/index';
 import { useState, useEffect } from 'react';
 import { HeaderAdmin } from '../../Components/HeaderAdmin';
 import { AddIngredients } from '../../Components/AddIngredients';

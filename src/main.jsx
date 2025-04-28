@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './styles/global';
 import { Routes } from './routes';
 import theme from './styles/theme';
-import { store } from './app/store';
+import { store } from './store';
 import { Provider } from 'react-redux';
 import { AuthProvider } from './hooks/auth';
 

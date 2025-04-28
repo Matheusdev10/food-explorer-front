@@ -2,12 +2,12 @@ import { Container, Box } from './styles';
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import { useNavigate, useParams } from 'react-router-dom';
 import { FaAngleLeft } from 'react-icons/fa';
-import { api } from '../../services/api';
+import { api } from '../../store/apis/index';
 import { Link } from 'react-router-dom';
 import { Button } from '../../Components/Button';
 import { Header } from '../../Components/Header';
 import { Footer } from '../../Components/Footer';
-import { TagItem } from '../../Components/TagItem';
+import { TagItem } from '../../Components/TagItem/index.tsx';
 import { useState, useEffect } from 'react';
 
 export function DisheDetails() {

@@ -1,5 +1,5 @@
 import { Container, Box } from './styles';
-import { api } from '../../services/api';
+import { api } from '../../store/apis/index';
 import { FaAngleLeft } from 'react-icons/fa';
 import { Button } from '../../Components/Button';
 import { useState, useEffect } from 'react';

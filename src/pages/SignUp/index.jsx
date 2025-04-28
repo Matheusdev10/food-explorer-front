@@ -1,7 +1,7 @@
 import { Container } from './styles';
 import { Link, useNavigate } from 'react-router-dom';
 import { Form } from './styles';
-import { api } from '../../services/api';
+import { api } from '../../store/apis/index';
 import { Input } from '../../Components/Input';
 import { Button } from '../../Components/Button';
 import Logo from '../../assets/logo.svg';

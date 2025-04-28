@@ -5,7 +5,7 @@ import { Header } from '../../Components/Header';
 import { useState, useEffect } from 'react';
 import { Footer } from '../../Components/Footer';
 import { Section } from '../../Components/Section';
-import { api } from '../../services/api';
+import { api } from '../../store/apis/index';
 import {
   decrement,
   increment,
