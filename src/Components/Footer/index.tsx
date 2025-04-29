@@ -1,8 +1,8 @@
-import { Container } from './styles';
-import Logo from '../../assets/logoFooter.svg';
 import { BiCopyright } from 'react-icons/bi';
+import Logo from '../../assets/logoFooter.svg';
+import { Container } from './styles';
 
-export function Footer() {
+export const Footer = () => {
   return (
     <Container>
       <div className="logo">
@@ -16,4 +16,4 @@ export function Footer() {
       </div>
     </Container>
   );
-}
+};

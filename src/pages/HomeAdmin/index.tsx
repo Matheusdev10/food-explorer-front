@@ -1,34 +1,34 @@
-import { Container, Box } from './styles';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import imgHeader from '../../assets/img/imgHeader.png';
+import { CardItemAdmin } from '../../Components/CardItemAdmin';
 import { Footer } from '../../Components/Footer';
 import { HeaderAdmin } from '../../Components/HeaderAdmin';
-import { CardItemAdmin } from '../../Components/CardItemAdmin';
-import { useState, useEffect } from 'react';
-import { api } from '../../store/apis/index';
 import { Section } from '../../Components/Section';
-import { TProduct } from '../../@types/products';
-import React from 'react';
+import { RootState } from '../../store';
 import { getProducts } from '../../store/apis/productsApi/endpoints/getProducts';
+import { setDataContext } from '../../store/features/dataProducts/Actions';
+import { Box, Container } from './styles';
 
 export const HomeAdmin = () => {
   const [filterText, setFilterText] = useState('');
-  const [product, setProduct] = useState<Array<TProduct>>([]);
   const [load, setLoad] = useState(true);
   const [error, setError] = useState('');
+  const { products } = useSelector((state: RootState) => state.product);
 
-  async function getProducts() {
-    try {
-      const response = await getProducts();
-
-      setProduct(response.data);
-    } catch (error) {
-      setError('Api fora do ar');
-    } finally {
-      setLoad(false);
-    }
-  }
   useEffect(() => {
-    getProducts();
+    async function asyncGetProducts() {
+      try {
+        const response = await getProducts();
+        setDataContext(response);
+      } catch (error) {
+        setError('Api fora do ar');
+      } finally {
+        setLoad(false);
+      }
+    }
+
+    asyncGetProducts();
   }, []);
 
   if (load) {
@@ -52,9 +52,9 @@ export const HomeAdmin = () => {
           </div>
         </Box>
 
-        {product.length !== 0 && (
+        {products.length !== 0 && (
           <Section title={'Refeições'}>
-            {product
+            {products
               .filter((product) => product.category === 'refeição')
               .filter((product) =>
                 product.name.toLowerCase().includes(filterText.toLowerCase())
@@ -73,9 +73,9 @@ export const HomeAdmin = () => {
           </Section>
         )}
 
-        {product.length !== 0 && (
+        {products.length !== 0 && (
           <Section title={'Sobremesas'}>
-            {product
+            {products
               .filter((product) => product.category === 'sobremesa')
               .filter((product) =>
                 product.name.toLowerCase().includes(filterText.toLowerCase())
@@ -94,9 +94,9 @@ export const HomeAdmin = () => {
           </Section>
         )}
 
-        {product.length !== 0 && (
+        {products.length !== 0 && (
           <Section title={'Bebidas'}>
-            {product
+            {products
               .filter((product) => product.category === 'bebida')
               .filter((product) =>
                 product.name.toLowerCase().includes(filterText.toLowerCase())

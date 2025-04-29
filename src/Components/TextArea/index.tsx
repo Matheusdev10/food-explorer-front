@@ -1,5 +1,6 @@
+import React from 'react';
 import { Container } from './styles';
 
-export function TextArea({ ...rest }) {
+export const TextArea = ({ ...rest }) => {
   return <Container {...rest}></Container>;
-}
+};

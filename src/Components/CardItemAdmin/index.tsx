@@ -1,13 +1,13 @@
-import { Box, Container } from './styles';
-import { FaAngleRight } from 'react-icons/fa';
 import { PencilSimple } from 'phosphor-react';
+import { FC } from 'react';
+import { FaAngleRight } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import { FC, useEffect, useState } from 'react';
+import { RootState } from '../../store';
 import { api } from '../../store/apis/index';
+import { Box, Container } from './styles';
 
+import { useSelector } from 'react-redux';
 import formatterMoney from '../../utils/formatterMoney';
-import React from 'react';
-import { TProduct } from '../../@types/products';
 
 interface ICardItemAdmin {
   id: number;
@@ -27,34 +27,20 @@ export const CardItemAdmin: FC<ICardItemAdmin> = ({
 }) => {
   const navigate = useNavigate();
 
-  const [product, setProduct] = useState<Array<TProduct>>([]);
-  const [load, setLoad] = useState(true);
-  const [error, setError] = useState('');
-
-  const dataResponseGetProducts = getProducts();
-
-  async function getProducts() {
-    try {
-      i;
-
-      setProduct(dataResponseGetProducts.data);
-    } catch (error) {
-      setError('Api fora do ar');
-    } finally {
-      setLoad(false);
-    }
-  }
-  useEffect(() => {
-    getProducts();
-  }, []);
+  const { products } = useSelector((state: RootState) => state.product);
 
   function handleDetailsAdmin(id: number) {
-    console.log(product, 'product');
-    setProduct(product);
+    console.log(id, 'id');
     navigate(`/products/${id}`);
   }
 
   const imageURL = `${api.defaults.baseURL}/files/${img}`;
+
+  const handleFilterIdProduct = (id: number) => {
+    return products.find((product) => product.id === id);
+  };
+
+  const product = handleFilterIdProduct(id);
 
   return (
     <>
@@ -65,7 +51,7 @@ export const CardItemAdmin: FC<ICardItemAdmin> = ({
           </div>
 
           <div
-            onClick={() => handleDetailsAdmin(product && product[0]?.id)}
+            onClick={() => product && handleDetailsAdmin(product.id)}
             className="content"
           >
             <img src={imageURL} alt="imagem dos pratos" />

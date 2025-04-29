@@ -10,7 +10,7 @@ interface DataProductsResponse {
   tags: Array<string>;
 }
 
-export const getProducts = async (): Promise<DataProductsResponse> => {
-  const response = await api.get<DataProductsResponse>(`/products`);
+export const getProducts = async (): Promise<DataProductsResponse[]> => {
+  const response = await api.get<DataProductsResponse[]>(`/products`);
   return response.data;
 };

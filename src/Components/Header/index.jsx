@@ -1,21 +1,18 @@
-import { FiSearch, FiLogOut } from 'react-icons/fi';
-import { Container } from './styles';
-import Logo from '../../assets/logo.svg';
 import { Receipt } from 'phosphor-react';
-import { Input } from '../Input';
-import { Button } from './styles';
 import { useState } from 'react';
-import { AiOutlineMenu } from 'react-icons/ai';
-import { AiOutlineClose } from 'react-icons/ai';
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { BiArrowBack } from 'react-icons/bi';
+import { FiLogOut, FiSearch } from 'react-icons/fi';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
 import iconPedido from '../../assets/iconPedido.png';
+import Logo from '../../assets/logo.svg';
+import { Input } from '../Input';
+import { Button, Container } from './styles';
 
 import { useAuth } from '../../hooks/auth';
 
 export function Header({ filterText, onFilterTextChange }) {
-  // const [count, setCount] = useState(0);
   const [isClose, setIsClose] = useState(true);
   const { signOut } = useAuth();
   const navigate = useNavigate();
