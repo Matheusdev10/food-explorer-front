@@ -1,69 +1,83 @@
-import { FaAngleLeft } from 'react-icons/fa';
+import { AxiosError } from 'axios';
+import { useEffect, useState } from 'react';
 import { BsUpload } from 'react-icons/bs';
-import { Footer } from '../../Components/Footer';
-import { Container, Form } from './styles';
-import { api } from '../../store/apis/index';
-import { useState, useEffect } from 'react';
-import { HeaderAdmin } from '../../Components/HeaderAdmin';
-import { AddIngredients } from '../../Components/AddIngredients';
-import { TextArea } from '../../Components/TextArea';
+import { FaAngleLeft } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
+import { TProduct } from '../../@types/products';
+import { AddIngredients } from '../../Components/AddIngredients';
+import { Footer } from '../../Components/Footer';
+import { HeaderAdmin } from '../../Components/HeaderAdmin';
+import { TextArea } from '../../Components/TextArea';
+import { api } from '../../store/apis/index';
+import {
+  editProduct,
+  getProductById,
+} from '../../store/apis/productsApi/endpoints/getProducts';
+import { Container, Form } from './styles';
 
-export function EditDishe() {
+export const EditDishe = () => {
   const params = useParams();
   const navigate = useNavigate();
-  const [data, setData] = useState(null);
-  const [imgFile, setImgFile] = useState(null);
-  const [name, setName] = useState('');
-  const [category, setCategory] = useState('');
-  const [price, setPrice] = useState('');
-  const [description, setDescription] = useState('');
-  const [tags, setTags] = useState([]);
-  const [newTag, setNewTag] = useState('');
+  const [data, setData] = useState<TProduct | undefined>(undefined);
+  const [name, setName] = useState<string>('');
+  const [category, setCategory] = useState<string>('');
+  const [price, setPrice] = useState<number>();
+  const [description, setDescription] = useState<string>('');
+  const [tags, setTags] = useState<Array<string>>([]);
+  const [newTag, setNewTag] = useState<string>('');
+  const [imgFile, setImgFile] = useState<File | null>(null);
 
   async function handleGetProducts() {
     try {
-      const response = await api.get(`/products/${params.id}`);
-      const { category, name, price, description, tags } = response.data;
+      if (!params.id) return;
+      const response = await getProductById(params.id);
+      const { category, name, price, description, tags } = response;
       setCategory(category);
       setName(name);
       setPrice(price);
       setDescription(description);
       setTags(tags.map((tag) => tag));
-    } catch (error) {
-      console.log(error.data);
+    } catch (err) {
+      const error = err as AxiosError<{ message: string }>;
+
+      console.log(error.response?.data);
     }
   }
   useEffect(() => {
     handleGetProducts();
   }, []);
 
-  function handleImgFile(event) {
-    const imgfile = event.target.files[0];
-    setImgFile(imgfile);
-  }
-
+  const handleImgFile = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const imgfile = event.target.files?.[0];
+    if (imgfile) {
+      setImgFile(imgfile);
+    }
+  };
   function handleAddTag() {
     setTags((prevState) => [...prevState, newTag]);
     setNewTag('');
   }
 
-  function handleRemoveTag(deleted) {
+  function handleRemoveTag(deleted: string) {
     setTags((prevState) => prevState.filter((tag) => tag !== deleted));
   }
 
   const formData = new FormData();
-  formData.append('img', imgFile);
+  if (imgFile) {
+    formData.append('img', imgFile);
+  }
 
   async function handleEditProduct() {
     try {
-      api.put(`/products/${params.id}`, {
+      if (!params.id) return;
+      const updatedProduct = await editProduct(params.id, {
         name,
         category,
         price,
         description,
         tags: tags.toString(),
       });
+      setData(updatedProduct);
 
       if (imgFile) {
         const payLoad = new FormData();
@@ -73,7 +87,8 @@ export function EditDishe() {
 
       alert('Produto editado com sucesso');
       navigate('/');
-    } catch (error) {
+    } catch (err) {
+      const error = err as AxiosError<{ message: string }>;
       if (error.response) {
         alert(error.response.data.message);
       } else {
@@ -102,6 +117,16 @@ export function EditDishe() {
     navigate(-1);
   }
 
+  const handleSetPrice = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setPrice(Number(value));
+  };
+
+  const handleSetDescription = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setDescription(value);
+  };
+
   return (
     <>
       <HeaderAdmin />
@@ -114,7 +139,7 @@ export function EditDishe() {
           <h1>Editar prato</h1>
         </div>
         <Form
-          onSubmit={(e) => {
+          onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault();
           }}
         >
@@ -144,7 +169,7 @@ export function EditDishe() {
             </div>
           </div>
           <div className="col-3">
-            <label for="category">Categoria</label>
+            <label htmlFor="category">Categoria</label>
             <select
               onChange={(event) => setCategory(event.target.value)}
               id="category"
@@ -186,7 +211,7 @@ export function EditDishe() {
                 placeholder="R$ 00,00"
                 id="price"
                 value={price}
-                onChange={(event) => setPrice(event.target.value)}
+                onChange={handleSetPrice}
               />
             </div>
           </div>
@@ -200,7 +225,7 @@ export function EditDishe() {
                 id=""
                 placeholder="A Salada Ceasar é uma opção refrescante para o verão."
                 value={description}
-                onChange={(event) => setDescription(event.target.value)}
+                onChange={handleSetDescription}
               />
             </div>
           </div>
@@ -219,4 +244,4 @@ export function EditDishe() {
       <Footer />
     </>
   );
-}
+};

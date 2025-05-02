@@ -1,10 +1,10 @@
 import { BrowserRouter } from 'react-router-dom';
+import { useAuth } from '../hooks/auth';
+import { AppAdminRoutes } from './app.admin.routes';
 import { AppRoutes } from './app.routes';
 import { AuthRoutes } from './auth.routes';
-import { AppAdminRoutes } from './app.admin.routes';
-import { useAuth } from '../hooks/auth';
 
-export function Routes() {
+export const Routes = () => {
   const { user } = useAuth();
   return (
     <BrowserRouter>
@@ -19,4 +19,4 @@ export function Routes() {
       )}
     </BrowserRouter>
   );
-}
+};

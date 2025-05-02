@@ -1,69 +1,62 @@
-import { FaAngleLeft } from 'react-icons/fa';
-import { BsUpload } from 'react-icons/bs';
-import { Footer } from '../../Components/Footer';
-import { Container, Form } from './styles';
-import { api } from '../../store/apis/index';
-import { HeaderAdmin } from '../../Components/HeaderAdmin';
-import { AddIngredients } from '../../Components/AddIngredients';
-import { TextArea } from '../../Components/TextArea';
-import { useNavigate } from 'react-router-dom';
+import { AxiosError } from 'axios';
 import { useState } from 'react';
+import { BsUpload } from 'react-icons/bs';
+import { FaAngleLeft } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import { AddIngredients } from '../../Components/AddIngredients';
+import { Footer } from '../../Components/Footer';
+import { HeaderAdmin } from '../../Components/HeaderAdmin';
+import { TextArea } from '../../Components/TextArea';
+import { api } from '../../store/apis/index';
+import { Container, Form } from './styles';
 
-import React from 'react';
-
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.min.css';
-
-export function AddDishe() {
+export const AddDishe = () => {
   const navigate = useNavigate();
-  const [name, setName] = useState('');
-  const [category, setCategory] = useState('');
-  const [price, setPrice] = useState('');
-  const [description, setDescription] = useState('');
-  const [tags, setTags] = useState([]);
-  const [newTag, setNewTag] = useState('');
-  const [imgFile, setImgFile] = useState(null);
+  const [name, setName] = useState<string>('');
+  const [category, setCategory] = useState<string>('');
+  const [price, setPrice] = useState<number>();
+  const [description, setDescription] = useState<string>('');
+  const [tags, setTags] = useState<Array<string>>([]);
+  const [newTag, setNewTag] = useState<string>('');
+  const [imgFile, setImgFile] = useState<File | null>(null);
 
-  // const notify = () => {
-  //   toast.success('Produto cadastrado com sucesso', {
-  //     position: 'top-right',
-  //     autoClose: 2000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     theme: 'dark',
-  //   });
-  // };
-
-  function handleImgFile(event) {
-    const imgfile = event.target.files[0];
-    setImgFile(imgfile);
+  function handleImgFile(event: React.ChangeEvent<HTMLInputElement>) {
+    const imgfile = event.target.files?.[0];
+    if (imgfile) {
+      setImgFile(imgfile);
+    }
   }
 
+  console.log(tags, 'tags');
   function handleAddTag() {
+    console.log(newTag, 'newTag');
     setTags((prevState) => [...prevState, newTag]);
     setNewTag('');
   }
 
-  function handleRemoveTag(deleted) {
+  function handleRemoveTag(deleted: string) {
     setTags((prevState) => prevState.filter((tag) => tag !== deleted));
   }
+
   async function handleNewProduct() {
     try {
+      if (!imgFile) {
+        alert('Selecione uma imagem');
+        return;
+      }
       const payLoad = new FormData();
 
       payLoad.append('img', imgFile);
       payLoad.append('name', name);
       payLoad.append('category', category);
       payLoad.append('description', description);
-      payLoad.append('tags', tags);
-      payLoad.append('price', price);
+      payLoad.append('tags', String(tags));
+      payLoad.append('price', String(price ?? 0));
       await api.post('/products', payLoad);
       alert('Produto cadastrado com sucesso');
       navigate('/');
-    } catch (error) {
+    } catch (err) {
+      const error = err as AxiosError<{ message: string }>;
       if (error.response) {
         alert(error.response.data.message);
       } else {
@@ -75,6 +68,16 @@ export function AddDishe() {
   function handleBack() {
     navigate(-1);
   }
+
+  function handleChangePrice(e: React.ChangeEvent<HTMLInputElement>) {
+    const value = parseFloat(e.target.value);
+    setPrice(isNaN(value) ? 0 : value);
+  }
+
+  const handleDescription = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setDescription(value);
+  };
 
   return (
     <>
@@ -112,7 +115,7 @@ export function AddDishe() {
             </div>
           </div>
           <div className="col-3">
-            <label for="category">Categoria</label>
+            <label htmlFor="category">Categoria</label>
             <select
               id="category"
               name="category"
@@ -152,7 +155,7 @@ export function AddDishe() {
                 type="number"
                 placeholder="R$ 00,00"
                 id="price"
-                onChange={(e) => setPrice(e.target.value)}
+                onChange={handleChangePrice}
               />
             </div>
           </div>
@@ -164,7 +167,7 @@ export function AddDishe() {
                 name={'description'}
                 placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
                 id="description"
-                onChange={(e) => setDescription(e.target.value)}
+                onChange={handleDescription}
               />
             </div>
           </div>
@@ -182,4 +185,4 @@ export function AddDishe() {
       <Footer />
     </>
   );
-}
+};

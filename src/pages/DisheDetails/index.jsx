@@ -1,14 +1,13 @@
-import { Container, Box } from './styles';
-import { FiMinus, FiPlus } from 'react-icons/fi';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { FaAngleLeft } from 'react-icons/fa';
-import { api } from '../../store/apis/index';
-import { Link } from 'react-router-dom';
+import { FiMinus, FiPlus } from 'react-icons/fi';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Button } from '../../Components/Button';
-import { Header } from '../../Components/Header';
 import { Footer } from '../../Components/Footer';
+import { Header } from '../../Components/Header';
 import { TagItem } from '../../Components/TagItem/index.tsx';
-import { useState, useEffect } from 'react';
+import { api } from '../../store/apis/index';
+import { Box, Container } from './styles';
 
 export function DisheDetails() {
   const [count, setCount] = useState(1);

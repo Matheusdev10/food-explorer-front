@@ -1,13 +1,14 @@
 import { FiPlus, FiX } from 'react-icons/fi';
 
-import { Container } from './styles';
 import { FC } from 'react';
-import React from 'react';
+import { Container } from './styles';
 
 interface IAddIngredients {
-  isNew: boolean;
+  isNew?: boolean;
   value: string;
   onClick: () => void;
+  placeholder?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const AddIngredients: FC<IAddIngredients> = ({

@@ -9,8 +9,8 @@ import { Input } from '../Input';
 import { Button, Container } from './styles';
 
 interface IHeaderAdmin {
-  filterText: string;
-  onFilterTextChange: (value: string) => void;
+  filterText?: string;
+  onFilterTextChange?: (value: string) => void;
 }
 
 export const HeaderAdmin: FC<IHeaderAdmin> = ({
@@ -76,9 +76,11 @@ export const HeaderAdmin: FC<IHeaderAdmin> = ({
         <Input
           icon={FiSearch}
           value={filterText}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            onFilterTextChange(e.target.value)
-          }
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            if (onFilterTextChange) {
+              onFilterTextChange(e.target.value);
+            }
+          }}
           placeholder="Busque por pratos ou ingredientes"
         />
       </div>

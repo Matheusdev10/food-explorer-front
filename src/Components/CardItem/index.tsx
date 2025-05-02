@@ -79,10 +79,7 @@ export const CardItem: FC<ICardItem> = ({ product }) => {
             </button>
 
             <div className="btnInclude">
-              <Button
-                // onClick={() => dispatch(count(console.log(count)))}
-                title={'incluir'}
-              />
+              <Button title={'incluir'} />
             </div>
           </div>
         </Box>
