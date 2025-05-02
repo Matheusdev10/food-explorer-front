@@ -1,4 +1,3 @@
-import { ChakraProvider } from '@chakra-ui/react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
@@ -11,15 +10,13 @@ import theme from './styles/theme';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ChakraProvider>
-      <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <GlobalStyles />
-          <AuthProvider>
-            <Routes />
-          </AuthProvider>
-        </ThemeProvider>
-      </Provider>
-    </ChakraProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <AuthProvider>
+          <Routes />
+        </AuthProvider>
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>
 );

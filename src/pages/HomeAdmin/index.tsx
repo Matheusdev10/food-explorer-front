@@ -1,26 +1,24 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { TProduct } from '../../@types/products';
 import imgHeader from '../../assets/img/imgHeader.png';
 import { CardItemAdmin } from '../../Components/CardItemAdmin';
 import { Footer } from '../../Components/Footer';
 import { HeaderAdmin } from '../../Components/HeaderAdmin';
 import { Section } from '../../Components/Section';
-import { RootState } from '../../store';
 import { getProducts } from '../../store/apis/productsApi/endpoints/getProducts';
-import { setDataContext } from '../../store/features/dataProducts/Actions';
 import { Box, Container } from './styles';
 
 export const HomeAdmin = () => {
   const [filterText, setFilterText] = useState('');
   const [load, setLoad] = useState(true);
   const [error, setError] = useState('');
-  const { products } = useSelector((state: RootState) => state.product);
+  const [products, setProducts] = useState<TProduct[]>([]);
 
   useEffect(() => {
     async function asyncGetProducts() {
       try {
         const response = await getProducts();
-        setDataContext(response);
+        setProducts(response);
       } catch (error) {
         setError('Api fora do ar');
       } finally {
@@ -60,15 +58,7 @@ export const HomeAdmin = () => {
                 product.name.toLowerCase().includes(filterText.toLowerCase())
               )
               .map((product) => (
-                <CardItemAdmin
-                  key={product.id}
-                  id={product.id}
-                  filterText={filterText}
-                  description={product.description}
-                  name={product.name}
-                  img={product.img}
-                  price={product.price}
-                />
+                <CardItemAdmin key={product.id} product={product} />
               ))}
           </Section>
         )}
@@ -81,15 +71,7 @@ export const HomeAdmin = () => {
                 product.name.toLowerCase().includes(filterText.toLowerCase())
               )
               .map((product) => (
-                <CardItemAdmin
-                  key={product.id}
-                  id={product.id}
-                  filterText={filterText}
-                  description={product.description}
-                  name={product.name}
-                  img={product.img}
-                  price={product.price}
-                />
+                <CardItemAdmin key={product.id} product={product} />
               ))}
           </Section>
         )}
@@ -102,15 +84,7 @@ export const HomeAdmin = () => {
                 product.name.toLowerCase().includes(filterText.toLowerCase())
               )
               .map((product) => (
-                <CardItemAdmin
-                  key={product.id}
-                  id={product.id}
-                  filterText={filterText}
-                  description={product.description}
-                  name={product.name}
-                  img={product.img}
-                  price={product.price}
-                />
+                <CardItemAdmin key={product.id} product={product} />
               ))}
           </Section>
         )}

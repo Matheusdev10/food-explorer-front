@@ -1,9 +1,8 @@
 import { Receipt } from 'phosphor-react';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { BiArrowBack } from 'react-icons/bi';
 import { FiLogOut, FiSearch } from 'react-icons/fi';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import iconPedido from '../../assets/iconPedido.png';
 import Logo from '../../assets/logo.svg';
@@ -12,7 +11,12 @@ import { Button, Container } from './styles';
 
 import { useAuth } from '../../hooks/auth';
 
-export function Header({ filterText, onFilterTextChange }) {
+interface IHeader {
+  filterText: string;
+  onFilterTextChange: (value: string) => void;
+}
+
+export const Header: FC<IHeader> = ({ filterText, onFilterTextChange }) => {
   const [isClose, setIsClose] = useState(true);
   const { signOut } = useAuth();
   const navigate = useNavigate();
@@ -23,7 +27,6 @@ export function Header({ filterText, onFilterTextChange }) {
     navigation('/');
     signOut();
   }
-  const count = useSelector((state) => state.counter.value);
   return (
     <Container>
       <div className="logo">
@@ -71,7 +74,7 @@ export function Header({ filterText, onFilterTextChange }) {
           placeholder="Busque por pratos ou ingredientes"
         />
       </div>
-      <Button handleCount={count}>
+      <Button>
         <Receipt size={32} />
         {`Meus pedidos (${0})`}
       </Button>
@@ -81,4 +84,4 @@ export function Header({ filterText, onFilterTextChange }) {
       </button>
     </Container>
   );
-}
+};

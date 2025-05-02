@@ -1,19 +1,24 @@
-import { FiSearch, FiLogOut } from 'react-icons/fi';
-import { Container } from './styles';
-import Logo from '../../assets/logo.svg';
-import { Input } from '../Input';
-import { Button } from './styles';
-import { BiArrowBack } from 'react-icons/bi';
-import { useState } from 'react';
-import { useAuth } from '../../hooks/auth';
+import { FC, useState } from 'react';
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import { BiArrowBack, BiFoodMenu } from 'react-icons/bi';
+import { FiLogOut, FiSearch } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
-import { AiOutlineMenu } from 'react-icons/ai';
-import { AiOutlineClose } from 'react-icons/ai';
-import { BiFoodMenu } from 'react-icons/bi';
+import Logo from '../../assets/logo.svg';
+import { useAuth } from '../../hooks/auth';
+import { Input } from '../Input';
+import { Button, Container } from './styles';
 
-export function HeaderAdmin({ filterText, onFilterTextChange }) {
+interface IHeaderAdmin {
+  filterText: string;
+  onFilterTextChange: (value: string) => void;
+}
+
+export const HeaderAdmin: FC<IHeaderAdmin> = ({
+  filterText,
+  onFilterTextChange,
+}) => {
   const [isClose, setIsClose] = useState(true);
-  const { signOut } = useAuth();
+  const { signOut }: any = useAuth();
   const navigate = useNavigate();
 
   function handleSignOut() {
@@ -71,7 +76,9 @@ export function HeaderAdmin({ filterText, onFilterTextChange }) {
         <Input
           icon={FiSearch}
           value={filterText}
-          onChange={(e) => onFilterTextChange(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            onFilterTextChange(e.target.value)
+          }
           placeholder="Busque por pratos ou ingredientes"
         />
       </div>
@@ -81,4 +88,4 @@ export function HeaderAdmin({ filterText, onFilterTextChange }) {
       </button>
     </Container>
   );
-}
+};

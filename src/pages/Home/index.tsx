@@ -1,20 +1,17 @@
-import { Container, Box } from './styles';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { TProduct } from '../../@types/products';
 import imgHeader from '../../assets/img/imgHeader.png';
 import { CardItem } from '../../Components/CardItem';
-import { Header } from '../../Components/Header';
-import { useState, useEffect } from 'react';
 import { Footer } from '../../Components/Footer';
+import { Header } from '../../Components/Header';
 import { Section } from '../../Components/Section';
 import { api } from '../../store/apis/index';
-import {
-  decrement,
-  increment,
-} from '../../store/features/counter/counterSlice';
-import { useSelector, useDispatch } from 'react-redux';
+import { Box, Container } from './styles';
 
-export function Home() {
+export const Home = () => {
   const [filterText, setFilterText] = useState('');
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<TProduct[]>([]);
   const [load, setLoad] = useState(true);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
@@ -62,15 +59,7 @@ export function Home() {
                 product.name.toLowerCase().includes(filterText.toLowerCase())
               )
               .map((product) => (
-                <CardItem
-                  key={product.id}
-                  id={product.id}
-                  filterText={filterText}
-                  description={product.description}
-                  name={product.name}
-                  img={product.img}
-                  price={product.price}
-                />
+                <CardItem key={product.id} product={product} />
               ))}
           </Section>
         )}
@@ -82,15 +71,7 @@ export function Home() {
                 product.name.toLowerCase().includes(filterText.toLowerCase())
               )
               .map((product) => (
-                <CardItem
-                  key={product.id}
-                  id={product.id}
-                  filterText={filterText}
-                  description={product.description}
-                  name={product.name}
-                  img={product.img}
-                  price={product.price}
-                />
+                <CardItem key={product.id} product={product} />
               ))}
           </Section>
         )}
@@ -102,15 +83,7 @@ export function Home() {
                 product.name.toLowerCase().includes(filterText.toLowerCase())
               )
               .map((product) => (
-                <CardItem
-                  key={product.id}
-                  id={product.id}
-                  filterText={filterText}
-                  description={product.description}
-                  name={product.name}
-                  img={product.img}
-                  price={product.price}
-                />
+                <CardItem key={product.id} product={product} />
               ))}
           </Section>
         )}
@@ -118,4 +91,4 @@ export function Home() {
       <Footer />
     </>
   );
-}
+};

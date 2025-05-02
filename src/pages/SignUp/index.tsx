@@ -1,26 +1,24 @@
-import { Container } from './styles';
-import { Link, useNavigate } from 'react-router-dom';
-import { Form } from './styles';
-import { api } from '../../store/apis/index';
-import { Input } from '../../Components/Input';
-import { Button } from '../../Components/Button';
-import Logo from '../../assets/logo.svg';
 import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Button } from '../../Components/Button';
+import { Input } from '../../Components/Input';
+import Logo from '../../assets/logo.svg';
+import { createUser } from '../../store/apis/auth';
+import { Container, Form } from './styles';
 
-export function SignUp() {
-  const [name, setName] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+export const SignUp = () => {
+  const [name, setName] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const navigate = useNavigate();
 
-  function handleSignUp() {
+  const handleSignUp = async () => {
     if (!name || !email || !password) {
       return alert('Preencha todos os campos');
     }
     setLoading(true);
-    api
-      .post('/users', { name, email, password })
+    await createUser({ name, email, password })
       .then(() => {
         alert('Usuário cadastrado com sucesso');
         setLoading(false);
@@ -35,8 +33,8 @@ export function SignUp() {
           setLoading(false);
         }
       });
-  }
-  function handleKeyPress(event) {
+  };
+  function handleKeyPress(event: React.KeyboardEvent<HTMLInputElement>) {
     if (event.key === 'Enter') {
       handleSignUp();
     }
@@ -95,4 +93,4 @@ export function SignUp() {
       </Form>
     </Container>
   );
-}
+};

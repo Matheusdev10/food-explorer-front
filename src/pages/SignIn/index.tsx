@@ -1,16 +1,15 @@
-import { Container } from './styles';
-import { Link, useNavigate } from 'react-router-dom';
-import { Form } from './styles';
-import { Input } from '../../Components/Input';
-import { Button } from '../../Components/Button';
-import Logo from '../../assets/logo.svg';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '../../Components/Button';
+import { Input } from '../../Components/Input';
+import Logo from '../../assets/logo.svg';
+import { Container, Form } from './styles';
 
 import { useAuth } from '../../hooks/auth';
 
-export function SignIn() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+export const SignIn = () => {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
 
   const { signIn, loading } = useAuth();
 
@@ -18,11 +17,11 @@ export function SignIn() {
     signIn({ email, password });
   }
 
-  function handleKeyPress(event) {
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       handleSignIn();
     }
-  }
+  };
 
   return (
     <Container>
@@ -36,7 +35,7 @@ export function SignIn() {
         <label htmlFor="Email">Email</label>
         <Input
           type="email"
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyPress}
           id="Email"
           placeholder="Exemplo: exemplo@exemplo.com.br"
           onChange={(e) => setEmail(e.target.value)}
@@ -44,20 +43,21 @@ export function SignIn() {
 
         <label htmlFor="Password">Senha</label>
         <Input
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyPress}
           type="password"
           id="Password"
           placeholder="No mínimo 6 caracteres"
           onChange={(e) => setPassword(e.target.value)}
         />
         <Button
-          onClick={handleSignIn}
           className="btn"
+          onClick={handleSignIn}
           disabled={loading}
           title={loading ? 'Carregando' : 'Entrar'}
         />
+
         <Link to="/register">Crie uma conta</Link>
       </Form>
     </Container>
   );
-}
+};
